@@ -1,59 +1,50 @@
 ## Purpose
 
-Summarize the reusable modules under `nixos/desktop`, `nixos/graphics`, `nixos/processor`, `nixos/services`, `nixos/secrets`, and `nixos/users/thorn/services`.
+Summarize the reusable named modules under `modules/` that hosts compose from (see [[02 Systems/NixOS - Repository Layout|Repository Layout]] for how auto-loading works).
+
+## Core
+
+`modules/core/` provides base plumbing rather than opt-in features: `base.nix`, `files.nix`, `home-manager-modules.nix`, `nixos-modules.nix`, and `thorn-core.nix` (the bundle every host imports first as `config.nixos.modules.thorn-core`).
 
 ## Desktop Modules
 
-- `desktop/hyprland.nix`: enables upstream Hyprland, UWSM, XWayland, `greetd` + `regreet`, `hyprlock`, `hypridle`, and Wayland helper packages.
-- `desktop/gnome-x11.nix`: enables GNOME on X11 with GDM and desktop portal packages.
-- `desktop/xfce+i3.nix`: combines XFCE services with i3 as the window manager.
+- `desktop/hyprland.nix`: upstream Hyprland, UWSM, XWayland, `greetd` + `regreet`, `hyprlock`, `hypridle`, Wayland helper packages.
+- `desktop/gnome-x11.nix`: GNOME on X11 with GDM and desktop portal packages.
+- `desktop/xfce-i3.nix`: XFCE services combined with i3 as the window manager.
+- `desktop/kde-wle.nix`: KDE Plasma (Wayland) — new since the last vault pass, not yet used by any current host module.
 
 ## Graphics Modules
 
-- `graphics/amd.nix`: enables 32-bit graphics support, ROCm/OpenCL packages, `amdgpu`, `lact`, and overdrive support.
-- `graphics/intel.nix`: enables 32-bit graphics support and Intel VAAPI/media packages.
-- `graphics/nvidia.nix`: forces the stable proprietary NVIDIA driver, disables `nouveau`, and enables `nvidia-settings`.
+- `graphics/amd.nix`: 32-bit graphics support, ROCm/OpenCL, `amdgpu`, `lact`, overdrive support.
+- `graphics/intel.nix`: 32-bit graphics support, Intel VAAPI/media packages.
+- `graphics/nvidia.nix`: stable proprietary NVIDIA driver, `nouveau` disabled, `nvidia-settings` enabled.
 
 ## Processor Modules
 
-- `processor/amd.nix`: enables AMD microcode updates and tags OpenRGB with `motherboard = "amd"`.
-- `processor/intel.nix`: currently empty placeholder Intel processor module.
+- `processor/amd.nix`: AMD microcode updates, tags OpenRGB with `motherboard = "amd"`.
+- `processor/intel.nix`: Intel processor module.
 
-## Service Modules
+## Service Modules (`modules/services/`)
 
-- `audio.nix`: standard PipeWire setup with PulseAudio disabled.
-- `bluetooth.nix`: BlueZ, Blueman, gamepad-oriented Bluetooth settings, and PlayStation-related kernel modules.
-- `clamav.nix`: installs ClamAV and enables both daemon and updater.
-- `displaylink.nix`: enables EVDI and a manual `DisplayLinkManager` service.
-- `fingerprint.nix`: enables `fprintd` with PAM integration for login and sudo.
-- `keybase.nix`: enables KBFS and user services for Keybase GUI.
-- `obs.nix`: enables OBS Studio with PipeWire and background-removal plugins plus `v4l2loopback`.
-- `ollama.nix`: enables Ollama, preloads `llama3.2:3b` and `deepseek-r1:1.5b`, and exposes Open WebUI on port `8081`.
-- `proxmox.nix`: enables `services.proxmox-ve` and the matching overlay.
-- `retroarch.nix`: installs RetroArch plus a curated libretro core set under `/etc/retroarch`.
-- `sdr.nix`: enables RTL-SDR and HackRF tooling.
-- `spicetify.nix`: enables Spicetify with adblock, shuffle, and custom app/snippet configuration.
-- `ssh.nix`: starts the SSH agent.
-- `steam.nix`: enables Steam, Gamescope, Steam hardware support, and GameMode.
-- `tablets.nix`: enables `uinput` and OpenTabletDriver.
-- `vmware-guest.nix`: enables VMware guest support.
-- `vmware.nix`: enables VMware Workstation host support, including macOS guest support.
-- `vr.nix`: enables WiVRn and custom Steam/OpenXR handling, and applies an AMD GPU kernel patch.
+`audio.nix` (PipeWire, PulseAudio disabled), `bluetooth.nix` (BlueZ/Blueman, PlayStation controller kernel modules), `clamav.nix`, `displaylink.nix`, `fingerprint.nix` (`fprintd` + PAM), `keybase.nix`, `obs.nix` (PipeWire capture + background-removal + `v4l2loopback`), `ollama.nix`, `proxmox.nix` (`services.proxmox-ve`), `retroarch.nix`, `sdr.nix` (RTL-SDR/HackRF), `spicetify.nix`, `ssh.nix`, `steam.nix` (Gamescope, GameMode), `tablets.nix` (`uinput` + OpenTabletDriver), `vmware.nix` (host support incl. macOS guests), `vmware-guest.nix`.
 
-## Secrets Module
+## Apps and Users
 
-- `secrets/default.nix` installs `age`, `sops`, and `ssh-to-age`.
-- It configures `sops-nix` to reuse `/etc/ssh/ssh_host_ed25519_key` for decryption.
-- The file currently contains example secret declarations rather than active ones.
-- The active flake does not currently import `sops-nix` or `secrets/default.nix`, so this is a plan/staging area rather than working secret plumbing.
+- `modules/apps/mcpelauncher.nix`: Minecraft Bedrock launcher packaging.
+- `modules/users/thorn.nix`: the shared `thorn` user account.
+- `modules/users/thorn-glance.nix`: the `glance` dashboard service module (separated out from the user module so only some hosts opt in — `nixos` and `scout` currently do).
 
-## Thorn Service Modules
+## Home Manager Modules
 
-- `users/thorn/services/glance.nix`: exposes Glance on `0.0.0.0:8080` with Home, Videos, and Services pages.
-- `users/thorn/services/pihole.nix`: defines a Pi-hole/FTL service profile and DNS/DHCP settings, but is not imported by any current host.
+See [[02 Systems/NixOS - Home Manager Layout|Home Manager Layout]] for `modules/home-manager/` in detail.
+
+## Standalone Program Trees (`programs/`)
+
+Not Home Manager modules — actual application source/config that a Home Manager module imports: `programs/ags/` (Aylur's GTK Shell bar, TS/SCSS), `programs/eww/` (widgets, yuck/css), `programs/clonehero/clonehero.nix` (Clone Hero packaging).
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]]
 - [[02 Systems/NixOS - Hosts Overview|Hosts Overview]]
+- [[02 Systems/NixOS - Home Manager Layout|Home Manager Layout]]

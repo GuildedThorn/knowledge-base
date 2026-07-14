@@ -1,25 +1,20 @@
 ## Purpose
 
-Document the `vmware-test` host under `nixos/users/thorn/hosts/vmware-test`.
+Document the `vmware-test` host, composed in `modules/computers/vmware-test.nix`.
 
 ## Role
 
-Minimal test environment for VMware-related or disposable desktop experiments.
+Minimal, no Home Manager overlay test environment for VMware-related or disposable desktop experiments.
 
 ## Composition
 
-- networking from `hosts/vmware-test/networking.nix`
-- `desktop/xfce+i3.nix`
-- shared service modules for audio, ClamAV, and SSH
-
-## Notable Host Behavior
-
-- Hostname is `vmware-test`.
-- NetworkManager is disabled.
-- Uses DNS `1.1.1.1`.
-- Opens only TCP and UDP port `22`.
+- `thorn-core` base bundle
+- `desktop-xfce-i3` module
+- service modules: audio, ClamAV, SSH, `vmware-guest`
+- `hosts/vmware-test/hardware-configuration.nix`, `networking.nix`
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]
+- [[02 Systems/NixOS - Host vmware-guest|Host vmware-guest]]

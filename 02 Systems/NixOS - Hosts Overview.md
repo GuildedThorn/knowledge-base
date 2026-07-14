@@ -1,26 +1,34 @@
 ## Purpose
 
-Provide a single summary of the host inventory represented in `~/nix-config`.
+Provide a single summary of the host inventory in `ThornixOS` (`~/Documents/ThornixOS`, GitHub `GuildedThorn/ThornixOS`).
 
 ## Thorn Hosts
 
-- `scout`: Intel-based laptop with Hyprland, ThinkPad-specific thermal and power tuning, Wi-Fi via NetworkManager, and a desktop-heavy daily-driver software stack.
-- `nixos`: AMD-based main workstation with Hyprland, local DNS pointing at `127.0.0.1`, CIFS media mount, Podman, Waydroid, VMware host support, gaming, SDR, and VR tooling.
-- `mitm`:  Intel-based minipc service-oriented host with NGINX reverse proxying, Technitium DNS, MongoDB, Grafana, and a partially defined SearXNG setup.
-- `vmware-test`: lighter XFCE+i3 test VM with audio, ClamAV, and SSH enabled.
-- `vmware-guest`: XFCE+i3 VMware guest profile with audio, ClamAV, SSH, and a host-specific Home Manager overlay.
+- `nixos`: AMD-based main workstation with Hyprland, `glance` dashboard, local DNS, CIFS media mount, Docker (Podman replaced by Docker), gaming/creative/dev tooling, printing, OpenRGB, U2F for sudo/login, VMware host support, and SDR/VR/DisplayLink/fingerprint/tablet services.
+- `scout`: Intel-based ThinkPad laptop with Hyprland, `glance`, secure boot via `lanzaboote`, ThinkPad fan/thermal tuning, TLP battery charge thresholds, U2F, and a desktop-heavy daily-driver software stack.
+- `mac`: Intel CPU / AMD graphics machine, Hyprland desktop, Proxmox VE service enabled — currently has a placeholder LAN IP pending real deployment.
+- `websites`: Proxmox VM serving [[GuildedThorn.com - Overview|GuildedThorn.com]] via the `guildedthorn-com` flake input's NixOS module, fronted by a Cloudflare Tunnel (only SSH exposed publicly otherwise), plus Owncast for the live stream and RabbitMQ for the guestbook publisher.
+- `firewall`: minimal dedicated firewall box — SSH only, NetworkManager disabled, DNS `1.1.1.1`.
+- `mitm` / `proxmox-mitm`: MITM lab hosts (bare metal and a Proxmox VM variant) running NGINX reverse-proxying `guildedthorn.com`/`radio.guildedthorn.com` to internal Proxmox-hosted services, plus a partially-defined SearXNG setup (disabled) and, on `proxmox-mitm`, a disabled Grafana instance.
+- `proxmox-guest`: general-purpose Proxmox VM, XFCE+i3 desktop, `glance` dashboard, trusts the internal Proxmox cert from `certs/`.
+- `vmware-test` / `vmware-guest`: lighter XFCE+i3 VMware VMs with audio, ClamAV, and SSH; `vmware-guest` additionally has a host-specific Home Manager overlay.
 
 ## Shared Patterns
 
-- IPv6 is disabled on all inspected hosts.
-- Host networking is split into separate `networking.nix` files.
-- Host configs import reusable desktop, graphics, and service modules rather than duplicating large option blocks.
+- IPv6 is disabled on every inspected host.
+- Host networking is split into separate `hosts/<host>/networking.nix` files.
+- Host configs import reusable desktop, graphics, processor, and service modules rather than duplicating large option blocks (see [[02 Systems/NixOS - Shared Modules|Shared Modules]]).
+- Deployment is GitOps via `comin`, not manual per-host rebuilds — see [[02 Systems/NixOS - Rebuild and Host Selection|Rebuild and Host Selection]].
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
-- [[02 Systems/NixOS - Host scout|Host scout]]
 - [[02 Systems/NixOS - Host nixos|Host nixos]]
+- [[02 Systems/NixOS - Host scout|Host scout]]
+- [[02 Systems/NixOS - Host mac|Host mac]]
+- [[02 Systems/NixOS - Host websites|Host websites]]
+- [[02 Systems/NixOS - Host firewall|Host firewall]]
 - [[02 Systems/NixOS - Host mitm|Host mitm]]
+- [[02 Systems/NixOS - Host proxmox-guest|Host proxmox-guest]]
 - [[02 Systems/NixOS - Host vmware-test|Host vmware-test]]
 - [[02 Systems/NixOS - Host vmware-guest|Host vmware-guest]]

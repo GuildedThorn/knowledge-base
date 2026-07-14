@@ -1,27 +1,28 @@
 ## Purpose
 
-Document the `scout` host as defined in `nixos/users/thorn/hosts/scout`.
+Document the `scout` host, composed in `modules/computers/scout.nix`.
 
 ## Role
 
-Daily-driver laptop for remote network management, development, media, light creative work, and general mobile use.
+Daily-driver ThinkPad laptop for remote network management, development, media, light creative work, and general mobile use.
 
 ## Composition
 
-- networking from `hosts/scout/networking.nix`
-- Intel graphics module
-- Hyprland desktop module
-- shared service modules for audio, Bluetooth, ClamAV, fingerprint, Keybase, OBS, Spicetify, SDR, and SSH
-- host-specific Home Manager overlay for ThinkPad monitor and Hyprpanel layout
+- `thorn-core` base bundle
+- Intel processor module, Intel graphics module, Hyprland desktop module
+- service modules: audio, Bluetooth, ClamAV, fingerprint, Keybase, OBS, Spicetify, SDR, SSH
+- `thorn-glance` dashboard module
+- `hosts/scout/hardware-configuration.nix`, `networking.nix`
+- host-specific Home Manager overlay (`hosts/scout/home.nix`) for single-monitor Hyprland/panel layout
 
 ## Notable Host Behavior
 
-- Hostname is `scout`.
-- Uses NetworkManager with Wi-Fi power saving enabled.
-- Uses external DNS `1.1.1.1`.
-- Opens TCP and UDP port `53`.
-- Enables ThinkPad fan control through `thinkpad_acpi` and `thinkfan`.
-- Enables `howdy`, IR emitter support, `tlp`, `thermald`, `upower`, `fwupd`, `flatpak`, `earlyoom`, and other laptop-oriented services.
+- NetworkManager-managed Wi-Fi with power saving; external DNS `1.1.1.1`.
+- Secure boot via `boot.lanzaboote` (`pkiBundle = /var/lib/sbctl`); `systemd-boot` disabled in favor of lanzaboote's own loader path.
+- ThinkPad fan control via `thinkfan` with a custom aggressive fan curve, plus `thermald`, `tlp` (performance on AC, powersave + capped max perf on battery, charge thresholds 75–80%).
+- `howdy`/IR emitter support, `upower`, `fwupd`, `flatpak` (MongoDB Compass), `earlyoom`, `ananicy`.
+- U2F required for `sddm` and `sudo`; `gphoto2` enabled.
+- `zramSwap` at 25%, unattended `system.autoUpgrade` (no auto-reboot).
 
 ## User-Facing Software Themes
 
@@ -29,8 +30,8 @@ Daily-driver laptop for remote network management, development, media, light cre
 - hardware control: `corectrl`, `openrgb`, `brightnessctl`, `piper`
 - communications: `element-desktop`, `telegram-desktop`, `teamspeak6-client`
 - creative tools: `blender`, `krita`, `kdenlive`, `mixxx`, `musescore`, `hydrogen`
-- engineering and electronics: `fritzing`, `chirp`, `orca-slicer`
-- development: `codex`, `postman`, `mongodb-compass`, `android-studio`
+- engineering and electronics: `fritzing`, `plasticity`, `orca-slicer`
+- development: `codex`, `claude-code`, `postman`, `android-studio`
 
 ## Related
 

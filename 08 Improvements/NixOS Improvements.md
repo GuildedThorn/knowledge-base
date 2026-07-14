@@ -1,30 +1,28 @@
 ## Purpose
 
-Track unfinished work around host config, secrets, deployment flow, and documentation.
+Track unfinished work around host config, secrets, deployment flow, and documentation for `ThornixOS`.
 
 ## Current State
 
-- The vault now has host notes for `scout`, `nixos`, `mitm`, `vmware-test`, and `vmware-guest`.
-- The repo has a `sops-nix` plan under `nixos/secrets`, but the active flake does not currently include the `sops-nix` input or import the secrets module.
-- Some documentation is still architecture-level and does not yet capture day-two operational procedures.
+- The vault now has host notes for all 10 current hosts: `nixos`, `scout`, `mac`, `websites`, `firewall`, `mitm`, `proxmox-mitm`, `proxmox-guest`, `vmware-test`, and `vmware-guest`.
+- The old `bin/rebuild-deploy` / `current-user.lock` / `current-host.lock` / Makefile workflow is gone — deployment is now GitOps via `comin` (see [[02 Systems/NixOS - Rebuild and Host Selection|Rebuild and Host Selection]]), so those tasks are resolved rather than open.
+- `sops-nix` is fully wired in and live (not just planned) — but only `nixos` and `websites` are onboarded so far (see [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]]).
+- Documentation is now current on architecture; day-two operational procedures are still thin.
 
 ## Tasks
 
-- [ ] Document the exact `make install` plus `bin/rebuild-deploy <user> <host>` workflow as actually used in practice
-- [ ] Record where `current-user.lock` and `current-host.lock` are normally managed from
-- [ ] Wire `sops-nix` into the active flake or revise the secrets plan to match the chosen secret manager
-- [ ] Convert the secrets plan into a real secret inventory with owners, source files, and migration status
-- [ ] Record which hosts currently consume `credentials.env`, VPN material, or service secrets
-- [ ] Move the inline Intelephense license key out of `nixos/users/thorn/programs/nixvim/main.nix`
+- [ ] Onboard `mitm` (and/or its `proxmox-mitm` variant) to sops-nix so the SearXNG secret key can be wired up for real, since SearXNG is currently disabled on both partly because of this
+- [ ] Set the real LAN IP for the `mac` host — it's still a `TODO` placeholder in `modules/computers/mac.nix`
+- [ ] Decide whether `mitm` or `proxmox-mitm` is the one meant to actually run in production, since both currently have the same reverse-proxy config staged but disabled/partial
+- [ ] Add host-specific operational notes for `mitm`/`proxmox-mitm`, especially NGINX, SearXNG, and (on `proxmox-mitm`) Grafana bring-up
+- [ ] Add host-specific operational notes for `nixos`, especially Docker, local DNS, VR, and CIFS media mount behavior
+- [ ] Add host-specific operational notes for `scout`, especially power, thermals, secure boot (`lanzaboote`), and travel usage
+- [ ] Create a dedicated note for Home Manager UX customizations (`ags`, `eww`, `matcha`, `desktop-rice`) if they keep growing
 - [ ] Decide whether NixVim should standardize on `nixfmt`, `nixpkgs-fmt`, or `alejandra`
-- [ ] Add host-specific operational notes for `mitm`, especially NGINX, Grafana, Technitium DNS, and SearXNG
-- [ ] Add host-specific operational notes for `nixos`, especially Podman, Waydroid, local DNS, VR, and CIFS media mount behavior
-- [ ] Add host-specific operational notes for `scout`, especially power, thermals, docking, and travel usage
-- [ ] Create a dedicated note for Home Manager UX customizations if `ags`, `eww`, `hyprpanel`, and monitor layout tuning keep growing
-- [ ] Fix stale `users/guildedthorn/...` references in `nixos/secrets/README.md` so they point at `users/thorn/...`
 
 ## Related
 
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Secrets Strategy|NixOS - Secrets Strategy]]
+- [[02 Systems/NixOS - Rebuild and Host Selection|Rebuild and Host Selection]]

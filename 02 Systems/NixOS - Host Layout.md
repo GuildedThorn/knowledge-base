@@ -1,31 +1,27 @@
 ## Purpose
 
-Track how host-specific configuration is split across shared modules, user layers, and per-machine files.
+Track how host-specific configuration is split across shared modules, per-host data, and one composition file per host.
 
 ## Layout Pattern
 
-The repo uses a layered layout:
+1. `modules/core/thorn-core.nix` (via `config.nixos.modules.thorn-core`) provides the base system layer every host imports first.
+2. `modules/computers/<host>.nix` is the single composition file for that host — it lists which named modules (desktop, graphics, processor, service) the host wants, plus its `hosts/<host>/` data files, plus any host-specific inline config, and registers the result as `flake.nixosConfigurations.<host>`.
+3. `hosts/<host>/hardware-configuration.nix` and, where used, `disko.nix` describe the machine's hardware/disk layout.
+4. `hosts/<host>/networking.nix` isolates network, DNS, and firewall settings per host.
+5. `hosts/<host>/home.nix` provides that host's Home Manager overlay, where a host has one.
+6. `hosts/<host>/secrets.nix` + `secrets.yaml` provide that host's sops secrets, where a host has any.
 
-1. `nixos/configuration.nix` provides the base system layer.
-2. `nixos/users/<user>/<user>.nix` provides shared config for a specific user.
-3. `nixos/users/<user>/hosts/<host>/configuration.nix` provides host-specific system config.
-4. `nixos/users/<user>/hosts/<host>/home.nix` provides host-specific Home Manager overrides when needed.
-5. `nixos/users/<user>/hosts/<host>/networking.nix` isolates network and firewall settings per host.
+This is a flatter version of the old `nixos/users/<user>/hosts/<host>/` nesting — there's no per-user layer anymore; hosts compose directly from `modules/computers/<host>.nix`.
 
 ## Current Host Trees
 
-- `scout`
-- `nixos`
-- `mitm`
-- `vmware-test`
-- `vmware-guest`
+`nixos`, `scout`, `mac`, `websites`, `firewall`, `mitm`, `proxmox-mitm`, `proxmox-guest`, `vmware-guest`, `vmware-test` — see [[02 Systems/NixOS - Hosts Overview|Hosts Overview]] for what each one is.
 
 ## Why This Split Works
 
-- shared user defaults stay centralized
-- networking stays isolated per machine
-- desktop, graphics, and services are reusable imports rather than copy-pasted blocks
-- Home Manager stays mostly shared while still allowing per-host monitor and panel layouts for hosts that define a host `home.nix`
+- Every host's full composition is readable from a single `modules/computers/<host>.nix` file rather than scattered across a per-user tree.
+- Networking, disk layout, secrets, and Home Manager overlays stay isolated per machine as flat sibling files under `hosts/<host>/`.
+- Desktop, graphics, processor, and service modules are reusable named imports rather than copy-pasted blocks.
 
 ## Related
 

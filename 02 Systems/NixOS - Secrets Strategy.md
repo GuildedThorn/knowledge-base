@@ -1,37 +1,42 @@
 ## Purpose
 
-Capture the current secret-management direction in the repo without copying sensitive values into the knowledge base.
+Capture the current secret-management approach in ThornixOS without copying sensitive values into the knowledge base.
 
 ## Current State
 
-- `nixos/secrets/default.nix` exists and describes the intended `sops-nix` setup.
-- The active `nixos/flake.nix` does not currently include a `sops-nix` input or import the secrets module globally.
-- The repo still contains exposed material that the repo itself identifies as migration targets rather than finalized secret handling.
+sops-nix is fully live, not just planned — this reverses the old note's premise. Secrets are encrypted with [sops](https://github.com/getsops/sops)/[sops-nix](https://github.com/Mic92/sops-nix) and committed to the repo as ciphertext, per-host, in `hosts/<host>/secrets.yaml` with a matching `hosts/<host>/secrets.nix` declaring `sops.secrets.<name>`.
 
-## Documented Migration Targets
+Only two hosts are onboarded so far: `nixos` and `websites` (both have `hosts/<host>/secrets.nix` + `secrets.yaml`; other hosts have neither).
 
-According to `nixos/secrets/README.md`, the first migration targets are:
+## Recipients (`.sops.yaml`)
 
-- the CIFS credentials file used by the media share mount
-- the committed VPN profile under `nixos/users/thorn/certs/vpn/pfproxmox.ovpn`
-- service configs that currently embed password or API values, including Glance and Pi-hole module examples
-- the inline Intelephense license key in `nixos/users/thorn/programs/nixvim/main.nix`
+Two recipient classes, per file:
 
-## Intended Layout
+- The admin's YubiKey-backed GPG key — always a co-recipient on every secrets file, so a host key loss never locks the admin out. Decrypting/re-encrypting from the workstation prompts for the YubiKey PIN.
+- Each onboarded host's own age key, derived from that host's SSH host key (`/etc/ssh/ssh_host_ed25519_key`) via `ssh-to-age`. This lets `sops-nix` decrypt unattended during activation with no YubiKey involved.
 
-The repo’s own plan points toward:
+`sops` and `ssh-to-age` are installed on every host via `modules/core/base.nix`.
 
-- host or common encrypted YAML files under `nixos/secrets/hosts`
-- binary secrets such as VPN profiles stored as encrypted files
-- service configs reading secrets from `config.sops.secrets.*.path` after `sops-nix` is wired into the flake
+## Lifecycle
 
-## Operational Notes
+- **Edit an existing file**: `sops hosts/<host>/secrets.yaml` — opens `$EDITOR` on the decrypted contents, re-encrypts to all configured recipients on save.
+- **Add a secret to an onboarded host**: add the key via `sops`, declare `sops.secrets.my_new_secret = { };` in `hosts/<host>/secrets.nix`, rebuild. It lands at `/run/secrets/my_new_secret` (root:root, 0400 by default) and is referenced elsewhere via `config.sops.secrets.<name>.path`.
+- **Onboard a new host**: get its SSH host public key, convert with `ssh-to-age`, add the resulting `age1...` key to `.sops.yaml` plus a `creation_rules:` entry for `hosts/<host>/secrets\.ya?ml$`, create the encrypted file with `sops --encrypt --in-place`, then add `hosts/<host>/secrets.nix` to that host's `modules/computers/<host>.nix` module list.
+- **Rotate recipients**: after changing `.sops.yaml`, run `sops updatekeys hosts/<host>/secrets.yaml` to re-encrypt for the new recipient set.
+- **Recover after host reinstall / host-key loss**: a wipe regenerates the SSH host key, invalidating that host's old age key. Get the new age key via `ssh-to-age`, swap it into `.sops.yaml`, run `sops updatekeys`, rebuild. The admin's GPG key being a permanent co-recipient means this is never a lockout — just an `updatekeys` round-trip. Host private keys are intentionally never backed up.
 
-- `sops-nix` decrypts during activation, not evaluation, once enabled.
-- Host SSH keys must exist on the target system for decryption to work with the current approach.
-- This knowledge base should document where secrets are consumed, but not store literal secret values or raw secret files.
+## Non-Secret Certs
+
+`certs/` holds two checked-in (non-secret) certificate files: `ThornCloud_CA.crt` (an internal CA) and `proxmox.guildedthorn.arpa.crt`. These are trusted into specific hosts (e.g. `proxmox-guest` reads the Proxmox cert into `security.pki.certificates`) — they are public certificates, not key material, so they live in the repo in plaintext.
+
+## Known Secrets in Use
+
+- `websites`: `guildedthorn_env` (environment file for the `guildedthorn` service) and a `cloudflared.env` sops template for the Cloudflare Tunnel credentials.
+- `mitm`/`proxmox-mitm`: a SearXNG secret key is wired to read from `config.sops.secrets.searx.path`, but SearXNG itself is currently `enable = false` on both hosts, so this isn't live yet.
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
+- [[02 Systems/NixOS - Repository Layout|Repository Layout]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]
+- [[02 Systems/NixOS - Host websites|Host websites]]

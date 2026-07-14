@@ -14,9 +14,14 @@ Use this note as the index for operating system and host configuration.
 ## Hosts
 
 - [[02 Systems/NixOS - Hosts Overview]]
-- [[02 Systems/NixOS - Host scout]]
 - [[02 Systems/NixOS - Host nixos]]
+- [[02 Systems/NixOS - Host scout]]
+- [[02 Systems/NixOS - Host mac]]
+- [[02 Systems/NixOS - Host websites]]
+- [[02 Systems/NixOS - Host firewall]]
 - [[02 Systems/NixOS - Host mitm]]
+- [[02 Systems/NixOS - Host proxmox-mitm]]
+- [[02 Systems/NixOS - Host proxmox-guest]]
 - [[02 Systems/NixOS - Host vmware-test]]
 - [[02 Systems/NixOS - Host vmware-guest]]
 

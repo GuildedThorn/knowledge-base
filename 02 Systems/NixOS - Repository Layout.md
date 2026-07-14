@@ -1,35 +1,39 @@
 ## Purpose
 
-Document how `/run/media/thorn/NIX_CONFIG/nix-config` is structured so it is easier to find shared modules, per-user config, and per-host overrides.
+Document how the `ThornixOS` repo is structured so it is easier to find shared modules, per-host config, and secrets.
 
 ## Scope
 
-This note reflects the repo rooted at `/run/media/thorn/NIX_CONFIG/nix-config`, with the active NixOS flake living under `nixos/`.
+This note reflects the repo at `~/Documents/ThornixOS` (GitHub: `GuildedThorn/ThornixOS`). This replaces the old `/run/media/thorn/NIX_CONFIG/nix-config` layout entirely — that Makefile/lock-file scheme is gone.
+
+## Identity
+
+ThornixOS is the name of the repo itself, not a distinct OS distribution — per its own README: "my nix config, dont mind the name, a friend thought it was funny."
 
 ## Layout
 
-- `Makefile` manages import, drift checks, backup, revert, and interactive or forced install into `/etc/nixos`.
-- `bin/rebuild-deploy` writes `current-user.lock` and `current-host.lock` into `/etc/nixos`, then runs `sudo nixos-rebuild switch --flake /etc/nixos --upgrade`.
-- `nixos/flake.nix` defines flake inputs and generates `nixosConfigurations` from discovered hosts.
-- `nixos/configuration.nix` is the shared base system layer.
-- `nixos/desktop` contains desktop environment modules such as `hyprland`, `gnome-x11`, and `xfce+i3`.
-- `nixos/graphics` contains GPU-specific modules for `amd`, `intel`, and `nvidia`.
-- `nixos/processor` contains CPU/platform-specific modules for `amd` and `intel`.
-- `nixos/services` contains reusable service modules such as `audio`, `bluetooth`, `steam`, `ssh`, `ollama`, and `vmware`.
-- `nixos/secrets` contains a planned `sops-nix` bootstrap, migration notes, and currently exposed credential material.
-- `nixos/users/thorn` contains shared config for the `thorn` user plus host overlays for `scout`, `nixos`, `mitm`, `vmware-test`, and `vmware-guest`.
+The flake uses [flake-parts](https://github.com/hercules-ci/flake-parts) + [import-tree](https://github.com/vic/import-tree) (the "dendritic" pattern):
+
+- `flake.nix` holds only inputs; `outputs = import-tree ./modules`.
+- Every `.nix` file under `modules/` is auto-imported as a flake-parts module. Nothing is wired up by path — each file contributes either a named piece (`config.nixos.modules.<name>`) or a whole host (`flake.nixosConfigurations.<name>`).
+- `modules/computers/<host>.nix`: one file per host, composes named modules plus that host's `hosts/<host>/` files into a `nixosConfigurations.<host>`.
+- `modules/core/`: base config, the `thorn-core` bundle, and module-plumbing files (`base.nix`, `files.nix`, `home-manager-modules.nix`, `nixos-modules.nix`, `thorn-core.nix`).
+- `modules/desktop/`, `modules/graphics/`, `modules/processor/`, `modules/services/`, `modules/apps/`, `modules/users/`, `modules/home-manager/`: reusable named modules (see [[02 Systems/NixOS - Shared Modules|Shared Modules]]).
+- `hosts/<host>/`: per-host data — `hardware-configuration.nix`, `disko.nix` where used, `networking.nix`, `home.nix` where a host has a Home Manager overlay, and `secrets.nix` + `secrets.yaml` (sops) where a host has secrets.
+- `certs/`: checked-in (non-secret) certificates — `ThornCloud_CA.crt` (internal CA) and `proxmox.guildedthorn.arpa.crt`.
+- `programs/`: standalone application source/config trees rather than Home Manager modules — `ags/` (Aylur's GTK Shell bar widget, TS/SCSS), `eww/` (widgets, yuck/css), `clonehero/clonehero.nix` (packaging/config).
+- `.sops.yaml`: sops recipient/creation-rule declarations (see [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]]).
+- `.github/workflows/ci.yml`: runs `nix flake check` and dry-run-builds every host's toplevel on push/PR.
 
 ## How Composition Works
 
-1. The flake reads the active username from `current-user.lock`.
-2. It reads the active host from `current-host.lock` if present.
-3. If no host lock exists, it enumerates host directories under `nixos/users/<user>/hosts`.
-4. `nixos/configuration.nix` imports `./users/${username}/${username}.nix`.
-5. Each user entrypoint imports `./hosts/${host}/configuration.nix` when that file exists.
-6. Host config imports desktop, graphics, processor, service, and networking modules as needed.
+1. `flake.nix` inputs feed `import-tree ./modules`, which auto-registers every module file.
+2. `modules/computers/<host>.nix` lists the named modules that host wants (e.g. `config.nixos.modules.desktop-hyprland`, `config.nixos.modules.services-ssh`) plus its `hosts/<host>/` data files.
+3. Deployment is not path-based rebuild-and-copy — see [[02 Systems/NixOS - Rebuild and Host Selection|Rebuild and Host Selection]] for the `comin` GitOps flow that replaced it.
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
+- [[02 Systems/NixOS - Flake Structure|Flake Structure]]
 - [[02 Systems/NixOS - Rebuild and Host Selection|Rebuild and Host Selection]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]

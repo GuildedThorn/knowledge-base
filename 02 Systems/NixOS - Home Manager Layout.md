@@ -1,42 +1,37 @@
 ## Purpose
 
-Document how Home Manager is used across the repo and what is shared versus host-specific.
+Document how Home Manager is used across `ThornixOS` and what is shared versus host-specific.
 
-## Shared User Home
+## Shared Home Manager Modules
 
-The shared `thorn` Home Manager config in `nixos/users/thorn/home.nix` includes:
+`modules/home-manager/` holds one file per concern rather than a single monolithic home config:
 
-- Home Manager state version `26.05`
-- imports for the AGS and NixVim Home Manager modules
-- `zsh`, Oh My Zsh, completion, syntax highlighting, and a `nix-rebuild` alias
-- `ghostty`, `atuin`, `intelli-shell`, `zoxide`, `ranger`, `newsboat`, `fastfetch`, `gpg`, and `neomutt`
-- `hyprpanel` UI setup for `hyprland`
-- `wlogout`, `rofi`, `hyprshot`, `hyprpaper`, `cliphist`, and `swayosd`
-- `eww` and `ags` UI tooling
-- `obsidian`, `vesktop`, `freetube`, and `nixvim`
-- shared user packages such as YubiKey tools, GNOME Calculator, and `anki-bin`
-- `firefox` extensions and policy setup
-- unified `hyprland` keybinds, layout and plugins
-
-## Shared Home Details
-
-- AGS uses `./programs/ags` and Astal packages for battery, power profiles, IO, network, tray, MPRIS, apps, and WirePlumber integration.
-- EWW uses `./programs/eww` with Bash and Zsh integration enabled.
-- NixVim imports `./programs/nixvim/main.nix`; details are tracked in [[04 Software/NixVim|NixVim]].
-- Vesktop is configured for Discord Canary, tray/minimize behavior, hardware acceleration, arRPC, and several Vencord plugins.
-- HyprPanel uses transparent fullscreen auto-hide behavior, 24-hour clock formatting, visible battery/Bluetooth labels, workspace icons, and CaskaydiaCove NF at `16px`.
-- Rofi uses `fullscreen-preview.rasi`, and Stylix theming is disabled for Rofi.
-- The shared Hyprland config uses the upstream flake package, the Hyprexpo plugin, `SUPER` as mod, Dwindle layout, VRR enabled, workspace rules for browser/terminal/mail/editor, screenshot bindings through Hyprshot, and SwayOSD bindings for audio, brightness, lock keys, and media keys.
-- Firefox defaults to DuckDuckGo, adds Nix package/options/wiki search aliases, starts at `http://localhost:8080`, and force-installs uBlock Origin, Vimium, Dark Reader, and Spirited Away.
-- GPG is enabled with scdaemon configured for PC/SC sharing and CCID disabled.
-- Mako is configured but disabled; SwayOSD and Cliphist are enabled instead.
-- The pointer cursor is Bibata Modern Ice at size `24`.
+- `base.nix`: core shell/CLI setup — `zsh`, Oh My Zsh, completion, syntax highlighting, `atuin`, `intelli-shell`, `zoxide`, `ranger`, `newsboat`, `fastfetch`, `gpg`, and shared user packages (YubiKey tools, GNOME Calculator, `anki-bin`).
+- `hyprland.nix`: shared Hyprland config, keybinds, layout, and plugins.
+- `desktop-rice.nix`: shared desktop polish/theming layer (wallpaper, panel, cursor, etc. conventions shared across Hyprland hosts).
+- `ghostty.nix`: terminal config — see [[04 Software/GhostTTY|GhostTTY]].
+- `nixvim.nix`: editor config — see [[04 Software/NixVim|NixVim]].
+- `obsidian.nix`: this vault's Obsidian setup — see [[04 Software/Obsidian|Obsidian]].
+- `firefox.nix`: extensions and policy — see [[04 Software/Firefox|Firefox]].
+- `vesktop.nix`: Discord Canary via Vesktop — tray/minimize behavior, hardware acceleration, arRPC, Vencord plugins.
+- `matcha.nix`: theming module (new since the last vault pass).
+- `neomutt.nix`: mail client config.
+- `weechat.nix`: IRC client config (new since the last vault pass).
+- `xfce-i3.nix`: Home Manager pieces for the XFCE+i3 desktop hosts.
 
 ## Host-Specific Home Overlays
 
-- `users/thorn/hosts/scout/home.nix`: single-monitor Hyprland and wallpaper/panel layout for the ThinkPad.
-- `users/thorn/hosts/nixos/home.nix`: multi-monitor Hyprland and panel layout for the main workstation.
-- `users/thorn/hosts/vmware-guest/home.nix`: currently only sets `home.stateVersion = "26.05"`.
+- `hosts/scout/home.nix`: single-monitor Hyprland and panel layout for the ThinkPad.
+- `hosts/nixos/home.nix`: multi-monitor Hyprland and panel layout for the main workstation.
+- `hosts/mac/home.nix`: home overlay for the `mac` host.
+- `hosts/proxmox-guest/home.nix`: home overlay for the general-purpose Proxmox VM.
+- `hosts/vmware-guest/home.nix`: minimal overlay, historically just `home.stateVersion`.
+
+Hosts with no `home.nix` (`websites`, `firewall`, `mitm`, `proxmox-mitm`, `vmware-test`) run without a Home Manager user layer — they're service/test boxes, not desktops.
+
+## Standalone Program Trees
+
+`programs/ags/` (Aylur's GTK Shell bar widget, TypeScript/SCSS) and `programs/eww/` (widgets, yuck/CSS) are imported by the Hyprland home config but live as their own source trees under `programs/` rather than as Nix-only Home Manager options — see [[02 Systems/NixOS - Shared Modules|Shared Modules]].
 
 ## Practical Takeaway
 
@@ -48,3 +43,4 @@ The shared `thorn` Home Manager config in `nixos/users/thorn/home.nix` includes:
 
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Host Layout|Host Layout]]
+- [[02 Systems/NixOS - Shared Modules|Shared Modules]]

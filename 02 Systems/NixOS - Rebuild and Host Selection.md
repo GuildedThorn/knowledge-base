@@ -1,48 +1,47 @@
 ## Purpose
 
-Record how this repo selects a user/host combination and how it is deployed to `/etc/nixos`.
+Record how ThornixOS hosts get built and deployed now that the repo has moved to GitOps.
 
-## Host Selection Model
+## Deployment Model: comin
 
-- `nixos/flake.nix` reads `current-user.lock` for the active primary user and throws if it is missing.
-- It reads `current-host.lock` for a single selected host when present.
-- If `current-host.lock` does not exist, it builds configs for every host directory under that user.
-- The resulting flake output name is the host name, for example `.#scout` or `.#mitm`.
+Every host runs [comin](https://github.com/nlewo/comin), watching the `ThornixOS` repo's `main` branch. There is no push-based deploy step and no SSH-from-CI:
 
-## Primary Workflow
+1. A change is committed and pushed to `main`.
+2. Each host's `comin` agent pulls the new commit.
+3. `comin` builds that host's own `nixosConfigurations.<hostname>` and switches to it if the build succeeds.
+4. Activation is diff-based — a commit that doesn't touch a given host's closure is a no-op for it, and a failed build leaves the previous generation running.
 
-The repo contains `bin/rebuild-deploy`:
+This replaces the old `bin/rebuild-deploy` + `current-user.lock`/`current-host.lock` + top-level `Makefile` (`make import`/`check`/`backup`/`revert`/`install`) workflow entirely. That tooling no longer exists in the repo.
 
-```bash
-bin/rebuild-deploy <user> <host>
+## Bootstrapping a New Host
+
+A host only needs one manual rebuild, to get `comin` itself running:
+
+```sh
+nixos-rebuild switch --flake github:GuildedThorn/ThornixOS#<host>
 ```
 
-That script:
+After that, `comin` owns the host and future changes ship by pushing to `main`.
 
-1. Writes the selected user into `/etc/nixos/current-user.lock`.
-2. Writes the selected host into `/etc/nixos/current-host.lock`.
-3. Changes into `/etc/nixos`.
-4. Runs `sudo nixos-rebuild switch --flake /etc/nixos --upgrade`.
+## Deploying a GuildedThorn.com Update
 
-## Makefile Workflow
+Because the site enters the flake as the `guildedthorn-com` input, shipping a new site build is a lock-file bump, not a host change:
 
-The top-level `Makefile` handles repo-to-system sync:
+```sh
+nix flake update guildedthorn-com
+git commit flake.lock -m "chore: bump guildedthorn-com"
+git push   # comin on `websites` picks it up within about a minute
+```
 
-- `make import` copies the live `/etc/nixos` tree into the local `nixos/` directory.
-- `make check` shows drift between local files and `/etc/nixos`.
-- `make backup` copies `/etc/nixos` into `/etc/nixos.backups/<timestamp>`.
-- `make backups` lists available backups.
-- `make revert` restores a backup into `/etc/nixos`.
-- `make install` interactively copies changed files into `/etc/nixos`, optionally creating a backup first.
+Only `guildedthorn.service` restarts on the `websites` host; other services there are untouched.
 
-## Operational Notes
+## CI
 
-- `programs.nh` is enabled in the shared base config and points to `/etc/nixos` as the flake path.
-- The local repo and the live `/etc/nixos` tree are separate until `make install` or another copy step is run.
-- The rebuild script assumes the flake is already present at `/etc/nixos`.
-- Because `current-host.lock` is written into `/etc/nixos`, the flake can resolve the selected host without an explicit `.#<host>` suffix.
+`.github/workflows/ci.yml` runs `nix flake check` and dry-run-builds every host's toplevel on each push/PR — this is the pre-merge safety net now that there's no local `make check` drift comparison.
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Repository Layout|Repository Layout]]
+- [[02 Systems/NixOS - Flake Structure|Flake Structure]]
+- [[GuildedThorn.com - Deployment|GuildedThorn.com - Deployment]]
