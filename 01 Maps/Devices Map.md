@@ -5,6 +5,7 @@ Use this note as the index for hardware-specific notes.
 - [[03 Devices/ThinkPad T15|ThinkPad T15]]
 - [[03 Devices/Mac Pro 5,1|Mac Pro 5,1]]
 - [[03 Devices/Main PC|Main PC]]
+- [[03 Devices/HP Mini PC|HP Mini PC]]
 - [[03 Devices/pfSense Router|pfSense Router]]
 - [[03 Devices/USB Serial Adapters|USB Serial Adapters]]
 - [[03 Devices/Docks and Displays]]

@@ -6,7 +6,7 @@ Service host for NGINX reverse proxying, internal web services, DNS, and support
 
 - Hostname: `mitm`
 - OS: `NixOS 26.06`
-- Config path: `~/nix-config/nixos/users/thorn/hosts/mitm`
+- Config path: `~/Documents/ThornixOS` (`modules/computers/mitm.nix` + `hosts/mitm/`)
 
 ## Hardware Specs
 
@@ -27,19 +27,16 @@ Service host for NGINX reverse proxying, internal web services, DNS, and support
 
 Currently Installed:
 - `NGINX` reverse proxy
-- `Technitium DNS Server`
-- `MongoDB` with auth enabled
-- `Grafana` bound locally and proxied through NGINX
 - `SearXNG` configuration exists, but the service is currently disabled
-TODO:
-- `Prometheus` scraper and exporter on system
+- a commented-out `MongoDB` block exists but is not active
+
+Note: Technitium DNS and a locally-proxied Grafana instance were part of an earlier config pass and no longer appear in the current `mitm` module — Grafana now only appears (also disabled) on the `proxmox-mitm` Proxmox-VM variant of this role, see [[02 Systems/NixOS - Host proxmox-mitm|Host proxmox-mitm]].
 
 ## Reverse Proxy Notes
 
 - `guildedthorn.com` proxies to `https://proxmox.guildedthorn.arpa:5000`
 - `radio.guildedthorn.com` proxies to `https://proxmox.guildedthorn.arpa:5001`
-- `grafana.guildedthorn.arpa` proxies to the local Grafana service
-- `searxng.guildedthorn.arpa` is wired for local UWSGI socket proxying
+- `searxng.guildedthorn.arpa` is wired for local UWSGI socket proxying (SearXNG itself disabled)
 
 ## Role Notes
 

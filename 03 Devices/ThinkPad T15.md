@@ -6,7 +6,7 @@ Remote network management, software development, and personal finance.
 
 - Hostname: `scout`
 - OS: `NixOS 26.06`
-- Config path: `~/nix-config/nixos/users/thorn/hosts/scout`
+- Config path: `~/Documents/ThornixOS` (`modules/computers/scout.nix` + `hosts/scout/`)
 
 ## Hardware Specs
 
@@ -20,8 +20,9 @@ Remote network management, software development, and personal finance.
 - Uses the `scout` host under the `thorn` user tree.
 - Runs Hyprland with a host-specific single-monitor layout.
 - Uses NetworkManager with Wi-Fi power saving enabled.
-- Enables ThinkPad fan control with `thinkpad_acpi` and `thinkfan`.
-- Enables laptop-oriented services including `howdy`, IR emitter support, `tlp`, `thermald`, and `upower`.
+- Enables ThinkPad fan control with `thinkpad_acpi` and `thinkfan` (custom aggressive fan curve).
+- Enables laptop-oriented services including `howdy`, IR emitter support, `tlp` (with battery charge thresholds), `thermald`, and `upower`.
+- Secure boot via `lanzaboote`; U2F required for `sddm`/`sudo` login.
 
 ## Related
 

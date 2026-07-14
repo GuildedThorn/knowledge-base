@@ -35,4 +35,3 @@ Document VLAN usage, trunks, access ports, and which network segments map to whi
 - [[01 Maps/Network Map|Network Map]]
 - [[Routing|Routing]]
 - [[03 Devices/pfSense Router|pfSense Router]]
-- [[02 Systems/NixOS - Host kalanik0a-nixos|NixOS - Host kalanik0a-nixos]]

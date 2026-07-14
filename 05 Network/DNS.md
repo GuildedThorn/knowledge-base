@@ -5,22 +5,22 @@ Document DNS design, upstream resolvers, local DNS services, and host-specific r
 ## Current Known State
 
 - `pfSense Router` is configured with `1.1.1.1` as a DNS server in the captured `April 28, 2026` status snapshot.
-- The `nixos` workstation host uses `127.0.0.1` as its resolver and enables `services.technitium-dns-server`.
-- The `scout` laptop uses `1.1.1.1` directly and also defines extra local host entries for internal systems.
-- The `mitm` host also enables `services.technitium-dns-server`.
+- The `nixos` workstation, `scout` laptop, `mitm`, `firewall`, `mac`, and `proxmox-guest` hosts in `ThornixOS` all use `1.1.1.1` as `networking.nameservers` directly — there is no local DNS resolver/server role (Technitium) anywhere in the current repo, which corrects an earlier version of this note.
+- `nixos` additionally defines static `extraHosts` entries for `pfsense.guildedthorn.arpa`, `proxmox.guildedthorn.arpa`, and `truenas.guildedthorn.arpa` rather than resolving them via a DNS server.
+- `websites` uses its upstream gateway (`172.16.25.2`) plus `1.1.1.1` as a fallback, with a similar single static-host override for `truenas.guildedthorn.arpa` (needed for a TLS cert match).
+- `proxmox-mitm` uses `8.8.8.8` instead of `1.1.1.1` — the one host that differs.
 
 ## Known DNS Consumers
 
 - `pfSense Router`
-- `nixos` workstation
-- `mitm`
-- `scout`
+- `nixos`, `scout`, `mitm`, `mac`, `firewall`, `proxmox-guest`, `websites` (all via `1.1.1.1`)
+- `proxmox-mitm` (via `8.8.8.8`)
 
 ## Questions To Resolve
 
 - Is pfSense acting only as a gateway, or also as a DNS forwarder/resolver for clients?
-- Which host is authoritative for internal `guildedthorn.arpa` names?
-- Are `Technitium` instances on `nixos` and `mitm` production DNS services, testing, or parallel experiments?
+- Which host is authoritative for internal `guildedthorn.arpa` names, given resolution is currently done via scattered static `extraHosts` entries rather than a central internal DNS server?
+- Why does `proxmox-mitm` use a different upstream resolver (`8.8.8.8`) than every other host?
 - Which systems should use local DNS versus public upstream DNS directly?
 
 ## Tasks

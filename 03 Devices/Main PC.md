@@ -6,7 +6,7 @@ Primary workstation for software development, VMware-based development VMs, fina
 
 - Hostname: `nixos`
 - OS: `NixOS 26.06`
-- Config path: `~/nix-config/nixos/users/thorn/hosts/nixos`
+- Config path: `~/Documents/ThornixOS` (`modules/computers/nixos.nix` + `hosts/nixos/`)
 
 ## Hardware Specs
 
@@ -20,18 +20,17 @@ Primary workstation for software development, VMware-based development VMs, fina
 - Uses the `nixos` host under the `thorn` user tree.
 - Runs Hyprland with a host-specific multi-monitor layout.
 - Uses AMD processor and graphics modules.
-- Uses local DNS at `127.0.0.1`.
-- Has NetworkManager disabled.
+- Uses external DNS `1.1.1.1`, with local `extraHosts` entries for `pfsense`/`proxmox`/`truenas` `.guildedthorn.arpa`. NetworkManager is enabled (kept for Wi-Fi/VPN use) — there is no local Technitium/DNS-server role on this host anymore.
 - Mounts the media share at `/mnt/media` from `//172.16.25.4/media`.
-- Enables Podman with Docker compatibility and `waydroid`.
-- Includes desktop services for DisplayLink, OBS, Steam, VMware, VR, SDR, Ollama, and Technitium DNS.
+- Enables Docker (`virtualisation.docker`) — Podman/Waydroid are no longer part of the config.
+- Includes desktop services for DisplayLink, OBS, Steam, VMware, VR, SDR, and a `glance` dashboard.
 
 ## Workload Notes
 
-- Development: `codex`, `claude-code`, `jetbrains.rider`, `postman`, `mongodb-compass`, `android-studio`, `neovim`
-- Virtualization: `vmware-workstation`, `virt-viewer`, `realvnc-vnc-viewer`, `waydroid`, `podman`
+- Development: `codex`, `opencode`, `postman`, `mongodb-compass`, `distrobox`
+- Virtualization: `vmware-workstation`, `virt-viewer`
 - Gaming: `steam`, `lutris`, `heroic`, `osu-lazer`, `clonehero`, `retroarch`
-- Creative and media: `blender`, `krita`, `inkscape`, `kdenlive`, `mixxx`, `musescore`, `hydrogen`
+- Creative and media: `blender`, `krita`, `kdenlive`, `plasticity`, `mixxx`, `musescore`, `hydrogen`
 
 ## Related
 
