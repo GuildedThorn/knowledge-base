@@ -31,8 +31,9 @@ Two recipient classes, per file:
 
 ## Known Secrets in Use
 
-- `websites`: `guildedthorn_env` (environment file for the `guildedthorn` service) and a `cloudflared.env` sops template for the Cloudflare Tunnel credentials.
-- `mitm`/`proxmox-mitm`: a SearXNG secret key is wired to read from `config.sops.secrets.searx.path`, but SearXNG itself is currently `enable = false` on both hosts, so this isn't live yet.
+- `nixos`: `wakatime_api_key` (templated into `~/.wakatime.cfg` for [[04 Software/AI Coding Tools|Wakapi]]), three Gmail app passwords (`gmail_guildedthorn_app_password`, `gmail_opticalpvpx_app_password`, `gmail_jamieduddleston2_app_password` — consumed by both [[04 Software/Matcha|Matcha]] and the parallel Neomutt/mbsync/msmtp stack), and `oftc_client_cert` (the [[04 Software/WeeChat|WeeChat]] CertFP client certificate).
+- `websites`: `guildedthorn_env` (the entire [[GuildedThorn.com - Overview|GuildedThorn.com]] dotenv — JWT/MongoDB/RabbitMQ/Spotify secrets bundled as one opaque blob rather than declared individually) and `cloudflared_tunnel_token` (templated into a `cloudflared.env` sops template for the Cloudflare Tunnel).
+- `mitm`/`proxmox-mitm`: a SearXNG secret key is wired to read from `config.sops.secrets.searx.path`, but SearXNG itself is currently `enable = false` on both hosts and neither has a `secrets.nix` yet, so this isn't live.
 
 ## Related
 
