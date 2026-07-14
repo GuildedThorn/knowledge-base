@@ -6,9 +6,9 @@ Describe the React/Vite frontend for GuildedThorn.com.
 
 - React `19`
 - TypeScript
-- Vite
-- Tailwind CSS v4
-- React Router
+- Vite `6`
+- Tailwind CSS `4`
+- React Router `7`
 - SignalR client
 - `@xyflow/react` for network diagrams
 
@@ -52,27 +52,20 @@ Protected routes:
 - Twitch embed page
 - ThornNet diagram with saved node positions in local storage
 - guestbook UI
-- login/register flows
+- login/register flows, plus WebAuthn passkey/security-key registration and login
 - blog and gallery upload interfaces
+- knowledge-base browser reading the synced vault notes from the backend
 - utility tools implemented fully in the browser
 
 ## API Consumption
 
-The frontend fetch layer currently calls:
-
-- `/api/Github/getInfo`
-- `/api/Github/getProjects`
-- `/api/spotify/top-artists`
-- `/api/auth/register`
-- `/api/auth/login`
-- `/api/auth/logout`
-- `/api/user/updateData`
+The frontend fetch layer calls the endpoints documented in [[GuildedThorn.com - API and Services|API and Services]], including the newer WebAuthn, knowledge base, push, contact, donations, and stream-schedule routes.
 
 ## Notes
 
 - auth flows rely on backend-set cookies and use `credentials: "include"` in relevant fetch calls
-- the radio page also creates a SignalR connection and polls Icecast metadata
-- several UI components and pages appear to be custom rather than scaffold defaults
+- the radio page creates a SignalR connection and polls Icecast metadata
+- several UI components and pages are custom rather than scaffold defaults
 
 ## Related
 

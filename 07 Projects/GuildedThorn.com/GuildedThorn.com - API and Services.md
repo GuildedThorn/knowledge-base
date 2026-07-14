@@ -13,6 +13,10 @@ Provide a compact API and integration reference for GuildedThorn.com.
 - `POST /api/auth/logout`
 - `GET /api/auth/user/{id}`
 
+### WebAuthn
+
+- passkey/security-key registration and assertion endpoints on `WebAuthnController` (challenge issued via `WebAuthnChallengeStore`)
+
 ### Blog
 
 - `GET /api/blog/getPosts?page=&pageSize=`
@@ -53,6 +57,20 @@ Provide a compact API and integration reference for GuildedThorn.com.
 - `POST /api/Chat/send`
 - SignalR hub: `/chathub`
 
+### Radio
+
+- Icecast relay/status and archive endpoints on `RadioController`
+- SignalR hub for now-playing updates
+
+### Knowledge Base
+
+- paginated/searchable/tag-filterable public notes endpoint on `KnowledgeBaseController`
+- owner-only manual sync trigger
+
+### Contact, Donations, Push, Sitemap, Stream Schedule
+
+- form/data endpoints on `ContactController`, `DonationsController`, `PushController`, `SitemapController`, `StreamScheduleController`
+
 ## External Service Dependencies
 
 - GitHub API for profile data
@@ -61,31 +79,29 @@ Provide a compact API and integration reference for GuildedThorn.com.
 - Twitch embed script on the stream page
 - Icecast status JSON for radio metadata
 - MongoDB for persistent storage
+- S3-compatible object storage (SeaweedFS) for gallery images and radio recordings
 - RabbitMQ for guestbook event publishing
 - Grafana Loki for logs
+- Web Push (VAPID) for browser notifications
+- the public `GuildedThorn/knowledge-base` git repo, mirrored via LibGit2Sharp
 
 ## Required Configuration Areas
 
 The code expects configuration for:
 
-- `Jwt:Key`
-- `Jwt:Issuer`
-- `Jwt:Audience`
-- `MongoDB:ConnectionString`
-- `MongoDB:DatabaseName`
-- `RabbitMQ:HostName`
-- `RabbitMQ:Username`
-- `RabbitMQ:Password`
-- `Spotify:ClientId`
-- `Spotify:ClientSecret`
-- `Spotify:RedirectUri`
+- `Jwt:Key`, `Jwt:Issuer`, `Jwt:Audience`
+- `Fido2:ServerDomain`, `Fido2:Origins`
+- `MongoDB:ConnectionString`, `MongoDB:DatabaseName`
+- `RabbitMQ:HostName`, `RabbitMQ:Username`, `RabbitMQ:Password`
+- `Spotify:ClientId`, `Spotify:ClientSecret`, `Spotify:RedirectUri`
+- `WebPush:PublicKey`, `WebPush:PrivateKey`, `WebPush:Subject`
+- `KnowledgeBase:PollIntervalMinutes`
 - `Loki:Uri`
 
 ## Operational Notes
 
-- `Resources/config.json` currently only shows a Loki URI.
-- Additional secrets and connection strings are expected from environment variables or other runtime config injection.
-- Gallery uploads write files into `wwwroot/images/gallery`.
+- `Resources/config.json` holds non-secret runtime config; secrets/connection strings come from environment variables (production) or `dev/up.sh`-generated `.env` (local dev).
+- Gallery uploads and radio recordings are written to S3-compatible storage, not local `wwwroot`.
 
 ## Related
 
