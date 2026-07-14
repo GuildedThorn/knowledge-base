@@ -14,7 +14,7 @@ General-purpose Proxmox VM running an XFCE+i3 desktop.
 - `thorn-glance` dashboard module
 - `qemu-guest.nix` profile
 - `hosts/proxmox-guest/networking.nix`, `hardware-configuration.nix`
-- host-specific Home Manager overlay (`hosts/proxmox-guest/home.nix`)
+- host-specific Home Manager overlay (`hosts/proxmox-guest/home.nix`): XFCE+i3 + desktop-rice, Firefox, Ghostty, and Obsidian — the only non-`nixos` host besides `scout` with Obsidian enabled
 
 ## Notable Host Behavior
 

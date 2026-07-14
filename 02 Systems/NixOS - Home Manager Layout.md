@@ -21,7 +21,7 @@ Document how Home Manager is used across `ThornixOS` and what is shared versus h
 
 ## Host-Specific Home Overlays
 
-- `hosts/scout/home.nix`: single-monitor Hyprland and panel layout for the ThinkPad.
+- `hosts/scout/home.nix`: two-monitor Hyprland and panel layout for the ThinkPad (`eDP-1` internal + `HDMI-A-2` external dock/monitor) — corrects an earlier "single-monitor" claim.
 - `hosts/nixos/home.nix`: multi-monitor Hyprland and panel layout for the main workstation.
 - `hosts/mac/home.nix`: home overlay for the `mac` host.
 - `hosts/proxmox-guest/home.nix`: home overlay for the general-purpose Proxmox VM.

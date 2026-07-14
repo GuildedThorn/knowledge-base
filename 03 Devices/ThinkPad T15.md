@@ -18,7 +18,7 @@ Remote network management, software development, and personal finance.
 ## NixOS-Specific Notes
 
 - Uses the `scout` host under the `thorn` user tree.
-- Runs Hyprland with a host-specific single-monitor layout.
+- Runs Hyprland with a host-specific two-monitor layout (`eDP-1` internal panel + `HDMI-A-2` external, likely via the dock — see [[03 Devices/Docks and Displays|Docks and Displays]]).
 - Uses NetworkManager with Wi-Fi power saving enabled.
 - Enables ThinkPad fan control with `thinkpad_acpi` and `thinkfan` (custom aggressive fan curve).
 - Enables laptop-oriented services including `howdy`, IR emitter support, `tlp` (with battery charge thresholds), `thermald`, and `upower`.

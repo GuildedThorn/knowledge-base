@@ -12,7 +12,7 @@ Intel CPU / AMD graphics machine running a Hyprland desktop, with Proxmox VE ser
 - Hyprland desktop module, Intel processor module, AMD graphics module
 - service modules: ClamAV, Proxmox, SSH
 - `hosts/mac/disko.nix`, `networking.nix`
-- host-specific Home Manager overlay (`hosts/mac/home.nix`)
+- host-specific Home Manager overlay (`hosts/mac/home.nix`): Hyprland + desktop-rice, Firefox, Ghostty — no Obsidian or Vesktop here, unlike `nixos`/`scout`
 
 ## Notable Host Behavior
 

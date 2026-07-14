@@ -13,7 +13,7 @@ Daily-driver ThinkPad laptop for remote network management, development, media, 
 - service modules: audio, Bluetooth, ClamAV, fingerprint, Keybase, OBS, Spicetify, SDR, SSH
 - `thorn-glance` dashboard module
 - `hosts/scout/hardware-configuration.nix`, `networking.nix`
-- host-specific Home Manager overlay (`hosts/scout/home.nix`) for single-monitor Hyprland/panel layout
+- host-specific Home Manager overlay (`hosts/scout/home.nix`) for a two-monitor Hyprland/panel layout (`eDP-1` laptop panel + `HDMI-A-2` external, both `highres`), plus Firefox/Ghostty/Obsidian/Vesktop — corrects an earlier "single-monitor" claim in this note
 
 ## Notable Host Behavior
 
