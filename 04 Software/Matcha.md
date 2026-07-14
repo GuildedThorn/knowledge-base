@@ -25,6 +25,10 @@ Track the Matcha terminal email client setup, managed by the `thorn.programs.mat
 
 - All three account passwords are Gmail app passwords, stored as sops-nix secrets (`gmail_guildedthorn_app_password`, `gmail_opticalpvpx_app_password`, `gmail_jamieduddleston2_app_password`) on the `nixos` host — see [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]].
 
+## Confirmed Live
+
+`~/Maildir/` on `nixos` has real per-account subfolders for all three accounts (`guildedthorn`, `jamieduddleston2`, `opticalpvpx`) — this is actively syncing mail via `mbsync`, not just declared config.
+
 ## Related
 
 - [[01 Maps/Software Map|Software Map]]

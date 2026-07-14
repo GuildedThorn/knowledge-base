@@ -30,3 +30,7 @@ Track unfinished network work across routing, firewalling, DNS, remote access, a
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
 - [[01 Maps/Network Map|Network Map]]
 - [[Firewall - pfSense|Firewall - pfSense]]
+- [[05 Network/DNS|DNS]]
+- [[02 Systems/NixOS - Host mitm|Host mitm]]
+- [[02 Systems/NixOS - Host nixos|Host nixos]]
+- [[08 Improvements/Homelab Roadmap|Homelab Roadmap]]

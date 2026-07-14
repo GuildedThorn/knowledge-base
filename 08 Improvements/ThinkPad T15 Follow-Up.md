@@ -23,3 +23,4 @@ Track unfinished device and host documentation for the ThinkPad T15.
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
 - [[03 Devices/ThinkPad T15|ThinkPad T15]]
 - [[02 Systems/NixOS - Host scout|NixOS - Host scout]]
+- [[10 Hobbies/Amateur Radio and SDR|Amateur Radio and SDR]]

@@ -16,6 +16,10 @@ Document DNS design, upstream resolvers, local DNS services, and host-specific r
 - `nixos`, `scout`, `mitm`, `mac`, `firewall`, `proxmox-guest`, `websites` (all via `1.1.1.1`)
 - `proxmox-mitm` (via `8.8.8.8`)
 
+## Planned
+
+[[08 Improvements/Network Improvements|Network Improvements]] already tracks a concrete plan here: host Technitium DNS on `mitm` (as the main node, `127.0.0.1` as the local receiver) and cluster `nixos` to it. That would replace the scattered static `extraHosts` approach with an actual internal DNS server — this note's "no local resolver exists" finding is the current-state baseline that plan is meant to change.
+
 ## Questions To Resolve
 
 - Is pfSense acting only as a gateway, or also as a DNS forwarder/resolver for clients?
@@ -37,3 +41,4 @@ Document DNS design, upstream resolvers, local DNS services, and host-specific r
 - [[02 Systems/NixOS - Host nixos|NixOS - Host nixos]]
 - [[02 Systems/NixOS - Host mitm|NixOS - Host mitm]]
 - [[02 Systems/NixOS - Host scout|NixOS - Host scout]]
+- [[08 Improvements/Network Improvements|Network Improvements]]

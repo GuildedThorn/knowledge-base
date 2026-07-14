@@ -5,6 +5,7 @@ Tie together the music-production and surround-sound threads scattered across th
 ## Current State (Real)
 
 - `mixxx` (DJ software) and `hydrogen` (drum machine) are installed on both `nixos` and `scout`; `musescore` (notation) is installed on both as well.
+- Mixxx is genuinely, regularly used, not just installed: `~/.mixxx` has a real library database (`mixxxdb.sqlite`), configured `controllers/`, `effects.xml`, `broadcast_profiles/`, and 10+ rotated log files (`mixxx.log` through `mixxx.log.10`), indicating many real sessions rather than a one-off test.
 - [[07 Projects/surround-panner/surround-panner - Overview|surround-panner]] is a working, tested, dependency-free VBAP 7.1 spatial-audio engine — offline, algorithm-verified, but not yet played on real 7.1 speakers.
 - `~/Downloads/mixxx-surround-fork` is a separate, much earlier-stage effort: a plan (no code yet) to add live discrete-channel multichannel DJ mixing to Mixxx itself, distinct from surround-panner's offline VBAP approach.
 

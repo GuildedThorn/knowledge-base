@@ -19,6 +19,8 @@ Track unfinished work around host config, secrets, deployment flow, and document
 - [ ] Add host-specific operational notes for `scout`, especially power, thermals, secure boot (`lanzaboote`), and travel usage
 - [ ] Create a dedicated note for Home Manager UX customizations (`ags`, `eww`, `matcha`, `desktop-rice`) if they keep growing
 - [ ] Decide whether NixVim should standardize on `nixfmt`, `nixpkgs-fmt`, or `alejandra`
+- [ ] Fix the `nix-rebuild` shell alias in `modules/home-manager/base.nix` — it still runs `sudo nixos-rebuild switch --flake /etc/nixos --upgrade`, a leftover from the pre-`comin` deploy model (see [[04 Software/Shell Environment|Shell Environment]])
+- [ ] Clean up the two stale pre-rename trusted-project paths in `~/.codex/config.toml` (`~/Downloads/nix-config`, `~/Downloads/GuildedThorn.com-main`) — see [[04 Software/AI Coding Tools|AI Coding Tools]]
 
 ## Related
 

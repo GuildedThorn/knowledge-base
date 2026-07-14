@@ -6,7 +6,7 @@ Document how Home Manager is used across `ThornixOS` and what is shared versus h
 
 `modules/home-manager/` holds one file per concern rather than a single monolithic home config:
 
-- `base.nix`: core shell/CLI setup — `zsh`, Oh My Zsh, completion, syntax highlighting, `atuin`, `intelli-shell`, `zoxide`, `ranger`, `newsboat`, `fastfetch`, `gpg`, and shared user packages (YubiKey tools, GNOME Calculator, `anki-bin`).
+- `base.nix`: core shell/CLI setup — `zsh` (Oh My Zsh, completion, syntax highlighting, a `nix-rebuild` shell alias), [[04 Software/Shell Environment|Shell Environment]] tools (`atuin`, `intelli-shell`, `zoxide`, `fastfetch`), [[04 Software/Yazi|Yazi]], `feh`, `playerctld`, GPG with scdaemon settings, and shared user packages (`arc-theme`, YubiKey tools). Corrects an earlier pass of this note, which claimed `ranger`/`newsboat`/`anki-bin`/GNOME Calculator were declared here — none of those actually appear in `base.nix`; GNOME Calculator is real but lives in `hyprland.nix`/`xfce-i3.nix` as a keybind target instead, and a `~/.newsboat` directory exists on disk with no feeds configured, suggesting vestigial/imperative setup rather than something Home Manager manages.
 - `hyprland.nix`: shared Hyprland config, keybinds, layout, and plugins.
 - `desktop-rice.nix`: shared desktop polish/theming layer (wallpaper, panel, cursor, etc. conventions shared across Hyprland hosts).
 - `ghostty.nix`: terminal config — see [[04 Software/GhostTTY|GhostTTY]].

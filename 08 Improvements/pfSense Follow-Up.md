@@ -27,3 +27,5 @@ Track the remaining documentation and cleanup work for the pfSense router.
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
 - [[03 Devices/pfSense Router|pfSense Router]]
 - [[Firewall - pfSense|Firewall - pfSense]]
+- [[08 Improvements/Homelab Roadmap|Homelab Roadmap]]
+- [[08 Improvements/Network Improvements|Network Improvements]]

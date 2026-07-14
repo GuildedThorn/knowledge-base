@@ -9,12 +9,15 @@ Use this note as the index for application-specific documentation.
 - [[04 Software/Matcha|Matcha]]
 - [[04 Software/WeeChat|WeeChat]]
 - [[04 Software/Glance|Glance]]
+- [[04 Software/Shell Environment|Shell Environment]]
+- [[04 Software/Yazi|Yazi]]
+- [[04 Software/AI Coding Tools|AI Coding Tools]]
 
 ## Coverage Gaps
 
 - `Syncthing` does not have a note yet.
 - `Neomutt` does not have its own note yet — it's a second email stack running alongside [[04 Software/Matcha|Matcha]] against the same accounts, currently only described inline in the Matcha note.
-- `VS Code`, Postman, MongoDB Compass, `wakatime-cli`, Anki, and JetBrains Rider are all installed on one or more hosts but have no declared config anywhere — see [[08 Improvements/Ideas Backlog|Ideas Backlog]].
+- `VS Code`, Postman, MongoDB Compass, and JetBrains Rider are installed on one or more hosts but have no declared config anywhere — see [[08 Improvements/Ideas Backlog|Ideas Backlog]]. (Wakatime turned out to have real config after all — see [[04 Software/AI Coding Tools|AI Coding Tools]].)
 
 ## Related
 
