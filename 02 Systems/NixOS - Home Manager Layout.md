@@ -14,9 +14,9 @@ Document how Home Manager is used across `ThornixOS` and what is shared versus h
 - `obsidian.nix`: this vault's Obsidian setup — see [[04 Software/Obsidian|Obsidian]].
 - `firefox.nix`: extensions and policy — see [[04 Software/Firefox|Firefox]].
 - `vesktop.nix`: Discord Canary via Vesktop — tray/minimize behavior, hardware acceleration, arRPC, Vencord plugins.
-- `matcha.nix`: theming module (new since the last vault pass).
-- `neomutt.nix`: mail client config.
-- `weechat.nix`: IRC client config (new since the last vault pass).
+- `matcha.nix`: the Matcha terminal email client — see [[04 Software/Matcha|Matcha]]. (Corrects an earlier pass of this note, which mis-described this as a theming module without having read it.)
+- `neomutt.nix`: a second, parallel mbsync/msmtp/notmuch/neomutt email stack against the same accounts as Matcha.
+- `weechat.nix`: WeeChat IRC client, CertFP-authenticated against OFTC — see [[04 Software/WeeChat|WeeChat]].
 - `xfce-i3.nix`: Home Manager pieces for the XFCE+i3 desktop hosts.
 
 ## Host-Specific Home Overlays

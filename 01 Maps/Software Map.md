@@ -6,10 +6,13 @@ Use this note as the index for application-specific documentation.
 - [[04 Software/Firefox]]
 - [[04 Software/GhostTTY]]
 - [[04 Software/NixVim]]
+- [[04 Software/Matcha|Matcha]]
+- [[04 Software/WeeChat|WeeChat]]
 
 ## Coverage Gaps
 
 - `Syncthing` does not have a note yet.
+- `Neomutt` does not have its own note yet — it's a second email stack running alongside [[04 Software/Matcha|Matcha]] against the same accounts, currently only described inline in the Matcha note.
 
 ## Related
 
