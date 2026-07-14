@@ -1,6 +1,6 @@
 ## Purpose
 
-Track the NixVim setup managed by `nixos/users/thorn/programs/nixvim/main.nix`.
+Track the NixVim setup managed by `modules/home-manager/nixvim.nix` in `ThornixOS` (path corrected — the old `nixos/users/thorn/programs/nixvim/main.nix` location predates the flake-parts rewrite, see [[02 Systems/NixOS - Repository Layout|Repository Layout]]).
 
 ## Current State
 
@@ -45,10 +45,11 @@ Conform is configured to format on save with LSP fallback and a `500ms` timeout.
 
 ## Secret-Handling Notes
 
-- The Intelephense LSP config contains an inline license key in the source file.
-- Treat that value as secret or license material and migrate it out of plain config before publishing or wider sharing.
+- Direct inspection of the current `modules/home-manager/nixvim.nix` shows `intelephense.enable = true` with no inline license key present — the previously-flagged inline license key appears to have already been resolved (removed or migrated) since the last pass of this note.
+- Also confirms `wakatime.enable = true` is a real NixVim plugin — see [[04 Software/AI Coding Tools|AI Coding Tools]].
 
 ## Related
 
 - [[01 Maps/Software Map|Software Map]]
 - [[02 Systems/NixOS - Home Manager Layout|Home Manager Layout]]
+- [[04 Software/AI Coding Tools|AI Coding Tools]]
