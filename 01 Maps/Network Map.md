@@ -15,6 +15,10 @@ Use this note as the index for firewall, routing, remote access, and serial work
 - [[SSH Access]]
 - [[Remote Recovery]]
 
+## Planned
+
+- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]]
+
 ## Coverage Gaps
 
 - `WireGuard` does not have a note yet.

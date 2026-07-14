@@ -32,3 +32,4 @@ TODO:
 
 - [[01 Maps/Devices Map|Devices Map]]
 - [[90 Templates/Setup Note Template|Setup Note Template]]
+- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]] (proposed host for the planned Kali Purple VM)

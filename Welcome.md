@@ -9,6 +9,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - [[01 Maps/Devices Map|Devices Map]]
 - [[01 Maps/Network Map|Network Map]]
 - [[01 Maps/Projects Map|Projects Map]]
+- [[01 Maps/Observability Map|Observability Map]]
 - [[01 Maps/Improvements Map|Improvements Map]]
 - [[01 Maps/Reference Map|Reference Map]]
 
@@ -23,6 +24,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - `06 Reference` for cheatsheets, pinouts, commands, and links
 - `07 Projects` for active multi-note work
 - `08 Improvements` for unfinished work, cleanup items, and future upgrades
+- `09 Observability` for monitoring, dashboards, and security telemetry (current and planned)
 - `90 Templates` for reusable note structures
 - `99 Archive` for retired setups
 
