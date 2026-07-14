@@ -37,6 +37,7 @@ Short operating contract for generating and updating notes in this vault.
 - `07 Projects`: project architecture, API, deployment, runtime
 - `08 Improvements`: unresolved work and cleanup
 - `09 Observability`: monitoring, dashboards, and security telemetry, current and planned
+- `10 Hobbies`: maker/personal-interest documentation, current and planned
 
 ## Note Rules
 

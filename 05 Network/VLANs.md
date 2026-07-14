@@ -4,7 +4,7 @@ Document VLAN usage, trunks, access ports, and which network segments map to whi
 
 ## Current Known State
 
-- The `kalanik0a` `nixos` host uses `systemd-networkd` with:
+- An undocumented host (likely the `proxmox` hypervisor — see [[03 Devices/Mac Pro 5,1|Mac Pro 5,1]]) uses `systemd-networkd` with:
   - `vlan10`
   - `vlan30`
   - bridges `vmbr0` and `vmbr1`
@@ -20,8 +20,9 @@ Document VLAN usage, trunks, access ports, and which network segments map to whi
 
 - Which pfSense interfaces are VLAN-backed versus physically separate interfaces
 - Which switch ports are trunks versus access ports
-- Whether `OPT1` and `OPT3` correspond to the same VLAN IDs seen on the `kalanik0a` host
+- Whether `OPT1` and `OPT3` correspond to the same VLAN IDs seen on the host above
 - Which device groups live on each segment
+- Confirming which physical host actually owns the `vlan10`/`vlan30`/`vmbr0`/`vmbr1` config described above
 
 ## Tasks
 

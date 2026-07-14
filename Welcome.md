@@ -10,6 +10,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - [[01 Maps/Network Map|Network Map]]
 - [[01 Maps/Projects Map|Projects Map]]
 - [[01 Maps/Observability Map|Observability Map]]
+- [[01 Maps/Hobbies Map|Hobbies Map]]
 - [[01 Maps/Improvements Map|Improvements Map]]
 - [[01 Maps/Reference Map|Reference Map]]
 
@@ -25,6 +26,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - `07 Projects` for active multi-note work
 - `08 Improvements` for unfinished work, cleanup items, and future upgrades
 - `09 Observability` for monitoring, dashboards, and security telemetry (current and planned)
+- `10 Hobbies` for maker/personal-interest documentation (music, radio, fabrication, gaming, vehicles)
 - `90 Templates` for reusable note structures
 - `99 Archive` for retired setups
 

@@ -8,6 +8,8 @@ Use this note as the index for unfinished work, cleanup, and follow-up items acr
 - [[08 Improvements/NixOS Improvements|NixOS Improvements]]
 - [[08 Improvements/Project Improvements|Project Improvements]]
 - [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]]
+- [[08 Improvements/Homelab Roadmap|Homelab Roadmap]]
+- [[08 Improvements/Ideas Backlog|Ideas Backlog]]
 
 ## Device and Project Follow-Up
 

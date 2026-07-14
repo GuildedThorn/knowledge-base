@@ -9,6 +9,7 @@ Use this note as the index for hardware-specific notes.
 - [[03 Devices/pfSense Router|pfSense Router]]
 - [[03 Devices/USB Serial Adapters|USB Serial Adapters]]
 - [[03 Devices/Docks and Displays]]
+- [[03 Devices/TrueNAS|TrueNAS]]
 
 ## Adapters and Peripherals
 

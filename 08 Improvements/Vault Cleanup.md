@@ -26,7 +26,7 @@ Track cleanup work inside the knowledge base itself so maps and notes do not dri
 
 ## Other Open Question
 
-- `05 Network/VLANs.md` referenced a `02 Systems/NixOS - Host kalanik0a-nixos` note that was never created and doesn't correspond to any host in the current `ThornixOS` repo (hostname `kalanik0a`, `systemd-networkd` VLANs, and `vmbr0`/`vmbr1` bridges all point at a Proxmox hypervisor box, not one of the 10 NixOS guest/host configs) — removed the dead link rather than guess at a note. Worth confirming what `kalanik0a` actually is (likely the bare-metal Proxmox host itself) and documenting it for real.
+- `05 Network/VLANs.md` referenced a NixOS host note that was never created and doesn't correspond to any host in the current `ThornixOS` repo (its `systemd-networkd` VLANs and `vmbr0`/`vmbr1` bridges point at a Proxmox hypervisor box, not one of the 10 NixOS guest/host configs) — removed the dead link rather than guess at a note. Worth confirming whether this is the bare-metal `proxmox` host itself ([[03 Devices/Mac Pro 5,1|Mac Pro 5,1]]) and documenting it for real.
 
 ## Related
 
