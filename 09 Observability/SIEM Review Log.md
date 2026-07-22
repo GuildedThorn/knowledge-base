@@ -76,3 +76,17 @@ STATUS: OK
 - All Prometheus targets are up, no failed systemd units, no comin deploy/build/eval failures. Note scout has no Prometheus scrape target but is shipping logs to Loki — expected for the roaming laptop, so no up/Loki inconsistency.
 - Journal volumes (nixos 600k, websites 538k, soc 100k, scout 70k lines) are in normal proportion for a workstation and a public web VM versus the quieter hosts; nothing an order of magnitude off its peers' pattern.
 - No first-seen processes, identity/privilege audit anomalies, sshd-config or time-change events, and no activity at all from 192.168.1.6 this window.
+
+## 2026-07-22 06:56
+
+You've hit your session limit · resets 7:50am (America/Chicago)
+
+## 2026-07-22 14:56
+
+STATUS: OK
+
+- Quiet window overall: no pfSense Suricata priority 1–2 alerts, no CrowdSec scenario hits, no sshd auth failures fleet-wide, and zero audit-keyed events (identity/privilege/module/time-change) across all hosts.
+- All Prometheus targets are up (node exporters, pfSense, Loki, comin on all three NixOS hosts), no failed systemd units, and no comin deploy/build/eval failures — the fleet is healthy and deploys are clean.
+- The only Suricata activity on the websites sensor is a single long-lived ICMP echo flow from 192.168.1.6 (admin device) to 172.16.25.50, pinging every ~30 seconds since 13:44 local — consistent with an uptime/monitoring ping or authorized self-testing, informational severity only, no auth or payload activity from that source.
+- scout logged only ~3.7k journal lines versus 350k–684k on its peers; as a roaming laptop with no Prometheus scrape target this most likely means it was asleep or off-network most of the window, but worth a glance if it was expected to be online today.
+- Journal volumes on nixos (684k), websites (556k), and soc (352k) are mutually consistent for a 9-hour window; no host is simultaneously up in Prometheus but silent in Loki (pfSense ships Suricata logs, not journald, as expected).
