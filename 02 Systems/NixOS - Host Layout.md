@@ -15,7 +15,7 @@ This is a flatter version of the old `nixos/users/<user>/hosts/<host>/` nesting 
 
 ## Current Host Trees
 
-`nixos`, `scout`, `mac`, `websites`, `firewall`, `mitm`, `proxmox-mitm`, `proxmox-guest`, `vmware-guest`, `vmware-test` — see [[02 Systems/NixOS - Hosts Overview|Hosts Overview]] for what each one is.
+`nixos`, `scout`, `mac`, `websites`, `soc`, `firewall`, `mitm`, `proxmox-guest`, `vmware-guest`, `vmware-test` — see [[02 Systems/NixOS - Hosts Overview|Hosts Overview]] for what each one is. (`proxmox-mitm` was removed from the repo.)
 
 ## Why This Split Works
 

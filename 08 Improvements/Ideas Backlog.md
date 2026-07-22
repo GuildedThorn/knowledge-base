@@ -15,7 +15,7 @@ The vault currently documents a lot of *built* things (GuildedThorn.com, SkyDest
 
 - [[08 Improvements/Homelab Roadmap|Homelab Roadmap]] — Home Assistant, VPN, backup/DR, alerting, SearXNG
 - A dedicated [[03 Devices/TrueNAS|TrueNAS]] deep-dive once its actual dataset/snapshot/replication config is known (this note is currently just what's inferable from other hosts referencing it)
-- Formal documentation of the `proxmox` hypervisor's own guest inventory — right now individual guests (`websites`, `proxmox-guest`, `proxmox-mitm`) are documented from the `ThornixOS` side, but there's no single "what's actually running on this box" view from the Proxmox side itself
+- Formal documentation of the `proxmox` hypervisor's own guest inventory — right now individual guests (`websites`, `soc`, `proxmox-guest`) are documented from the `ThornixOS` side, but there's no single "what's actually running on this box" view from the Proxmox side itself
 
 ## Hobbies and Maker Work
 

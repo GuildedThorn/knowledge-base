@@ -26,7 +26,9 @@ Summarize the reusable named modules under `modules/` that hosts compose from (s
 
 ## Service Modules (`modules/services/`)
 
-`audio.nix` (PipeWire, PulseAudio disabled), `bluetooth.nix` (BlueZ/Blueman, PlayStation controller kernel modules), `clamav.nix`, `displaylink.nix`, `fingerprint.nix` (`fprintd` + PAM), `keybase.nix`, `obs.nix` (PipeWire capture + background-removal + `v4l2loopback`), `ollama.nix`, `proxmox.nix` (`services.proxmox-ve`), `retroarch.nix`, `sdr.nix` (RTL-SDR/HackRF), `spicetify.nix`, `ssh.nix`, `steam.nix` (Gamescope, GameMode), `tablets.nix` (`uinput` + OpenTabletDriver), `vmware.nix` (host support incl. macOS guests), `vmware-guest.nix`.
+`audio.nix` (PipeWire, PulseAudio disabled), `bluetooth.nix` (BlueZ/Blueman, PlayStation controller kernel modules), `clamav.nix`, `displaylink.nix`, `fingerprint.nix` (`fprintd` + PAM), `keybase.nix`, `obs.nix` (PipeWire capture + background-removal + `v4l2loopback`), `ollama.nix`, `proxmox.nix` (`services.proxmox-ve`), `retroarch.nix`, `sdr.nix` (RTL-SDR/HackRF), `spicetify.nix`, `ssh.nix`, `steam.nix` (Gamescope, GameMode), `tablets.nix` (`uinput` + OpenTabletDriver), `vmware.nix` (host support incl. macOS guests — no longer used by any host since it broke in the current nixpkgs pin), `vmware-guest.nix`.
+
+SIEM/observability service modules added by the [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]]: `observability.nix` (Alloy journal shipping + node_exporter, in `thorn-core` fleet-wide), `observability-roaming.nix` (WireGuard remote-write variant for `scout`), `audit.nix` (auditd baseline + `thorn.audit.execScope`), `suricata.nix` (the `websites` sensor), `crowdsec.nix` (detect-only), `canary.nix` (the detection canary on `soc`/`websites`).
 
 ## Apps and Users
 
@@ -40,7 +42,7 @@ See [[02 Systems/NixOS - Home Manager Layout|Home Manager Layout]] for `modules/
 
 ## Standalone Program Trees (`programs/`)
 
-Not Home Manager modules — actual application source/config that a Home Manager module imports: `programs/ags/` (Aylur's GTK Shell bar, TS/SCSS), `programs/eww/` (widgets, yuck/css), `programs/clonehero/clonehero.nix` (Clone Hero packaging).
+Not Home Manager modules — actual application source/config that a Home Manager module imports: only `programs/clonehero/clonehero.nix` (Clone Hero packaging) remains. The `programs/ags/` and `programs/eww/` widget trees were deleted along with the unused `astal`/`ags` flake inputs.
 
 ## Related
 

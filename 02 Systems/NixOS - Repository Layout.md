@@ -21,7 +21,7 @@ The flake uses [flake-parts](https://github.com/hercules-ci/flake-parts) + [impo
 - `modules/desktop/`, `modules/graphics/`, `modules/processor/`, `modules/services/`, `modules/apps/`, `modules/users/`, `modules/home-manager/`: reusable named modules (see [[02 Systems/NixOS - Shared Modules|Shared Modules]]).
 - `hosts/<host>/`: per-host data — `hardware-configuration.nix`, `disko.nix` where used, `networking.nix`, `home.nix` where a host has a Home Manager overlay, and `secrets.nix` + `secrets.yaml` (sops) where a host has secrets.
 - `certs/`: checked-in (non-secret) certificates — `ThornCloud_CA.crt` (internal CA) and `proxmox.guildedthorn.arpa.crt`.
-- `programs/`: standalone application source/config trees rather than Home Manager modules — `ags/` (Aylur's GTK Shell bar widget, TS/SCSS), `eww/` (widgets, yuck/css), `clonehero/clonehero.nix` (packaging/config).
+- `programs/`: standalone application source/config trees rather than Home Manager modules — now only `clonehero/clonehero.nix` (packaging/config). The `ags/` and `eww/` widget trees were deleted along with their unused `astal`/`ags` flake inputs.
 - `.sops.yaml`: sops recipient/creation-rule declarations (see [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]]).
 - `.github/workflows/ci.yml`: runs `nix flake check` and dry-run-builds every host's toplevel on push/PR.
 

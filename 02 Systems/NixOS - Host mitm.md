@@ -1,6 +1,6 @@
 ## Purpose
 
-Document the `mitm` host, composed in `modules/computers/mitm.nix`. A Proxmox VM variant of the same role exists as `proxmox-mitm` — see [[02 Systems/NixOS - Host proxmox-mitm|Host proxmox-mitm]].
+Document the `mitm` host, composed in `modules/computers/mitm.nix`. The Proxmox VM variant of this role (`proxmox-mitm`) was removed from the repo entirely.
 
 ## Role
 
@@ -16,7 +16,7 @@ Bare-metal service host for reverse proxying and internal web services.
 ## Notable Host Behavior
 
 - NetworkManager disabled; DNS `1.1.1.1`.
-- NGINX reverse-proxies `guildedthorn.com` and `radio.guildedthorn.com` (ACME-issued certs, `forceSSL`) to `proxmox.guildedthorn.arpa` on ports 5000/5001, plus `searxng.guildedthorn.arpa` over a UWSGI socket.
+- The `guildedthorn.com`/`radio.guildedthorn.com` reverse-proxy vhosts were pruned — NGINX (still enabled) now fronts only `searxng.guildedthorn.arpa` over a UWSGI socket. A `security.acme` block for `guildedthorn.com` lingers in the host file.
 - `services.searx` is fully configured (DuckDuckGo-forward engine set, vim hotkeys, rate limiting) but currently `enable = false`.
 - A `services.mongodb` block exists but is commented out.
 
@@ -29,4 +29,3 @@ Bare-metal service host for reverse proxying and internal web services.
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[01 Maps/Network Map|Network Map]]
 - [[02 Systems/NixOS - Secrets Strategy|Secrets Strategy]]
-- [[02 Systems/NixOS - Host proxmox-mitm|Host proxmox-mitm]]

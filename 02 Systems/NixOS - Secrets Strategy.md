@@ -6,7 +6,7 @@ Capture the current secret-management approach in ThornixOS without copying sens
 
 sops-nix is fully live, not just planned — this reverses the old note's premise. Secrets are encrypted with [sops](https://github.com/getsops/sops)/[sops-nix](https://github.com/Mic92/sops-nix) and committed to the repo as ciphertext, per-host, in `hosts/<host>/secrets.yaml` with a matching `hosts/<host>/secrets.nix` declaring `sops.secrets.<name>`.
 
-Only two hosts are onboarded so far: `nixos` and `websites` (both have `hosts/<host>/secrets.nix` + `secrets.yaml`; other hosts have neither).
+Four hosts are onboarded: `nixos`, `websites`, `soc`, and `scout` (each has `hosts/<host>/secrets.nix` + `secrets.yaml`; other hosts have neither).
 
 ## Recipients (`.sops.yaml`)
 
@@ -33,7 +33,9 @@ Two recipient classes, per file:
 
 - `nixos`: `wakatime_api_key` (templated into `~/.wakatime.cfg` for [[04 Software/AI Coding Tools|Wakapi]]), three Gmail app passwords (`gmail_guildedthorn_app_password`, `gmail_opticalpvpx_app_password`, `gmail_jamieduddleston2_app_password` — consumed by both [[04 Software/Matcha|Matcha]] and the parallel Neomutt/mbsync/msmtp stack), and `oftc_client_cert` (the [[04 Software/WeeChat|WeeChat]] CertFP client certificate).
 - `websites`: `guildedthorn_env` (the entire [[GuildedThorn.com - Overview|GuildedThorn.com]] dotenv — JWT/MongoDB/RabbitMQ/Spotify secrets bundled as one opaque blob rather than declared individually) and `cloudflared_tunnel_token` (templated into a `cloudflared.env` sops template for the Cloudflare Tunnel).
-- `mitm`/`proxmox-mitm`: a SearXNG secret key is wired to read from `config.sops.secrets.searx.path`, but SearXNG itself is currently `enable = false` on both hosts and neither has a `secrets.nix` yet, so this isn't live.
+- `soc`: Loki S3 credentials for the TrueNAS bucket (`loki_s3_access_key_id`/`loki_s3_secret_access_key`, currently reused for the restic Prometheus backup too), `restic_password` (not recoverable from the host — also kept in a password manager), `grafana_admin_password`, `grafana_secret_key`, `grafana_discord_webhook`, and the Grafana TLS private key — see [[02 Systems/NixOS - Host soc|Host soc]].
+- `scout`: `wg_private_key` and `wg_preshared_key` for the [[05 Network/WireGuard - Road Warrior|WireGuard road-warrior]] tunnel.
+- `mitm`: a SearXNG secret key is wired to read from `config.sops.secrets.searx.path`, but SearXNG itself is currently `enable = false` and the host has no `secrets.nix` yet, so this isn't live. (The `proxmox-mitm` variant was removed from the repo.)
 
 ## Related
 

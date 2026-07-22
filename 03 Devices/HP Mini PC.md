@@ -30,7 +30,7 @@ Currently Installed:
 - `SearXNG` configuration exists, but the service is currently disabled
 - a commented-out `MongoDB` block exists but is not active
 
-Note: Technitium DNS and a locally-proxied Grafana instance were part of an earlier config pass and no longer appear in the current `mitm` module — Grafana now only appears (also disabled) on the `proxmox-mitm` Proxmox-VM variant of this role, see [[02 Systems/NixOS - Host proxmox-mitm|Host proxmox-mitm]].
+Note: Technitium DNS and a locally-proxied Grafana instance were part of an earlier config pass and no longer appear in the current `mitm` module. (The `proxmox-mitm` VM variant that briefly carried a disabled Grafana was removed from the repo; the live Grafana is now on `soc` — see [[09 Observability/Grafana|Grafana]].)
 
 ## Reverse Proxy Notes
 

@@ -5,6 +5,7 @@ Document the Vesktop (Discord client) setup declared in `modules/home-manager/ve
 ## Current State
 
 - Enabled on `nixos` and `scout` only (not `mac` or `proxmox-guest`).
+- Was briefly dropped in favor of Dorion (a lighter Discord client; `modules/home-manager/dorion.nix`), then re-enabled — the Dorion module still exists but nothing currently enables it.
 - Tracks the Discord **canary** branch.
 - Settings: arRPC (local Rich Presence bridge) enabled, hardware acceleration on, minimize-to-tray on, tray icon on, update checks on.
 - Vencord auto-update is on, with update notifications suppressed.

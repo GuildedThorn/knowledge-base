@@ -1,10 +1,10 @@
 ## Purpose
 
-Track the NixVim setup managed by `modules/home-manager/nixvim.nix` in `ThornixOS` (path corrected — the old `nixos/users/thorn/programs/nixvim/main.nix` location predates the flake-parts rewrite, see [[02 Systems/NixOS - Repository Layout|Repository Layout]]).
+Track the NixVim setup managed by `modules/home-manager/nixvim/` in `ThornixOS` — since split per-concern into `core.nix`, `lsp.nix`, `completion.nix`, `keymaps.nix`, and `debug.nix` (it was previously a single `nixvim.nix`).
 
 ## Current State
 
-- NixVim is enabled through Home Manager from `nixos/users/thorn/home.nix`.
+- NixVim is a shared Home Manager module (see [[02 Systems/NixOS - Home Manager Layout|Home Manager Layout]]); the plugin set lives in `core.nix`, LSP servers in `lsp.nix`.
 - Unfree packages are allowed for the NixVim package set.
 - Extra editor/runtime packages include `nixd`, `fzf`, `ripgrep`, `fd`, `alejandra`, `stylua`, and `black`.
 
@@ -45,7 +45,7 @@ Conform is configured to format on save with LSP fallback and a `500ms` timeout.
 
 ## Secret-Handling Notes
 
-- Direct inspection of the current `modules/home-manager/nixvim.nix` shows `intelephense.enable = true` with no inline license key present — the previously-flagged inline license key appears to have already been resolved (removed or migrated) since the last pass of this note.
+- Direct inspection of the current `modules/home-manager/nixvim/lsp.nix` shows `intelephense.enable = true` with no inline license key present — the previously-flagged inline license key appears to have already been resolved (removed or migrated) since the last pass of this note.
 - Also confirms `wakatime.enable = true` is a real NixVim plugin — see [[04 Software/AI Coding Tools|AI Coding Tools]].
 
 ## Related

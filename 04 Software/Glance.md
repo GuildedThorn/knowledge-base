@@ -17,7 +17,7 @@ Document the Glance dashboard setup, managed by `modules/users/thorn-glance.nix`
 
 ## Open Discrepancy
 
-The Services page monitors SearXNG as if it's live, but both [[02 Systems/NixOS - Host mitm|Host mitm]] and [[02 Systems/NixOS - Host proxmox-mitm|Host proxmox-mitm]] currently have `services.searx.enable = false`. Either this monitor entry is stale, or SearXNG was live at some point and got disabled without updating the dashboard — worth reconciling.
+The Services page monitors SearXNG as if it's live, but [[02 Systems/NixOS - Host mitm|Host mitm]] currently has `services.searx.enable = false` (and the `proxmox-mitm` variant was removed from the repo). Either this monitor entry is stale, or SearXNG was live at some point and got disabled without updating the dashboard — worth reconciling.
 
 ## Related
 

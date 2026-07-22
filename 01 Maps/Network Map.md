@@ -14,6 +14,7 @@ Use this note as the index for firewall, routing, remote access, and serial work
 - [[Serial Console Setup]]
 - [[SSH Access]]
 - [[Remote Recovery]]
+- [[WireGuard - Road Warrior]]
 
 ## Planned
 
@@ -21,7 +22,6 @@ Use this note as the index for firewall, routing, remote access, and serial work
 
 ## Coverage Gaps
 
-- `WireGuard` does not have a note yet.
 - `Tailscale` does not have a note yet.
 
 ## Related

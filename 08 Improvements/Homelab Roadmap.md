@@ -10,7 +10,7 @@ None of the items below are built. This is a brainstorm/backlog, not a status re
 
 ### Home Automation
 
-- [ ] Home Assistant, previously flagged as future/planned scope for the `mitm` role — still nothing on disk or in `ThornixOS` today. Worth deciding whether it runs on `mitm`, `proxmox-mitm`, or its own new host.
+- [ ] Home Assistant, previously flagged as future/planned scope for the `mitm` role — still nothing on disk or in `ThornixOS` today. Worth deciding whether it runs on `mitm` or its own new host (`proxmox-mitm` is no longer an option — removed from the repo).
 - [ ] BLE integration specifically was the originally-floated angle (presence detection, sensors) — worth deciding what hardware this would actually integrate before building the NixOS side.
 
 ### Remote Access
@@ -28,7 +28,7 @@ None of the items below are built. This is a brainstorm/backlog, not a status re
 
 ### SearXNG
 
-- [ ] Reconcile the discrepancy flagged in [[04 Software/Glance|Glance]] — it's monitored as if live but currently `enable = false` on both `mitm` and `proxmox-mitm`.
+- [ ] Reconcile the discrepancy flagged in [[04 Software/Glance|Glance]] — it's monitored as if live but currently `enable = false` on `mitm`.
 
 ## Related
 

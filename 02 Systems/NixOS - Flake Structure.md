@@ -13,13 +13,18 @@ Notable flake inputs include:
 - `nixpkgs` on `nixos-unstable`
 - `home-manager`
 - `flake-parts` and `import-tree` (drive the module auto-loading pattern itself)
-- `hyprland` and `hyprland-plugins`
+- `hyprland` (pinned to a commit), `hyprland-plugins`, and `hyprland-scroll-overview`
 - `spicetify-nix`
-- `astal` and `ags`
+- `stylix` (fleet theming — currently the `catppuccin-mocha` base16 scheme, set in `modules/users/thorn.nix`)
 - `comin` (GitOps deploy agent)
+- `sops-nix`, `disko`, `lanzaboote`
 - `proxmox-nixos`
-- `nixvim`
+- `nixvim`, `yazi`
+- `awww` (spanning-wallpaper daemon used by the `wallpaper` Home Manager module)
+- `nix-flatpak`
 - `guildedthorn-com` — the [[GuildedThorn.com - Overview|GuildedThorn.com]] repo itself, providing the `services.guildedthorn` NixOS module used by the `websites` host
+
+The `astal` and `ags` inputs were dropped along with the unused `programs/ags`/`programs/eww` widget trees.
 
 ## Outputs
 

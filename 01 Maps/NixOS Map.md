@@ -21,7 +21,6 @@ Use this note as the index for operating system and host configuration.
 - [[02 Systems/NixOS - Host soc]]
 - [[02 Systems/NixOS - Host firewall]]
 - [[02 Systems/NixOS - Host mitm]]
-- [[02 Systems/NixOS - Host proxmox-mitm]]
 - [[02 Systems/NixOS - Host proxmox-guest]]
 - [[02 Systems/NixOS - Host vmware-test]]
 - [[02 Systems/NixOS - Host vmware-guest]]
