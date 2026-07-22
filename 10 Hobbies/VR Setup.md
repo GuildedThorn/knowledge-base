@@ -7,6 +7,7 @@ Document the VR/XR tooling enabled on the `nixos` host.
 - The `services-vr` module enables WiVRn (a standalone OpenXR runtime for streaming VR to a headset over the network) and Monado, plus a custom AMD GPU kernel patch — see [[02 Systems/NixOS - Shared Modules|Shared Modules]].
 - Packages: `openxr-loader`, `xrizer` (OpenVR-to-OpenXR compatibility, lets SteamVR-only titles run on the OpenXR/WiVRn stack), `wayvr` (Wayland desktop virtualized inside VR).
 - Only enabled on `nixos` — not `scout` or `mac`.
+- The main homegrown app on this stack is [[07 Projects/vr-brain/vr-brain - Overview|vr-brain]] (the knowledge-base-as-VR-constellation, Godot 4 + OpenXR), built from the `vr-base` template — both in `~/Documents`.
 
 ## Open Questions
 
@@ -19,3 +20,4 @@ Document the VR/XR tooling enabled on the `nixos` host.
 - [[02 Systems/NixOS - Host nixos|Host nixos]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]
 - [[01 Maps/Hobbies Map|Hobbies Map]]
+- [[07 Projects/vr-brain/vr-brain - Overview|vr-brain - Overview]]

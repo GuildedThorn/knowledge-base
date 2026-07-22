@@ -12,6 +12,7 @@ Use this note as the index for project-specific documentation.
 - [[07 Projects/ThornBot/ThornBot - Overview|ThornBot - Overview]]
 - [[07 Projects/CI4k/CI4k - Overview|CI4k - Overview]]
 - [[07 Projects/surround-panner/surround-panner - Overview|surround-panner - Overview]]
+- [[07 Projects/vr-brain/vr-brain - Overview|vr-brain - Overview]]
 
 ## Infrastructure as a Project
 
