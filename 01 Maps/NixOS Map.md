@@ -18,6 +18,7 @@ Use this note as the index for operating system and host configuration.
 - [[02 Systems/NixOS - Host scout]]
 - [[02 Systems/NixOS - Host mac]]
 - [[02 Systems/NixOS - Host websites]]
+- [[02 Systems/NixOS - Host soc]]
 - [[02 Systems/NixOS - Host firewall]]
 - [[02 Systems/NixOS - Host mitm]]
 - [[02 Systems/NixOS - Host proxmox-mitm]]

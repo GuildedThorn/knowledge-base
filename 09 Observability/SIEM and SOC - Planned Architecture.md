@@ -1,6 +1,9 @@
 ## Purpose
 
-Plan how a SIEM/SOC capability could be added to ThornCloud using Kali Purple, without inventing claims about anything that exists today. Nothing in this note is built yet — see [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]] for the task-level tracker.
+> [!note] Superseded — kept as the original plan
+> This was the Kali Purple / Wazuh / Elastic proposal. The capability was instead built **natively in the `ThornixOS` flake**: Grafana + Loki + Prometheus on a dedicated `soc` VM, with fleet-wide auditd/Alloy telemetry and Suricata/CrowdSec/canary detection modules — the "native NixOS module" path this note called a later optimization, minus Elastic/Wazuh/TheHive entirely. See [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]] for what is live and what remains. The rest of this note is preserved unmodified as planning history.
+
+Plan how a SIEM/SOC capability could be added to ThornCloud using Kali Purple, without inventing claims about anything that exists today.
 
 ## Current State (Why This Doesn't Exist Yet)
 

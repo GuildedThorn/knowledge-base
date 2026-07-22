@@ -2,12 +2,13 @@ Use this note as the index for monitoring, dashboards, and security-telemetry do
 
 ## Current
 
-- [[09 Observability/Grafana|Grafana]]
+- [[09 Observability/Grafana|Grafana]] — live on the `soc` VM with Loki + Prometheus, provisioned from `ThornixOS`
+- [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]] — what's built (soc host, fleet auditd/Alloy, Suricata, CrowdSec, canaries) and what remains
+- [[09 Observability/SIEM Review Log|SIEM Review Log]] — append-only log of the 3×-daily scheduled Claude tier-1 review passes over Loki/Prometheus
 
-## Planned
+## Historical
 
-- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]]
-- [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]]
+- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]] — the original Kali Purple/Wazuh/Elastic plan, superseded by the native build
 
 ## Related
 
