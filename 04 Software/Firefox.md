@@ -1,3 +1,9 @@
+---
+summary: Document the Firefox setup declared in `modules/home-manager/firefox.nix`.
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the Firefox setup declared in `modules/home-manager/firefox.nix`.

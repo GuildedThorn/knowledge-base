@@ -1,3 +1,9 @@
+---
+summary: "Document the `websites` host, composed in `modules/computers/websites.nix` — the production home of GuildedThorn.com."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `websites` host, composed in `modules/computers/websites.nix` — the production home of [[GuildedThorn.com - Overview|GuildedThorn.com]].

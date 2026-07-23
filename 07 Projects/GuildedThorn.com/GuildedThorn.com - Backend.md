@@ -1,3 +1,9 @@
+---
+summary: Describe the ASP.NET Core backend structure for GuildedThorn.com.
+status: active
+tags: [projects, guildedthorn-com]
+---
+
 ## Purpose
 
 Describe the ASP.NET Core backend structure for GuildedThorn.com.

@@ -1,3 +1,9 @@
+---
+summary: "Track unfinished network work across routing, firewalling, DNS, remote access, and documentation."
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track unfinished network work across routing, firewalling, DNS, remote access, and documentation.
@@ -10,8 +16,8 @@ Track unfinished network work across routing, firewalling, DNS, remote access, a
 
 ## Tasks
 
-- [ ] Create `05 Network/WireGuard.md` or remove the placeholder link from `Network Map`
-- [ ] Create `05 Network/Tailscale.md` or remove the placeholder link from `Network Map`
+- [x] Create `05 Network/WireGuard.md` or remove the placeholder link from `Network Map` — resolved: WireGuard is documented in [[05 Network/WireGuard - Road Warrior|WireGuard - Road Warrior]]; no separate note needed
+- [x] Create `05 Network/Tailscale.md` or remove the placeholder link from `Network Map` — resolved: Tailscale is not in use, placeholder removed
 - [x] Create `05 Network/DNS.md` or remove the placeholder link from `Network Map`
 - [x] Create `05 Network/VLANs.md` or remove the placeholder link from `Network Map`
 - [x] Create `05 Network/Routing.md` or remove the placeholder link from `Network Map`
@@ -21,7 +27,7 @@ Track unfinished network work across routing, firewalling, DNS, remote access, a
 - [ ] Document pfSense firewall rule intent for `WAN`, `LAN`, `OPT1`, `MGMT`, and `OPT3`
 - [ ] Document pfSense NAT and port forward inventory
 - [ ] Document pfSense DHCP scopes and static leases
-- [ ] Document whether `OPT1` and `OPT3` correspond to VLAN-backed segments or physically separate interfaces
+- [x] Document whether `OPT1` and `OPT3` correspond to VLAN-backed segments or physically separate interfaces — resolved: no VLANs. `LAN` and `OPT1` are physically separate `1000baseT` ports, `OPT3` is the OpenVPN tunnel. See [[05 Network/VLANs|VLANs]].
 - [ ] Host technitium-dns on mitm (use 127.0.0.1 as the local dns reciever), set `mitm`
   as the main technitium node, and cluster `nixos` to it, and adjust Documentation
 

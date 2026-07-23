@@ -1,3 +1,9 @@
+---
+summary: Document the Vesktop (Discord client) setup declared in `modules/home-manager/vesktop.nix`.
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the Vesktop (Discord client) setup declared in `modules/home-manager/vesktop.nix`.

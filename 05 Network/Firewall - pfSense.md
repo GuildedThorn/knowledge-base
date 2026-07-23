@@ -1,3 +1,9 @@
+---
+summary: "Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router.
@@ -36,7 +42,7 @@ From the `Tuesday, April 28, 2026` status capture:
 - default allow or deny posture per internal interface
 - management-plane access rules for the pfSense web UI and SSH
 - DNS policy for each subnet
-- inter-VLAN routing rules
+- inter-subnet routing rules (`LAN` ↔ `OPT1`; no VLANs — see [[VLANs|VLANs]])
 - outbound restrictions or egress filtering
 - logging rules that are intentionally noisy versus actually actionable
 

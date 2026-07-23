@@ -1,3 +1,9 @@
+---
+summary: Append-only log of the scheduled SIEM review passes.
+status: log
+tags: [observability]
+---
+
 ## Purpose
 
 Append-only log of the scheduled SIEM review passes. A systemd user timer on the workstation (`siem-review.timer`, 3x daily at 06:52 / 14:52 / 22:52) runs `~/.local/bin/siem-review.sh`, which pulls the last 9 hours from Loki and Prometheus on `soc` and has Claude review it like a tier-1 analyst. Non-OK verdicts also raise a desktop notification.
@@ -90,3 +96,13 @@ STATUS: OK
 - The only Suricata activity on the websites sensor is a single long-lived ICMP echo flow from 192.168.1.6 (admin device) to 172.16.25.50, pinging every ~30 seconds since 13:44 local — consistent with an uptime/monitoring ping or authorized self-testing, informational severity only, no auth or payload activity from that source.
 - scout logged only ~3.7k journal lines versus 350k–684k on its peers; as a roaming laptop with no Prometheus scrape target this most likely means it was asleep or off-network most of the window, but worth a glance if it was expected to be online today.
 - Journal volumes on nixos (684k), websites (556k), and soc (352k) are mutually consistent for a 9-hour window; no host is simultaneously up in Prometheus but silent in Loki (pfSense ships Suricata logs, not journald, as expected).
+
+## 2026-07-22 22:55
+
+STATUS: OK
+
+- **No threshold-adjacent security events fired.** sshd failures, CrowdSec scenario hits, pfSense perimeter Suricata prio 1–2, and audit keyed events (identity/privilege/priv-exec/sshd-config/modules/time-change) all returned zero across the 9h window.
+- **All hosts healthy.** Prometheus `up` = 1 for every node/comin/loki target (soc, nixos, websites, pfsense); no failed systemd units and no comin deploy/build/eval failures.
+- **Only Suricata activity is admin-box ICMP.** Every alert on the websites sensor is "GPL ICMP PING *NIX" (informational, sev 3) from 192.168.1.6 → 172.16.25.50 — the admin's own device doing echo probes to the web VM's internal IP. Pure scanning from that host, well within the confirmed self-testing baseline; no auth attempts or payloads accompany it, so it does not escalate.
+- **Journal volumes track host roles.** nixos 782k (workstation) > websites 542k (public web VM) > soc 381k (SIEM) > scout 59k (roaming laptop, expected low). No host is silent-while-up or wildly off its peers.
+- **Minor note, not a gap:** pfSense is absent from the per-host journald volume vector but is `up` in Prometheus and does ship logs (its Suricata query scanned 2337 lines) — consistent with FreeBSD not using journald, not a Loki/Prometheus inconsistency.

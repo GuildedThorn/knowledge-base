@@ -1,9 +1,15 @@
+---
+summary: "Use this note as the index for unfinished work, cleanup, and follow-up items across the vault."
+status: active
+tags: [maps]
+---
+
 Use this note as the index for unfinished work, cleanup, and follow-up items across the vault.
 
 ## Core Trackers
 
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
-- [[08 Improvements/Vault Cleanup|Vault Cleanup]]
+- [[99 Archive/Vault Cleanup|Vault Cleanup]]
 - [[08 Improvements/Network Improvements|Network Improvements]]
 - [[08 Improvements/NixOS Improvements|NixOS Improvements]]
 - [[08 Improvements/Project Improvements|Project Improvements]]

@@ -1,3 +1,9 @@
+---
+summary: "Primary workstation for software development, VMware-based development VMs, finance, gaming, and general desktop use."
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Primary workstation for software development, VMware-based development VMs, finance, gaming, and general desktop use.

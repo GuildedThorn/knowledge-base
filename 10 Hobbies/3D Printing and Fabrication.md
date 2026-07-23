@@ -1,3 +1,9 @@
+---
+summary: Document the maker/fabrication tooling installed across the fleet.
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Document the maker/fabrication tooling installed across the fleet.

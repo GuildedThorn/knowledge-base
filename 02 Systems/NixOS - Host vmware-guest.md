@@ -1,3 +1,9 @@
+---
+summary: "Document the `vmware-guest` host, composed in `modules/computers/vmware-guest.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `vmware-guest` host, composed in `modules/computers/vmware-guest.nix`.

@@ -1,3 +1,9 @@
+---
+summary: Document DisplayLink dock/monitor handling across the fleet.
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Document DisplayLink dock/monitor handling across the fleet.

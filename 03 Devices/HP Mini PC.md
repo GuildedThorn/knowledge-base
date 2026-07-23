@@ -1,3 +1,9 @@
+---
+summary: "Service host for NGINX reverse proxying, internal web services, DNS, and supporting network infrastructure workloads."
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Service host for NGINX reverse proxying, internal web services, DNS, and supporting network infrastructure workloads.

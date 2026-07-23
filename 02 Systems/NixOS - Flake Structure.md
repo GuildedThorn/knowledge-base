@@ -1,3 +1,9 @@
+---
+summary: Document what the `ThornixOS` flake defines and how it turns repo structure into buildable NixOS configurations.
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Document what the `ThornixOS` flake defines and how it turns repo structure into buildable NixOS configurations.

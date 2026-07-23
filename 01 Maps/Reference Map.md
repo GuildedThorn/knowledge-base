@@ -1,3 +1,9 @@
+---
+summary: "Use this note as the index for reusable references, commands, and templates."
+status: active
+tags: [maps]
+---
+
 Use this note as the index for reusable references, commands, and templates.
 
 ## Commands and References

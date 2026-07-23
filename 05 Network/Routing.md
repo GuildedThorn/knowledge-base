@@ -1,6 +1,12 @@
+---
+summary: "Document how traffic moves between WAN, LAN, internal subnets, VPN clients, and special-purpose hosts."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
-Document how traffic moves between WAN, LAN, internal subnets, VLANs, VPN clients, and special-purpose hosts.
+Document how traffic moves between WAN, LAN, internal subnets, VPN clients, and special-purpose hosts. (No VLANs — segmentation is by separate physical interfaces; see [[VLANs|VLANs]].)
 
 ## Current Known State
 
@@ -23,7 +29,7 @@ Document how traffic moves between WAN, LAN, internal subnets, VLANs, VPN client
 - [ ] Map subnets to purpose and trust level
 - [ ] Document default routes and any static routes
 - [ ] Document whether VPN clients are routed into all internal networks or only selected ones
-- [ ] Document how inter-VLAN and inter-subnet access is controlled
+- [ ] Document how inter-subnet access (between `192.168.1.0/24` and `172.16.25.0/24`) is controlled
 
 ## Related
 

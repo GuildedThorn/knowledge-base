@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Auto-regenerate the vault index (INDEX.md + .claude/index.json) before each
+# commit, so the LLM catalog is always in sync with the notes. Never blocks a
+# commit — if generation fails, the commit proceeds.
+root="$(git rev-parse --show-toplevel)"
+if command -v python3 >/dev/null 2>&1; then
+  python3 "$root/.claude/gen-index.py" >/dev/null 2>&1 || exit 0
+  git add "$root/INDEX.md" "$root/.claude/index.json" 2>/dev/null || true
+fi
+exit 0

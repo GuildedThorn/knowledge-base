@@ -1,3 +1,9 @@
+---
+summary: "Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router.

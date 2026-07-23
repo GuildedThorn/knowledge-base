@@ -1,3 +1,9 @@
+---
+summary: Describe the React/Vite frontend for GuildedThorn.com.
+status: active
+tags: [projects, guildedthorn-com]
+---
+
 ## Purpose
 
 Describe the React/Vite frontend for GuildedThorn.com.

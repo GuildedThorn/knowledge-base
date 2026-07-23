@@ -1,3 +1,9 @@
+---
+summary: "Document the TrueNAS box, referenced across `ThornixOS` but not previously captured as its own device note."
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Document the TrueNAS box, referenced across `ThornixOS` but not previously captured as its own device note.

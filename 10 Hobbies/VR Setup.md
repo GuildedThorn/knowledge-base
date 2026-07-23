@@ -1,3 +1,9 @@
+---
+summary: Document the VR/XR tooling enabled on the `nixos` host.
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Document the VR/XR tooling enabled on the `nixos` host.

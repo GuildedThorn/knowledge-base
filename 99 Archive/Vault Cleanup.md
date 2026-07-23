@@ -1,3 +1,9 @@
+---
+summary: Track cleanup work inside the knowledge base itself so maps and notes do not drift into placeholder soup.
+status: archived
+tags: [archive]
+---
+
 ## Purpose
 
 Track cleanup work inside the knowledge base itself so maps and notes do not drift into placeholder soup.

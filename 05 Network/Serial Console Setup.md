@@ -1,3 +1,9 @@
+---
+summary: "Document adapters, wiring, baud rates, terminal settings, and recovery workflows."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document adapters, wiring, baud rates, terminal settings, and recovery workflows.

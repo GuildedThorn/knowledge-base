@@ -1,3 +1,9 @@
+---
+summary: "Document how the `ThornixOS` repo is structured so it is easier to find shared modules, per-host config, and secrets."
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Document how the `ThornixOS` repo is structured so it is easier to find shared modules, per-host config, and secrets.

@@ -1,3 +1,9 @@
+---
+summary: "Document the `firewall` host, composed in `modules/computers/firewall.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `firewall` host, composed in `modules/computers/firewall.nix`.

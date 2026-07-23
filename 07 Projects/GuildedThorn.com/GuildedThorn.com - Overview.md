@@ -1,3 +1,9 @@
+---
+summary: "Document the architecture, runtime dependencies, and deployment shape of the `GuildedThorn.com` project, now checked out at `~/Documents/GuildedThorn.com` (mov…"
+status: active
+tags: [projects, guildedthorn-com]
+---
+
 ## Purpose
 
 Document the architecture, runtime dependencies, and deployment shape of the `GuildedThorn.com` project, now checked out at `~/Documents/GuildedThorn.com` (moved from `~/Downloads/GuildedThorn.com-main`).

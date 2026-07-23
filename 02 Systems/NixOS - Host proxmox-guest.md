@@ -1,3 +1,9 @@
+---
+summary: "Document the `proxmox-guest` host, composed in `modules/computers/proxmox-guest.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `proxmox-guest` host, composed in `modules/computers/proxmox-guest.nix`.

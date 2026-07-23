@@ -1,3 +1,9 @@
+---
+summary: Use this note as the index for hardware-specific notes.
+status: active
+tags: [maps]
+---
+
 Use this note as the index for hardware-specific notes.
 
 ## Laptops and Hosts

@@ -1,3 +1,9 @@
+---
+summary: "Document the WireGuard road-warrior setup that lets `scout` (the roaming ThinkPad) reach home from anywhere — declared in `hosts/scout/wireguard.nix`, with pfS…"
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document the WireGuard road-warrior setup that lets `scout` (the roaming ThinkPad) reach home from anywhere — declared in `hosts/scout/wireguard.nix`, with pfSense as the server side.

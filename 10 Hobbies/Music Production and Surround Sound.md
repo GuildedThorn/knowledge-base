@@ -1,3 +1,9 @@
+---
+summary: Tie together the music-production and surround-sound threads scattered across the fleet and projects into one place.
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Tie together the music-production and surround-sound threads scattered across the fleet and projects into one place.

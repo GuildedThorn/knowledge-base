@@ -1,3 +1,9 @@
+---
+summary: Record the base installation process for a new NixOS machine.
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Record the base installation process for a new NixOS machine.

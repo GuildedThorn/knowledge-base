@@ -1,3 +1,9 @@
+---
+summary: Document the architecture and status of the `Tribes-Website` project.
+status: active
+tags: [projects, tribes-website]
+---
+
 ## Purpose
 
 Document the architecture and status of the `Tribes-Website` project.

@@ -1,3 +1,9 @@
+---
+summary: Capture the current secret-management approach in ThornixOS without copying sensitive values into the knowledge base.
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Capture the current secret-management approach in ThornixOS without copying sensitive values into the knowledge base.

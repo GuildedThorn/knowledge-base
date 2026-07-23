@@ -1,3 +1,9 @@
+---
+summary: Process rough notes from `00 Inbox` into the correct long-term location.
+status: inbox
+tags: [inbox]
+---
+
 ## Purpose
 
 Process rough notes from `00 Inbox` into the correct long-term location.

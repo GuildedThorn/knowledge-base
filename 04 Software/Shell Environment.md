@@ -1,3 +1,9 @@
+---
+summary: "Document the shared shell/CLI tooling declared in `modules/home-manager/base.nix`, previously only mentioned in passing from other notes."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the shared shell/CLI tooling declared in `modules/home-manager/base.nix`, previously only mentioned in passing from other notes.

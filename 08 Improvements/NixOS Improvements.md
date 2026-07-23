@@ -1,3 +1,9 @@
+---
+summary: "Track unfinished work around host config, secrets, deployment flow, and documentation for `ThornixOS`."
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track unfinished work around host config, secrets, deployment flow, and documentation for `ThornixOS`.

@@ -1,3 +1,9 @@
+---
+summary: "Primary edge router and firewall for ThornCloud, handling WAN connectivity, internal network segmentation, firewalling, and OpenVPN access."
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Primary edge router and firewall for ThornCloud, handling WAN connectivity, internal network segmentation, firewalling, and OpenVPN access.

@@ -1,3 +1,9 @@
+---
+summary: Document how Home Manager is used across `ThornixOS` and what is shared versus host-specific.
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Document how Home Manager is used across `ThornixOS` and what is shared versus host-specific.

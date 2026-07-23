@@ -1,3 +1,9 @@
+---
+summary: "This is the working knowledge base for ThornCloud: networks, devices, software, operating systems, and the setup notes that keep all of it running."
+status: active
+tags: [root]
+---
+
 ## Welcome to ThornCloud
 
 This is the working knowledge base for ThornCloud: networks, devices, software, operating systems, and the setup notes that keep all of it running.
@@ -21,7 +27,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - `02 Systems` for NixOS, dotfiles, auth, backup, and host setup
 - `03 Devices` for laptops, docks, adapters, and hardware-specific notes
 - `04 Software` for app-by-app notes
-- `05 Network` for firewall, VPN, VLAN, routing, and serial access
+- `05 Network` for firewall, VPN, subnets, routing, and serial access
 - `06 Reference` for cheatsheets, pinouts, commands, and links
 - `07 Projects` for active multi-note work
 - `08 Improvements` for unfinished work, cleanup items, and future upgrades

@@ -1,3 +1,9 @@
+---
+summary: "A single brainstorm of things this vault will likely grow into, based on everything documented so far — a starting point to accept, reject, or reprioritize, no…"
+status: log
+tags: [improvements]
+---
+
 ## Purpose
 
 A single brainstorm of things this vault will likely grow into, based on everything documented so far — a starting point to accept, reject, or reprioritize, not a commitment. Bigger items here should graduate to their own note (or their own Improvement tracker) once there's real work behind them; this note should stay a map of possibility, not accumulate stale detail itself.
@@ -8,7 +14,7 @@ The vault currently documents a lot of *built* things (GuildedThorn.com, SkyDest
 
 ## Security
 
-- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]] and its [[08 Improvements/SIEM-SOC Rollout|rollout tracker]]
+- [[09 Observability/SIEM and SOC - Architecture|SIEM and SOC - Architecture]] and its [[08 Improvements/SIEM-SOC Rollout|rollout tracker]]
 - Track CTF platform activity (HackTheBox, TryHackMe, or similar) if that's of interest — a simple running log of boxes/challenges completed and techniques learned
 
 ## Infrastructure
@@ -26,9 +32,7 @@ The vault currently documents a lot of *built* things (GuildedThorn.com, SkyDest
 
 Installed and clearly in active use, but with no config declared anywhere beyond the package reference — so no real note exists yet without inventing content:
 
-- VS Code (already tracked in [[08 Improvements/Vault Cleanup|Vault Cleanup]])
-- Syncthing (already tracked in [[08 Improvements/Vault Cleanup|Vault Cleanup]])
-- Postman, MongoDB Compass, `wakatime-cli`, Anki (`anki-bin`), JetBrains Rider — all installed on one or more hosts, none documented; low priority individually, but worth a combined "Developer Tooling" note if they ever get real configuration behind them (dotfiles, Wakatime project tags, Anki deck subjects) rather than staying bare package references
+- MongoDB Compass — installed but has no dedicated note; low priority unless it gets real configuration worth documenting
 - `Neomutt` — already flagged in [[04 Software/Matcha|Matcha]] as the second, parallel email stack with no note of its own yet
 
 ## Meta

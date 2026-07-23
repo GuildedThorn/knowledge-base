@@ -1,3 +1,9 @@
+---
+summary: "Document the `vmware-test` host, composed in `modules/computers/vmware-test.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `vmware-test` host, composed in `modules/computers/vmware-test.nix`.

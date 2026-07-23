@@ -1,3 +1,9 @@
+---
+summary: Summarize the reusable named modules under `modules/` that hosts compose from (see Repository Layout for how auto-loading works).
+status: active
+tags: [systems]
+---
+
 ## Purpose
 
 Summarize the reusable named modules under `modules/` that hosts compose from (see [[02 Systems/NixOS - Repository Layout|Repository Layout]] for how auto-loading works).

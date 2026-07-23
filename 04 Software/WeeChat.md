@@ -1,3 +1,9 @@
+---
+summary: "Track the WeeChat IRC client setup, managed by the `thorn.programs.weechat` Home Manager module (`modules/home-manager/weechat.nix` in `ThornixOS`)."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Track the WeeChat IRC client setup, managed by the `thorn.programs.weechat` Home Manager module (`modules/home-manager/weechat.nix` in `ThornixOS`).

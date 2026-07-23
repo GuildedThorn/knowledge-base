@@ -1,3 +1,9 @@
+---
+summary: "Document the architecture, runtime dependencies, and current status of the `SkyDestroyer` project."
+status: active
+tags: [projects, skydestroyer]
+---
+
 ## Purpose
 
 Document the architecture, runtime dependencies, and current status of the `SkyDestroyer` project.

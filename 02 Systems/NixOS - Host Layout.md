@@ -1,3 +1,9 @@
+---
+summary: "Track how host-specific configuration is split across shared modules, per-host data, and one composition file per host."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Track how host-specific configuration is split across shared modules, per-host data, and one composition file per host.

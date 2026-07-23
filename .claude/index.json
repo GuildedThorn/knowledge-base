@@ -1,0 +1,1138 @@
+[
+  {
+    "slug": "agent",
+    "title": "AGENT",
+    "path": "AGENT.md",
+    "folder": "(root)",
+    "status": "active",
+    "tags": [
+      "root"
+    ],
+    "summary": "Short operating contract for generating and updating notes in this vault."
+  },
+  {
+    "slug": "readme",
+    "title": "README",
+    "path": "README.md",
+    "folder": "(root)",
+    "status": "active",
+    "tags": [
+      "root"
+    ],
+    "summary": "Front door to the ThornCloud Obsidian knowledge base — start at INDEX.md or Welcome."
+  },
+  {
+    "slug": "welcome",
+    "title": "Welcome",
+    "path": "Welcome.md",
+    "folder": "(root)",
+    "status": "active",
+    "tags": [
+      "root"
+    ],
+    "summary": "This is the working knowledge base for ThornCloud: networks, devices, software, operating systems, and the setup notes that keep all of it running."
+  },
+  {
+    "slug": "00-inbox-inbox-processing",
+    "title": "Inbox Processing",
+    "path": "00 Inbox/Inbox Processing.md",
+    "folder": "00 Inbox",
+    "status": "inbox",
+    "tags": [
+      "inbox"
+    ],
+    "summary": "Process rough notes from `00 Inbox` into the correct long-term location."
+  },
+  {
+    "slug": "01-maps-devices-map",
+    "title": "Devices Map",
+    "path": "01 Maps/Devices Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for hardware-specific notes."
+  },
+  {
+    "slug": "01-maps-hobbies-map",
+    "title": "Hobbies Map",
+    "path": "01 Maps/Hobbies Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for personal-interest and maker documentation that sits alongside the professional/infra work."
+  },
+  {
+    "slug": "01-maps-improvements-map",
+    "title": "Improvements Map",
+    "path": "01 Maps/Improvements Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for unfinished work, cleanup, and follow-up items across the vault."
+  },
+  {
+    "slug": "01-maps-network-map",
+    "title": "Network Map",
+    "path": "01 Maps/Network Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for firewall, routing, remote access, and serial workflows."
+  },
+  {
+    "slug": "01-maps-nixos-map",
+    "title": "NixOS Map",
+    "path": "01 Maps/NixOS Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for operating system and host configuration."
+  },
+  {
+    "slug": "01-maps-observability-map",
+    "title": "Observability Map",
+    "path": "01 Maps/Observability Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for monitoring, dashboards, and security-telemetry documentation."
+  },
+  {
+    "slug": "01-maps-projects-map",
+    "title": "Projects Map",
+    "path": "01 Maps/Projects Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for project-specific documentation."
+  },
+  {
+    "slug": "01-maps-reference-map",
+    "title": "Reference Map",
+    "path": "01 Maps/Reference Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for reusable references, commands, and templates."
+  },
+  {
+    "slug": "01-maps-software-map",
+    "title": "Software Map",
+    "path": "01 Maps/Software Map.md",
+    "folder": "01 Maps",
+    "status": "active",
+    "tags": [
+      "maps"
+    ],
+    "summary": "Use this note as the index for application-specific documentation."
+  },
+  {
+    "slug": "02-systems-nixos-base-install",
+    "title": "NixOS - Base Install",
+    "path": "02 Systems/NixOS - Base Install.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Record the base installation process for a new NixOS machine."
+  },
+  {
+    "slug": "02-systems-nixos-flake-structure",
+    "title": "NixOS - Flake Structure",
+    "path": "02 Systems/NixOS - Flake Structure.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Document what the `ThornixOS` flake defines and how it turns repo structure into buildable NixOS configurations."
+  },
+  {
+    "slug": "02-systems-nixos-home-manager-layout",
+    "title": "NixOS - Home Manager Layout",
+    "path": "02 Systems/NixOS - Home Manager Layout.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Document how Home Manager is used across `ThornixOS` and what is shared versus host-specific."
+  },
+  {
+    "slug": "02-systems-nixos-host-firewall",
+    "title": "NixOS - Host firewall",
+    "path": "02 Systems/NixOS - Host firewall.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `firewall` host, composed in `modules/computers/firewall.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-layout",
+    "title": "NixOS - Host Layout",
+    "path": "02 Systems/NixOS - Host Layout.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Track how host-specific configuration is split across shared modules, per-host data, and one composition file per host."
+  },
+  {
+    "slug": "02-systems-nixos-host-mac",
+    "title": "NixOS - Host mac",
+    "path": "02 Systems/NixOS - Host mac.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `mac` host, composed in `modules/computers/mac.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-mitm",
+    "title": "NixOS - Host mitm",
+    "path": "02 Systems/NixOS - Host mitm.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `mitm` host, composed in `modules/computers/mitm.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-nixos",
+    "title": "NixOS - Host nixos",
+    "path": "02 Systems/NixOS - Host nixos.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `nixos` host, composed in `modules/computers/nixos.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-proxmox-guest",
+    "title": "NixOS - Host proxmox-guest",
+    "path": "02 Systems/NixOS - Host proxmox-guest.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `proxmox-guest` host, composed in `modules/computers/proxmox-guest.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-scout",
+    "title": "NixOS - Host scout",
+    "path": "02 Systems/NixOS - Host scout.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `scout` host, composed in `modules/computers/scout.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-soc",
+    "title": "NixOS - Host soc",
+    "path": "02 Systems/NixOS - Host soc.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `soc` host, composed in `modules/computers/soc.nix` — the SIEM/observability hub the entire fleet reports to."
+  },
+  {
+    "slug": "02-systems-nixos-host-vmware-guest",
+    "title": "NixOS - Host vmware-guest",
+    "path": "02 Systems/NixOS - Host vmware-guest.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `vmware-guest` host, composed in `modules/computers/vmware-guest.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-vmware-test",
+    "title": "NixOS - Host vmware-test",
+    "path": "02 Systems/NixOS - Host vmware-test.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `vmware-test` host, composed in `modules/computers/vmware-test.nix`."
+  },
+  {
+    "slug": "02-systems-nixos-host-websites",
+    "title": "NixOS - Host websites",
+    "path": "02 Systems/NixOS - Host websites.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Document the `websites` host, composed in `modules/computers/websites.nix` — the production home of GuildedThorn.com."
+  },
+  {
+    "slug": "02-systems-nixos-hosts-overview",
+    "title": "NixOS - Hosts Overview",
+    "path": "02 Systems/NixOS - Hosts Overview.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Provide a single summary of the host inventory in `ThornixOS` (`~/Documents/ThornixOS`, GitHub `GuildedThorn/ThornixOS`)."
+  },
+  {
+    "slug": "02-systems-nixos-rebuild-and-host-selection",
+    "title": "NixOS - Rebuild and Host Selection",
+    "path": "02 Systems/NixOS - Rebuild and Host Selection.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems",
+      "host"
+    ],
+    "summary": "Record how ThornixOS hosts get built and deployed now that the repo has moved to GitOps."
+  },
+  {
+    "slug": "02-systems-nixos-repository-layout",
+    "title": "NixOS - Repository Layout",
+    "path": "02 Systems/NixOS - Repository Layout.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Document how the `ThornixOS` repo is structured so it is easier to find shared modules, per-host config, and secrets."
+  },
+  {
+    "slug": "02-systems-nixos-secrets-strategy",
+    "title": "NixOS - Secrets Strategy",
+    "path": "02 Systems/NixOS - Secrets Strategy.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Capture the current secret-management approach in ThornixOS without copying sensitive values into the knowledge base."
+  },
+  {
+    "slug": "02-systems-nixos-shared-modules",
+    "title": "NixOS - Shared Modules",
+    "path": "02 Systems/NixOS - Shared Modules.md",
+    "folder": "02 Systems",
+    "status": "active",
+    "tags": [
+      "systems"
+    ],
+    "summary": "Summarize the reusable named modules under `modules/` that hosts compose from (see Repository Layout for how auto-loading works)."
+  },
+  {
+    "slug": "03-devices-docks-and-displays",
+    "title": "Docks and Displays",
+    "path": "03 Devices/Docks and Displays.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Document DisplayLink dock/monitor handling across the fleet."
+  },
+  {
+    "slug": "03-devices-hp-mini-pc",
+    "title": "HP Mini PC",
+    "path": "03 Devices/HP Mini PC.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Service host for NGINX reverse proxying, internal web services, DNS, and supporting network infrastructure workloads."
+  },
+  {
+    "slug": "03-devices-mac-pro-5-1",
+    "title": "Mac Pro 5,1",
+    "path": "03 Devices/Mac Pro 5,1.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Development and staging/testing host."
+  },
+  {
+    "slug": "03-devices-main-pc",
+    "title": "Main PC",
+    "path": "03 Devices/Main PC.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Primary workstation for software development, VMware-based development VMs, finance, gaming, and general desktop use."
+  },
+  {
+    "slug": "03-devices-pfsense-router",
+    "title": "pfSense Router",
+    "path": "03 Devices/pfSense Router.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Primary edge router and firewall for ThornCloud, handling WAN connectivity, internal network segmentation, firewalling, and OpenVPN access."
+  },
+  {
+    "slug": "03-devices-thinkpad-t15",
+    "title": "ThinkPad T15",
+    "path": "03 Devices/ThinkPad T15.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Remote network management, software development, and personal finance."
+  },
+  {
+    "slug": "03-devices-truenas",
+    "title": "TrueNAS",
+    "path": "03 Devices/TrueNAS.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Document the TrueNAS box, referenced across `ThornixOS` but not previously captured as its own device note."
+  },
+  {
+    "slug": "03-devices-usb-serial-adapters",
+    "title": "USB Serial Adapters",
+    "path": "03 Devices/USB Serial Adapters.md",
+    "folder": "03 Devices",
+    "status": "active",
+    "tags": [
+      "devices"
+    ],
+    "summary": "Track chipsets, cable types, pinouts, and adapter-specific quirks."
+  },
+  {
+    "slug": "04-software-ai-coding-tools",
+    "title": "AI Coding Tools",
+    "path": "04 Software/AI Coding Tools.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document which AI coding tools are actually in use across the fleet, since they show up scattered as package references with no home of their own."
+  },
+  {
+    "slug": "04-software-firefox",
+    "title": "Firefox",
+    "path": "04 Software/Firefox.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the Firefox setup declared in `modules/home-manager/firefox.nix`."
+  },
+  {
+    "slug": "04-software-ghosttty",
+    "title": "GhostTTY",
+    "path": "04 Software/GhostTTY.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the Ghostty terminal setup declared in `modules/home-manager/ghostty.nix`."
+  },
+  {
+    "slug": "04-software-glance",
+    "title": "Glance",
+    "path": "04 Software/Glance.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the Glance dashboard setup, managed by `modules/users/thorn-glance.nix` in `ThornixOS`."
+  },
+  {
+    "slug": "04-software-matcha",
+    "title": "Matcha",
+    "path": "04 Software/Matcha.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Track the Matcha terminal email client setup, managed by the `thorn.programs.matcha` Home Manager module (`modules/home-manager/matcha.nix` in `ThornixOS`)."
+  },
+  {
+    "slug": "04-software-nixvim",
+    "title": "NixVim",
+    "path": "04 Software/NixVim.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Track the NixVim setup managed by `modules/home-manager/nixvim/` in `ThornixOS` — since split per-concern into `core.nix`, `lsp.nix`, `completion.nix`, `keymap…"
+  },
+  {
+    "slug": "04-software-obsidian",
+    "title": "Obsidian",
+    "path": "04 Software/Obsidian.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Track plugins, sync decisions, workflow habits, and vault conventions for this knowledge base itself."
+  },
+  {
+    "slug": "04-software-shell-environment",
+    "title": "Shell Environment",
+    "path": "04 Software/Shell Environment.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the shared shell/CLI tooling declared in `modules/home-manager/base.nix`, previously only mentioned in passing from other notes."
+  },
+  {
+    "slug": "04-software-vesktop",
+    "title": "Vesktop",
+    "path": "04 Software/Vesktop.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the Vesktop (Discord client) setup declared in `modules/home-manager/vesktop.nix`."
+  },
+  {
+    "slug": "04-software-weechat",
+    "title": "WeeChat",
+    "path": "04 Software/WeeChat.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Track the WeeChat IRC client setup, managed by the `thorn.programs.weechat` Home Manager module (`modules/home-manager/weechat.nix` in `ThornixOS`)."
+  },
+  {
+    "slug": "04-software-yazi",
+    "title": "Yazi",
+    "path": "04 Software/Yazi.md",
+    "folder": "04 Software",
+    "status": "active",
+    "tags": [
+      "software"
+    ],
+    "summary": "Document the Yazi (terminal file manager) setup declared in `modules/home-manager/base.nix`."
+  },
+  {
+    "slug": "05-network-dns",
+    "title": "DNS",
+    "path": "05 Network/DNS.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document DNS design, upstream resolvers, local DNS services, and host-specific resolution behavior across ThornCloud."
+  },
+  {
+    "slug": "05-network-firewall-mitm",
+    "title": "Firewall - mitm",
+    "path": "05 Network/Firewall - mitm.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router."
+  },
+  {
+    "slug": "05-network-firewall-pfsense",
+    "title": "Firewall - pfSense",
+    "path": "05 Network/Firewall - pfSense.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document firewall policy, interface separation, NAT behavior, VPN exposure, and validation steps for the ThornCloud pfSense edge router."
+  },
+  {
+    "slug": "05-network-host-ip-inventory",
+    "title": "Host & IP Inventory",
+    "path": "05 Network/Host & IP Inventory.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network",
+      "reference"
+    ],
+    "summary": "Single source of truth for ThornCloud subnets, pfSense interfaces, host IPs, and service endpoints."
+  },
+  {
+    "slug": "05-network-remote-recovery",
+    "title": "Remote Recovery",
+    "path": "05 Network/Remote Recovery.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document how to recover access to ThornCloud systems when normal desktop, web, or service access breaks."
+  },
+  {
+    "slug": "05-network-routing",
+    "title": "Routing",
+    "path": "05 Network/Routing.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document how traffic moves between WAN, LAN, internal subnets, VPN clients, and special-purpose hosts."
+  },
+  {
+    "slug": "05-network-serial-console-setup",
+    "title": "Serial Console Setup",
+    "path": "05 Network/Serial Console Setup.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document adapters, wiring, baud rates, terminal settings, and recovery workflows."
+  },
+  {
+    "slug": "05-network-ssh-access",
+    "title": "SSH Access",
+    "path": "05 Network/SSH Access.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document SSH entry points, agent behavior, key handling, and which systems are intended to be reachable over SSH."
+  },
+  {
+    "slug": "05-network-vlans",
+    "title": "VLANs",
+    "path": "05 Network/VLANs.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document how the network is segmented in ThornCloud."
+  },
+  {
+    "slug": "05-network-wireguard-road-warrior",
+    "title": "WireGuard - Road Warrior",
+    "path": "05 Network/WireGuard - Road Warrior.md",
+    "folder": "05 Network",
+    "status": "active",
+    "tags": [
+      "network"
+    ],
+    "summary": "Document the WireGuard road-warrior setup that lets `scout` (the roaming ThinkPad) reach home from anywhere — declared in `hosts/scout/wireguard.nix`, with pfS…"
+  },
+  {
+    "slug": "06-reference-codex-generation-standard",
+    "title": "Codex Generation Standard",
+    "path": "06 Reference/Codex Generation Standard.md",
+    "folder": "06 Reference",
+    "status": "active",
+    "tags": [
+      "reference"
+    ],
+    "summary": "Define a compact operating standard for generating new vault content with minimal token waste, clean discovery, and consistent formatting."
+  },
+  {
+    "slug": "06-reference-commands-cheat-sheet",
+    "title": "Commands Cheat Sheet",
+    "path": "06 Reference/Commands Cheat Sheet.md",
+    "folder": "06 Reference",
+    "status": "active",
+    "tags": [
+      "reference"
+    ],
+    "summary": "Keep short command references that are useful enough to reuse but not large enough to deserve their own notes."
+  },
+  {
+    "slug": "07-projects-ci4k-ci4k-overview",
+    "title": "CI4k - Overview",
+    "path": "07 Projects/CI4k/CI4k - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "ci4k"
+    ],
+    "summary": "Document the architecture and purpose of the `CI4k` project."
+  },
+  {
+    "slug": "07-projects-guildedthorn-com-guildedthorn-com-api-and-services",
+    "title": "GuildedThorn.com - API and Services",
+    "path": "07 Projects/GuildedThorn.com/GuildedThorn.com - API and Services.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "guildedthorn-com"
+    ],
+    "summary": "Provide a compact API and integration reference for GuildedThorn.com."
+  },
+  {
+    "slug": "07-projects-guildedthorn-com-guildedthorn-com-backend",
+    "title": "GuildedThorn.com - Backend",
+    "path": "07 Projects/GuildedThorn.com/GuildedThorn.com - Backend.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "guildedthorn-com"
+    ],
+    "summary": "Describe the ASP.NET Core backend structure for GuildedThorn.com."
+  },
+  {
+    "slug": "07-projects-guildedthorn-com-guildedthorn-com-deployment",
+    "title": "GuildedThorn.com - Deployment",
+    "path": "07 Projects/GuildedThorn.com/GuildedThorn.com - Deployment.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "guildedthorn-com"
+    ],
+    "summary": "Document how GuildedThorn.com is developed, built, containerized, and actually deployed in production."
+  },
+  {
+    "slug": "07-projects-guildedthorn-com-guildedthorn-com-frontend",
+    "title": "GuildedThorn.com - Frontend",
+    "path": "07 Projects/GuildedThorn.com/GuildedThorn.com - Frontend.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "guildedthorn-com"
+    ],
+    "summary": "Describe the React/Vite frontend for GuildedThorn.com."
+  },
+  {
+    "slug": "07-projects-guildedthorn-com-guildedthorn-com-overview",
+    "title": "GuildedThorn.com - Overview",
+    "path": "07 Projects/GuildedThorn.com/GuildedThorn.com - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "guildedthorn-com"
+    ],
+    "summary": "Document the architecture, runtime dependencies, and deployment shape of the `GuildedThorn.com` project, now checked out at `~/Documents/GuildedThorn.com` (mov…"
+  },
+  {
+    "slug": "07-projects-skydestroyer-skydestroyer-overview",
+    "title": "SkyDestroyer - Overview",
+    "path": "07 Projects/SkyDestroyer/SkyDestroyer - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "skydestroyer"
+    ],
+    "summary": "Document the architecture, runtime dependencies, and current status of the `SkyDestroyer` project."
+  },
+  {
+    "slug": "07-projects-surround-panner-surround-panner-overview",
+    "title": "surround-panner - Overview",
+    "path": "07 Projects/surround-panner/surround-panner - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "surround-panner"
+    ],
+    "summary": "Document the `surround-panner` project and its relationship to the `mixxx-surround-fork` experiment."
+  },
+  {
+    "slug": "07-projects-thornbot-thornbot-overview",
+    "title": "ThornBot - Overview",
+    "path": "07 Projects/ThornBot/ThornBot - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "thornbot"
+    ],
+    "summary": "Document the architecture and deployment shape of the `ThornBot` project."
+  },
+  {
+    "slug": "07-projects-tribes-website-tribes-website-overview",
+    "title": "Tribes-Website - Overview",
+    "path": "07 Projects/Tribes-Website/Tribes-Website - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "tribes-website"
+    ],
+    "summary": "Document the architecture and status of the `Tribes-Website` project."
+  },
+  {
+    "slug": "07-projects-vr-brain-vr-brain-overview",
+    "title": "vr-brain - Overview",
+    "path": "07 Projects/vr-brain/vr-brain - Overview.md",
+    "folder": "07 Projects",
+    "status": "active",
+    "tags": [
+      "projects",
+      "vr-brain"
+    ],
+    "summary": "Document the architecture and current state of `vr-brain`, the VR knowledge-constellation app that renders this vault in a headset."
+  },
+  {
+    "slug": "08-improvements-guildedthorn-com-follow-up",
+    "title": "GuildedThorn.com Follow-Up",
+    "path": "08 Improvements/GuildedThorn.com Follow-Up.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track concrete technical and documentation follow-up items discovered while reading the `GuildedThorn.com` repo, now checked out at `~/Documents/GuildedThorn.c…"
+  },
+  {
+    "slug": "08-improvements-homelab-roadmap",
+    "title": "Homelab Roadmap",
+    "path": "08 Improvements/Homelab Roadmap.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Collect planned homelab infrastructure work that doesn't yet warrant its own dedicated note — bigger items graduate out of here once there's real config to doc…"
+  },
+  {
+    "slug": "08-improvements-ideas-backlog",
+    "title": "Ideas Backlog",
+    "path": "08 Improvements/Ideas Backlog.md",
+    "folder": "08 Improvements",
+    "status": "log",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "A single brainstorm of things this vault will likely grow into, based on everything documented so far — a starting point to accept, reject, or reprioritize, no…"
+  },
+  {
+    "slug": "08-improvements-improvements-tracker",
+    "title": "Improvements Tracker",
+    "path": "08 Improvements/Improvements Tracker.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Use this note as the index for things that still need work, cleanup, or completion."
+  },
+  {
+    "slug": "08-improvements-main-pc-follow-up",
+    "title": "Main PC Follow-Up",
+    "path": "08 Improvements/Main PC Follow-Up.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track unfinished device and host documentation for the main workstation."
+  },
+  {
+    "slug": "08-improvements-network-improvements",
+    "title": "Network Improvements",
+    "path": "08 Improvements/Network Improvements.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track unfinished network work across routing, firewalling, DNS, remote access, and documentation."
+  },
+  {
+    "slug": "08-improvements-nixos-improvements",
+    "title": "NixOS Improvements",
+    "path": "08 Improvements/NixOS Improvements.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track unfinished work around host config, secrets, deployment flow, and documentation for `ThornixOS`."
+  },
+  {
+    "slug": "08-improvements-pfsense-follow-up",
+    "title": "pfSense Follow-Up",
+    "path": "08 Improvements/pfSense Follow-Up.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track the remaining documentation and cleanup work for the pfSense router."
+  },
+  {
+    "slug": "08-improvements-project-improvements",
+    "title": "Project Improvements",
+    "path": "08 Improvements/Project Improvements.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track unfinished work across applications and websites documented in the vault."
+  },
+  {
+    "slug": "08-improvements-siem-soc-rollout",
+    "title": "SIEM-SOC Rollout",
+    "path": "08 Improvements/SIEM-SOC Rollout.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track the rollout of the SIEM/SOC capability — built natively in the `ThornixOS` flake, deployed via `comin` GitOps like everything else (design in SIEM and SO…"
+  },
+  {
+    "slug": "08-improvements-thinkpad-t15-follow-up",
+    "title": "ThinkPad T15 Follow-Up",
+    "path": "08 Improvements/ThinkPad T15 Follow-Up.md",
+    "folder": "08 Improvements",
+    "status": "in-progress",
+    "tags": [
+      "improvements"
+    ],
+    "summary": "Track unfinished device and host documentation for the ThinkPad T15."
+  },
+  {
+    "slug": "09-observability-grafana",
+    "title": "Grafana",
+    "path": "09 Observability/Grafana.md",
+    "folder": "09 Observability",
+    "status": "active",
+    "tags": [
+      "observability"
+    ],
+    "summary": "Document Grafana usage across ThornCloud for dashboards and SIEM visualization."
+  },
+  {
+    "slug": "09-observability-siem-and-soc-architecture",
+    "title": "SIEM and SOC - Architecture",
+    "path": "09 Observability/SIEM and SOC - Architecture.md",
+    "folder": "09 Observability",
+    "status": "active",
+    "tags": [
+      "observability"
+    ],
+    "summary": "Architecture of ThornCloud's SIEM/SOC."
+  },
+  {
+    "slug": "09-observability-siem-review-log",
+    "title": "SIEM Review Log",
+    "path": "09 Observability/SIEM Review Log.md",
+    "folder": "09 Observability",
+    "status": "log",
+    "tags": [
+      "observability"
+    ],
+    "summary": "Append-only log of the scheduled SIEM review passes."
+  },
+  {
+    "slug": "10-hobbies-3d-printing-and-fabrication",
+    "title": "3D Printing and Fabrication",
+    "path": "10 Hobbies/3D Printing and Fabrication.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Document the maker/fabrication tooling installed across the fleet."
+  },
+  {
+    "slug": "10-hobbies-amateur-radio-and-sdr",
+    "title": "Amateur Radio and SDR",
+    "path": "10 Hobbies/Amateur Radio and SDR.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Document the SDR/radio tooling installed across the fleet."
+  },
+  {
+    "slug": "10-hobbies-emulation-and-retro-gaming",
+    "title": "Emulation and Retro Gaming",
+    "path": "10 Hobbies/Emulation and Retro Gaming.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Document emulation and retro-gaming tooling across the fleet, including its overlap with SkyDestroyer."
+  },
+  {
+    "slug": "10-hobbies-music-production-and-surround-sound",
+    "title": "Music Production and Surround Sound",
+    "path": "10 Hobbies/Music Production and Surround Sound.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Tie together the music-production and surround-sound threads scattered across the fleet and projects into one place."
+  },
+  {
+    "slug": "10-hobbies-streaming-setup",
+    "title": "Streaming Setup",
+    "path": "10 Hobbies/Streaming Setup.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Tie together the streaming-related pieces that already exist on both the infrastructure and client side."
+  },
+  {
+    "slug": "10-hobbies-vehicle-diagnostics-forscan-on-nixos",
+    "title": "Vehicle Diagnostics - FORScan on NixOS",
+    "path": "10 Hobbies/Vehicle Diagnostics - FORScan on NixOS.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Capture the FORScan-on-NixOS setup notes from `~/Downloads/forscan-linux-nixos.md`, which had real, detailed setup work but no vault note."
+  },
+  {
+    "slug": "10-hobbies-vr-setup",
+    "title": "VR Setup",
+    "path": "10 Hobbies/VR Setup.md",
+    "folder": "10 Hobbies",
+    "status": "active",
+    "tags": [
+      "hobbies"
+    ],
+    "summary": "Document the VR/XR tooling enabled on the `nixos` host."
+  },
+  {
+    "slug": "90-templates-improvement-note-template",
+    "title": "Improvement Note Template",
+    "path": "90 Templates/Improvement Note Template.md",
+    "folder": "90 Templates",
+    "status": "template",
+    "tags": [
+      "templates"
+    ],
+    "summary": "What needs to be improved, finished, or cleaned up."
+  },
+  {
+    "slug": "90-templates-inbox-note-template",
+    "title": "Inbox Note Template",
+    "path": "90 Templates/Inbox Note Template.md",
+    "folder": "90 Templates",
+    "status": "template",
+    "tags": [
+      "templates"
+    ],
+    "summary": "Quick capture of an idea, issue, setup note, or link that needs to be sorted later."
+  },
+  {
+    "slug": "90-templates-setup-note-template",
+    "title": "Setup Note Template",
+    "path": "90 Templates/Setup Note Template.md",
+    "folder": "90 Templates",
+    "status": "template",
+    "tags": [
+      "templates"
+    ],
+    "summary": "What this setup or note is for."
+  },
+  {
+    "slug": "99-archive-siem-and-soc-kali-purple-proposal-superseded",
+    "title": "SIEM and SOC - Kali Purple Proposal (superseded)",
+    "path": "99 Archive/SIEM and SOC - Kali Purple Proposal (superseded).md",
+    "folder": "99 Archive",
+    "status": "superseded",
+    "tags": [
+      "archive"
+    ],
+    "summary": "Plan how a SIEM/SOC capability could be added to ThornCloud using Kali Purple, without inventing claims about anything that existed at the time."
+  },
+  {
+    "slug": "99-archive-vault-cleanup",
+    "title": "Vault Cleanup",
+    "path": "99 Archive/Vault Cleanup.md",
+    "folder": "99 Archive",
+    "status": "archived",
+    "tags": [
+      "archive"
+    ],
+    "summary": "Track cleanup work inside the knowledge base itself so maps and notes do not drift into placeholder soup."
+  },
+  {
+    "slug": "briefings-2026-07-22",
+    "title": "2026-07-22",
+    "path": "Briefings/2026-07-22.md",
+    "folder": "Briefings",
+    "status": "log",
+    "tags": [
+      "briefing"
+    ],
+    "summary": "Quiet, healthy constellation."
+  }
+]

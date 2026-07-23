@@ -1,3 +1,9 @@
+---
+summary: Use this note as the index for project-specific documentation.
+status: active
+tags: [maps]
+---
+
 Use this note as the index for project-specific documentation.
 
 ## Active Project Notes

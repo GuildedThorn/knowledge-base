@@ -1,3 +1,9 @@
+---
+summary: "Document the `mac` host, composed in `modules/computers/mac.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `mac` host, composed in `modules/computers/mac.nix`.

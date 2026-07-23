@@ -1,3 +1,9 @@
+---
+summary: "Document emulation and retro-gaming tooling across the fleet, including its overlap with SkyDestroyer."
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Document emulation and retro-gaming tooling across the fleet, including its overlap with [[07 Projects/SkyDestroyer/SkyDestroyer - Overview|SkyDestroyer]].

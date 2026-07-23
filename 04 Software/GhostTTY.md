@@ -1,3 +1,9 @@
+---
+summary: Document the Ghostty terminal setup declared in `modules/home-manager/ghostty.nix`.
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the Ghostty terminal setup declared in `modules/home-manager/ghostty.nix`.

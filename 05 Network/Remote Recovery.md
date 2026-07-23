@@ -1,3 +1,9 @@
+---
+summary: "Document how to recover access to ThornCloud systems when normal desktop, web, or service access breaks."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document how to recover access to ThornCloud systems when normal desktop, web, or service access breaks.

@@ -1,6 +1,12 @@
+---
+summary: "Track the rollout of the SIEM/SOC capability — built natively in the `ThornixOS` flake, deployed via `comin` GitOps like everything else (design in SIEM and SO…"
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
-Track the rollout of the SIEM/SOC capability. The original plan in [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]] (Kali Purple appliance, Wazuh agents, Elastic) was **not** the path taken — the capability was built natively in the `ThornixOS` flake instead, deployed via `comin` GitOps like everything else. This note tracks what is live and what remains.
+Track the rollout of the SIEM/SOC capability — built natively in the `ThornixOS` flake, deployed via `comin` GitOps like everything else (design in [[09 Observability/SIEM and SOC - Architecture|SIEM and SOC - Architecture]]). This note tracks what is live and what remains.
 
 ## Current State — What Is Built
 
@@ -43,9 +49,9 @@ A dedicated headless VM (`hosts/soc/` + `modules/computers/soc.nix`), defended l
 
 There is also a CRT SOC display on the workstation (`thorn.desktop.crt`) showing the live log feed — decoration, but it keeps the pipeline visibly alive.
 
-### Superseded from the original plan
+### Deliberately not adopted
 
-Kali Purple, Wazuh (manager and the never-packaged NixOS agent), Elastic, TheHive/Cortex, and Arkime were all dropped. auditd + journal shipping fills the host-telemetry role; Discord fills the alert fan-out role (answering the old open question — via webhook, not [[07 Projects/ThornBot/ThornBot - Overview|ThornBot]]); case management is unhandled and probably unnecessary for a one-person SOC. The old Phase 1–6 checklists are gone with them.
+Heavyweight SIEM appliances (Elastic, Wazuh, TheHive/Cortex, Arkime) were not adopted. auditd + journal shipping fills the host-telemetry role; Discord fills the alert fan-out role (via webhook, not [[07 Projects/ThornBot/ThornBot - Overview|ThornBot]]); case management is unhandled and probably unnecessary for a one-person SOC.
 
 ## Tasks
 
@@ -60,18 +66,18 @@ Kali Purple, Wazuh (manager and the never-packaged NixOS agent), Elastic, TheHiv
 ### The real XDR move (a weekend)
 
 - [ ] **Graduate CrowdSec from detect to respond.** Run the LAPI centrally on `soc`, register the existing machines, put the firewall bouncer on pfSense — then a scenario tripping on `websites` drops the attacker's IP at the perimeter for every host. That detect→decide→respond loop is what makes this XDR rather than a very nice logging pipeline. Start with conservative ban times.
-- [ ] **A whole-LAN sensor.** `websites`' Suricata only sees its own traffic. A SPAN/mirror port on the switch feeding a dedicated sensor (the `mitm` host's name is begging for the job) gives east-west visibility — the IoT-to-everything traffic nobody currently watches. Blocked on [[05 Network/VLANs|VLANs]].
+- [ ] **A whole-LAN sensor.** `websites`' Suricata only sees its own traffic. A SPAN/mirror port on the switch feeding a dedicated sensor (the `mitm` host's name is begging for the job) gives east-west visibility — the IoT-to-everything traffic nobody currently watches. Blocked on network isolation (no VLANs — see [[05 Network/VLANs|VLANs]]).
 
 ### Structural (ongoing)
 
 - [ ] **Vulnerability inventory, the Nix way.** The store holds a complete, exact software inventory per host. Run vulnix (or nixpkgs advisory scanning) against each host's toplevel in CI, export counts to Prometheus, alert on new criticals. Asset + vuln management nearly free — a genuinely unfair advantage of the platform.
 - [ ] **Deception beyond the pipeline canary.** Extend the canary idea to intrusion detection: an SSH honeypot on an unused IP (endlessh or opencanary), a fake credential file on `websites` with an audit `-w` watch, canary DNS names that should never be resolved. Near-zero false-positive rate — a hit *means* something, which on a one-person SOC beats any volume of maybe-alerts.
 - [ ] **Tune the auth detections already collected.** `activation`'s perl legitimately touches `/etc/passwd` on every deploy, so a naive identity alert would false-positive constantly. Alert on identity/priv-exec events where `auid` is a real user, or outside a comin deploy window — turning dashboard-only audit keys into alertable signals.
-- [ ] **Purple-team loop.** Carve out an isolated segment, stand up a disposable target, run an attack scenario end-to-end, and confirm the expected detections fire. Blocked on [[05 Network/VLANs|VLANs]].
+- [ ] **Purple-team loop.** Carve out an isolated segment, stand up a disposable target, run an attack scenario end-to-end, and confirm the expected detections fire. Blocked on network isolation (no VLANs — see [[05 Network/VLANs|VLANs]]).
 
 ## Blockers
 
-- [[05 Network/VLANs|VLANs]] — the SPAN-port sensor and purple-team phases both need the VLAN ID / trunking questions resolved.
+- **Network isolation** — the whole-LAN SPAN sensor and the purple-team segment both need traffic isolation. There are no VLANs (see [[05 Network/VLANs|VLANs]]), so this means a switch SPAN/mirror port for the sensor and a dedicated physical interface/subnet on pfSense (or introducing VLANs specifically for this) for the isolated red-team segment.
 - **Hypervisor migration** — properly managed (GitOps/Nix) monitoring of the Proxmox box means moving the hypervisor itself to NixOS-Proxmox, which would destroy the existing guests (`websites`, `soc`, `proxmox-guest`). Deliberately deferred until there's a migration path for the VMs; only the *managed* version is blocked, not visibility (see the interim-telemetry task above).
 
 ## Done Looks Like
@@ -82,7 +88,7 @@ Kali Purple, Wazuh (manager and the never-packaged NixOS agent), Elastic, TheHiv
 
 ## Related
 
-- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]]
+- [[09 Observability/SIEM and SOC - Architecture|SIEM and SOC - Architecture]]
 - [[09 Observability/Grafana|Grafana]]
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
 - [[08 Improvements/Network Improvements|Network Improvements]]

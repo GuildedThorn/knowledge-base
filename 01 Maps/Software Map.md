@@ -1,3 +1,9 @@
+---
+summary: Use this note as the index for application-specific documentation.
+status: active
+tags: [maps]
+---
+
 Use this note as the index for application-specific documentation.
 
 ## Documented Apps
@@ -16,9 +22,8 @@ Use this note as the index for application-specific documentation.
 
 ## Coverage Gaps
 
-- `Syncthing` does not have a note yet.
 - `Neomutt` does not have its own note yet — it's a second email stack running alongside [[04 Software/Matcha|Matcha]] against the same accounts, currently only described inline in the Matcha note.
-- `VS Code`, Postman, MongoDB Compass, and JetBrains Rider are installed on one or more hosts but have no declared config anywhere — see [[08 Improvements/Ideas Backlog|Ideas Backlog]]. (Wakatime turned out to have real config after all — see [[04 Software/AI Coding Tools|AI Coding Tools]].)
+- MongoDB Compass is installed but has no declared config anywhere — see [[08 Improvements/Ideas Backlog|Ideas Backlog]]. (Wakatime turned out to have real config after all — see [[04 Software/AI Coding Tools|AI Coding Tools]].) The editor is neovim — see [[04 Software/NixVim|NixVim]].
 
 ## Related
 

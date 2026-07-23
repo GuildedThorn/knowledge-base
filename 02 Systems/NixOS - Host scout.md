@@ -1,3 +1,9 @@
+---
+summary: "Document the `scout` host, composed in `modules/computers/scout.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `scout` host, composed in `modules/computers/scout.nix`.

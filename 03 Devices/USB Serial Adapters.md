@@ -1,3 +1,8 @@
+---
+summary: "Track chipsets, cable types, pinouts, and adapter-specific quirks."
+status: active
+tags: [devices]
+---
 
 ## Purpose
 

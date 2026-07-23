@@ -1,3 +1,9 @@
+---
+summary: Document the SDR/radio tooling installed across the fleet.
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Document the SDR/radio tooling installed across the fleet.

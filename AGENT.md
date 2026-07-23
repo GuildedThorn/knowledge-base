@@ -1,3 +1,9 @@
+---
+summary: Short operating contract for generating and updating notes in this vault.
+status: active
+tags: [root]
+---
+
 ## Purpose
 
 Short operating contract for generating and updating notes in this vault.

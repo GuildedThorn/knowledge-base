@@ -1,3 +1,9 @@
+---
+summary: "Track the NixVim setup managed by `modules/home-manager/nixvim/` in `ThornixOS` — since split per-concern into `core.nix`, `lsp.nix`, `completion.nix`, `keymap…"
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Track the NixVim setup managed by `modules/home-manager/nixvim/` in `ThornixOS` — since split per-concern into `core.nix`, `lsp.nix`, `completion.nix`, `keymaps.nix`, and `debug.nix` (it was previously a single `nixvim.nix`).

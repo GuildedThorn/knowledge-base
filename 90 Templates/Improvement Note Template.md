@@ -1,3 +1,9 @@
+---
+summary: "What needs to be improved, finished, or cleaned up."
+status: template
+tags: [templates]
+---
+
 ## Purpose
 
 What needs to be improved, finished, or cleaned up.

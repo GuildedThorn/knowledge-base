@@ -1,3 +1,9 @@
+---
+summary: "Capture the FORScan-on-NixOS setup notes from `~/Downloads/forscan-linux-nixos.md`, which had real, detailed setup work but no vault note."
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Capture the FORScan-on-NixOS setup notes from `~/Downloads/forscan-linux-nixos.md`, which had real, detailed setup work but no vault note.

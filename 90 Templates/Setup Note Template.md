@@ -1,3 +1,9 @@
+---
+summary: What this setup or note is for.
+status: template
+tags: [templates]
+---
+
 ## Purpose
 
 What this setup or note is for.

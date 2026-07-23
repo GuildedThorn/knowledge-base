@@ -1,3 +1,9 @@
+---
+summary: "Document the `mitm` host, composed in `modules/computers/mitm.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `mitm` host, composed in `modules/computers/mitm.nix`. The Proxmox VM variant of this role (`proxmox-mitm`) was removed from the repo entirely.

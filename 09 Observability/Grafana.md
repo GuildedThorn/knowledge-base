@@ -1,3 +1,9 @@
+---
+summary: Document Grafana usage across ThornCloud for dashboards and SIEM visualization.
+status: active
+tags: [observability]
+---
+
 ## Purpose
 
 Document Grafana usage across ThornCloud for dashboards and SIEM visualization.
@@ -16,5 +22,5 @@ Document Grafana usage across ThornCloud for dashboards and SIEM visualization.
 
 - [[01 Maps/Observability Map|Observability Map]]
 - [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]]
-- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]]
+- [[09 Observability/SIEM and SOC - Architecture|SIEM and SOC - Architecture]]
 - [[GuildedThorn.com - Overview|GuildedThorn.com]]

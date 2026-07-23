@@ -1,3 +1,9 @@
+---
+summary: Use this note as the index for personal-interest and maker documentation that sits alongside the professional/infra work.
+status: active
+tags: [maps]
+---
+
 Use this note as the index for personal-interest and maker documentation that sits alongside the professional/infra work.
 
 ## Documented

@@ -1,3 +1,9 @@
+---
+summary: Record how ThornixOS hosts get built and deployed now that the repo has moved to GitOps.
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Record how ThornixOS hosts get built and deployed now that the repo has moved to GitOps.

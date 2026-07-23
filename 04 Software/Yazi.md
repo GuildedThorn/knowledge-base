@@ -1,3 +1,9 @@
+---
+summary: Document the Yazi (terminal file manager) setup declared in `modules/home-manager/base.nix`.
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the Yazi (terminal file manager) setup declared in `modules/home-manager/base.nix`.

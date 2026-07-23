@@ -1,3 +1,9 @@
+---
+summary: Document the architecture and purpose of the `CI4k` project.
+status: active
+tags: [projects, ci4k]
+---
+
 ## Purpose
 
 Document the architecture and purpose of the `CI4k` project.

@@ -1,3 +1,9 @@
+---
+summary: "Track concrete technical and documentation follow-up items discovered while reading the `GuildedThorn.com` repo, now checked out at `~/Documents/GuildedThorn.c…"
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track concrete technical and documentation follow-up items discovered while reading the `GuildedThorn.com` repo, now checked out at `~/Documents/GuildedThorn.com`.

@@ -1,3 +1,9 @@
+---
+summary: Track the remaining documentation and cleanup work for the pfSense router.
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track the remaining documentation and cleanup work for the pfSense router.

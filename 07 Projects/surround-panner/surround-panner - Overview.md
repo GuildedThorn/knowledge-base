@@ -1,3 +1,9 @@
+---
+summary: Document the `surround-panner` project and its relationship to the `mixxx-surround-fork` experiment.
+status: active
+tags: [projects, surround-panner]
+---
+
 ## Purpose
 
 Document the `surround-panner` project and its relationship to the `mixxx-surround-fork` experiment.

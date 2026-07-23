@@ -1,3 +1,9 @@
+---
+summary: "Track the Matcha terminal email client setup, managed by the `thorn.programs.matcha` Home Manager module (`modules/home-manager/matcha.nix` in `ThornixOS`)."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Track the Matcha terminal email client setup, managed by the `thorn.programs.matcha` Home Manager module (`modules/home-manager/matcha.nix` in `ThornixOS`).

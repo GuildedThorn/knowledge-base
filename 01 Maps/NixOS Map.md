@@ -1,3 +1,9 @@
+---
+summary: Use this note as the index for operating system and host configuration.
+status: active
+tags: [maps]
+---
+
 Use this note as the index for operating system and host configuration.
 
 ## Foundations

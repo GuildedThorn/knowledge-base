@@ -1,3 +1,9 @@
+---
+summary: "Document SSH entry points, agent behavior, key handling, and which systems are intended to be reachable over SSH."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document SSH entry points, agent behavior, key handling, and which systems are intended to be reachable over SSH.

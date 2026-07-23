@@ -1,3 +1,9 @@
+---
+summary: Track unfinished device and host documentation for the ThinkPad T15.
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track unfinished device and host documentation for the ThinkPad T15.

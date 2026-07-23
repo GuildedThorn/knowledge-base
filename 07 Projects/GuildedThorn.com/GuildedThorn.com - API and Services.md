@@ -1,3 +1,9 @@
+---
+summary: Provide a compact API and integration reference for GuildedThorn.com.
+status: active
+tags: [projects, guildedthorn-com]
+---
+
 ## Purpose
 
 Provide a compact API and integration reference for GuildedThorn.com.

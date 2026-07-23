@@ -1,3 +1,9 @@
+---
+summary: "Remote network management, software development, and personal finance."
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Remote network management, software development, and personal finance.

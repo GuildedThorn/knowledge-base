@@ -1,3 +1,9 @@
+---
+summary: Development and staging/testing host.
+status: active
+tags: [devices]
+---
+
 ## Purpose
 
 Development and staging/testing host.
@@ -32,4 +38,4 @@ TODO:
 
 - [[01 Maps/Devices Map|Devices Map]]
 - [[90 Templates/Setup Note Template|Setup Note Template]]
-- [[09 Observability/SIEM and SOC - Planned Architecture|SIEM and SOC - Planned Architecture]] (proposed host for the planned Kali Purple VM)
+- [[09 Observability/SIEM and SOC - Architecture|SIEM and SOC - Architecture]] (hosts the `soc` SIEM VM under its Proxmox hypervisor)

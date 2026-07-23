@@ -1,3 +1,9 @@
+---
+summary: "Document DNS design, upstream resolvers, local DNS services, and host-specific resolution behavior across ThornCloud."
+status: active
+tags: [network]
+---
+
 ## Purpose
 
 Document DNS design, upstream resolvers, local DNS services, and host-specific resolution behavior across ThornCloud.

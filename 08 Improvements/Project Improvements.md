@@ -1,3 +1,9 @@
+---
+summary: Track unfinished work across applications and websites documented in the vault.
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Track unfinished work across applications and websites documented in the vault.
@@ -10,8 +16,8 @@ Track unfinished work across applications and websites documented in the vault.
 
 ## Tasks
 
-- [ ] Create `04 Software/VS Code.md` or remove the placeholder link from `Software Map`
-- [ ] Create `04 Software/Syncthing.md` or remove the placeholder link from `Software Map`
+- [x] Create `04 Software/VS Code.md` or remove the placeholder link from `Software Map` — resolved: editor is neovim ([[04 Software/NixVim|NixVim]]), VS Code not in use, placeholder removed
+- [x] Create `04 Software/Syncthing.md` or remove the placeholder link from `Software Map` — resolved: Syncthing is not in use, placeholder removed
 - [ ] Set the real LAN IP for the `mac` NixOS host — `modules/computers/mac.nix` still has `services.proxmox-ve.ipAddress = "192.168.1.2"` marked as a TODO placeholder, so this host isn't fully deployed
 - [ ] Decide whether `Tribes-Website` stays a generic starter template or gets built out with the staged `wwwroot/tribes-assets` into an actual Tribes community site
 - [ ] Track `SkyDestroyer`'s remaining rig-test queue (Hunter/CnH/vehicle sync on non-Avalon maps, multi-client sync) and its still-unimplemented plugin API

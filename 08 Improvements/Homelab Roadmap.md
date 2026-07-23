@@ -1,3 +1,9 @@
+---
+summary: Collect planned homelab infrastructure work that doesn't yet warrant its own dedicated note — bigger items graduate out of here once there's real config to doc…
+status: in-progress
+tags: [improvements]
+---
+
 ## Purpose
 
 Collect planned homelab infrastructure work that doesn't yet warrant its own dedicated note — bigger items graduate out of here once there's real config to document.
@@ -15,7 +21,7 @@ None of the items below are built. This is a brainstorm/backlog, not a status re
 
 ### Remote Access
 
-- [ ] `05 Network/WireGuard` and `05 Network/Tailscale` are both still tracked as coverage gaps in [[08 Improvements/Vault Cleanup|Vault Cleanup]] — decide whether either is actually in use and document whichever wins. Note: an older pass of this vault referenced a committed OpenVPN profile (`pfproxmox.ovpn`) from the pre-rewrite `nix-config` layout; that path doesn't exist in the current `ThornixOS` repo, so confirm whether OpenVPN is still the intended approach at all before assuming it carries forward.
+- [x] Decide the VPN approach — resolved: **WireGuard** is the road-warrior VPN in use (documented in [[05 Network/WireGuard - Road Warrior|WireGuard - Road Warrior]]), and **OpenVPN** also runs on pfSense (`OPT3` / `ThornVPN`, UDP 1194 — see [[05 Network/Host & IP Inventory|Host & IP Inventory]]). **Tailscale is not used.** The stale `pfproxmox.ovpn` reference from the pre-rewrite `nix-config` layout is dropped.
 
 ### Backup and Disaster Recovery
 
@@ -24,7 +30,7 @@ None of the items below are built. This is a brainstorm/backlog, not a status re
 
 ### Alerting
 
-- [ ] Grafana exists (disabled) but there's no alerting pipeline anywhere — once the [[09 Observability/SIEM and SOC - Planned Architecture|SIEM/SOC]] or general observability work moves forward, decide on a notification target (email, [[07 Projects/ThornBot/ThornBot - Overview|ThornBot]] via Discord, something else). This is the same open question already flagged in the SIEM rollout tracker.
+- [ ] Grafana exists (disabled) but there's no alerting pipeline anywhere — once the [[09 Observability/SIEM and SOC - Architecture|SIEM/SOC]] or general observability work moves forward, decide on a notification target (email, [[07 Projects/ThornBot/ThornBot - Overview|ThornBot]] via Discord, something else). This is the same open question already flagged in the SIEM rollout tracker.
 
 ### SearXNG
 

@@ -1,3 +1,9 @@
+---
+summary: "Document the Glance dashboard setup, managed by `modules/users/thorn-glance.nix` in `ThornixOS`."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document the Glance dashboard setup, managed by `modules/users/thorn-glance.nix` in `ThornixOS`.

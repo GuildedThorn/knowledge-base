@@ -1,3 +1,9 @@
+---
+summary: "Document the `soc` host, composed in `modules/computers/soc.nix` — the SIEM/observability hub the entire fleet reports to."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `soc` host, composed in `modules/computers/soc.nix` — the SIEM/observability hub the entire fleet reports to. See [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]] for the capability-level picture; this note covers the host itself.

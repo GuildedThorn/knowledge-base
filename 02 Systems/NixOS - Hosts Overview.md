@@ -1,3 +1,9 @@
+---
+summary: "Provide a single summary of the host inventory in `ThornixOS` (`~/Documents/ThornixOS`, GitHub `GuildedThorn/ThornixOS`)."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Provide a single summary of the host inventory in `ThornixOS` (`~/Documents/ThornixOS`, GitHub `GuildedThorn/ThornixOS`).

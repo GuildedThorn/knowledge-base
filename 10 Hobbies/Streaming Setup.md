@@ -1,3 +1,9 @@
+---
+summary: Tie together the streaming-related pieces that already exist on both the infrastructure and client side.
+status: active
+tags: [hobbies]
+---
+
 ## Purpose
 
 Tie together the streaming-related pieces that already exist on both the infrastructure and client side.

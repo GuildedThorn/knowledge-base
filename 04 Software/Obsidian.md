@@ -1,3 +1,9 @@
+---
+summary: "Track plugins, sync decisions, workflow habits, and vault conventions for this knowledge base itself."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Track plugins, sync decisions, workflow habits, and vault conventions for this knowledge base itself.

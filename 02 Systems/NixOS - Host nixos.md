@@ -1,3 +1,9 @@
+---
+summary: "Document the `nixos` host, composed in `modules/computers/nixos.nix`."
+status: active
+tags: [systems, host]
+---
+
 ## Purpose
 
 Document the `nixos` host, composed in `modules/computers/nixos.nix`.
@@ -29,7 +35,7 @@ Main AMD workstation with a broad desktop, gaming, virtualization, creative, XR,
 - virtualization: `virt-viewer` (`vmware-workstation` removed along with VMware host support)
 - creative tools: `blender`, `krita`, `kdenlive`, `mixxx`, `musescore`, `hydrogen`
 - fabrication and electronics: `orca-slicer`, `fritzing`, `plasticity`, `chirp`, `arduino`
-- development: `codex`, `opencode`, `jetbrains.rider` (implied via prior notes), `postman`, `mongodb-compass`, `distrobox`
+- development: `codex`, `opencode`, `postman`, `mongodb-compass`, `distrobox`
 - XR: `openxr-loader`, `xrizer`, `wayvr`
 
 ## Related

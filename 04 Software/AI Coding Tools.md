@@ -1,3 +1,9 @@
+---
+summary: "Document which AI coding tools are actually in use across the fleet, since they show up scattered as package references with no home of their own."
+status: active
+tags: [software]
+---
+
 ## Purpose
 
 Document which AI coding tools are actually in use across the fleet, since they show up scattered as package references with no home of their own.

@@ -1,3 +1,9 @@
+---
+summary: Document the architecture and deployment shape of the `ThornBot` project.
+status: active
+tags: [projects, thornbot]
+---
+
 ## Purpose
 
 Document the architecture and deployment shape of the `ThornBot` project.

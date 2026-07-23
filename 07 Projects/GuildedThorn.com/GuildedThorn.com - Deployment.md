@@ -1,3 +1,9 @@
+---
+summary: "Document how GuildedThorn.com is developed, built, containerized, and actually deployed in production."
+status: active
+tags: [projects, guildedthorn-com]
+---
+
 ## Purpose
 
 Document how GuildedThorn.com is developed, built, containerized, and actually deployed in production.
