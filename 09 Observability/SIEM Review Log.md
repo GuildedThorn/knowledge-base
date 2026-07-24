@@ -1,14 +1,8 @@
----
-summary: Append-only log of the scheduled SIEM review passes.
-status: log
-tags: [observability]
----
-
 ## Purpose
 
 Append-only log of the scheduled SIEM review passes. A systemd user timer on the workstation (`siem-review.timer`, 3x daily at 06:52 / 14:52 / 22:52) runs `~/.local/bin/siem-review.sh`, which pulls the last 9 hours from Loki and Prometheus on `soc` and has Claude review it like a tier-1 analyst. Non-OK verdicts also raise a desktop notification.
 
-This is second-line review — Grafana's provisioned rules (see [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]]) remain the real-time alert path. An entry saying "OK" is itself signal: a missing entry means the review pass stopped running.
+This is second-line review — Grafana's provisioned rules (see [SIEM-SOC Rollout](kb://08-improvements-siem-soc-rollout)) remain the real-time alert path. An entry saying "OK" is itself signal: a missing entry means the review pass stopped running.
 
 ---
 
@@ -106,3 +100,46 @@ STATUS: OK
 - **Only Suricata activity is admin-box ICMP.** Every alert on the websites sensor is "GPL ICMP PING *NIX" (informational, sev 3) from 192.168.1.6 → 172.16.25.50 — the admin's own device doing echo probes to the web VM's internal IP. Pure scanning from that host, well within the confirmed self-testing baseline; no auth attempts or payloads accompany it, so it does not escalate.
 - **Journal volumes track host roles.** nixos 782k (workstation) > websites 542k (public web VM) > soc 381k (SIEM) > scout 59k (roaming laptop, expected low). No host is silent-while-up or wildly off its peers.
 - **Minor note, not a gap:** pfSense is absent from the per-host journald volume vector but is `up` in Prometheus and does ship logs (its Suricata query scanned 2337 lines) — consistent with FreeBSD not using journald, not a Loki/Prometheus inconsistency.
+
+## 2026-07-23 06:56
+
+STATUS: NOTABLE — nixos audit cluster rewrote /etc/shadow, sshd config, and removed sudo/su audit rules (activation-style, confirm it was an intended rebuild)
+
+- **nixos privileged audit burst (~01:11 window):** an unset-auid (auid=4294967295) nix-store `perl` running as root fired `identity` (rename/chown on passwd/shadow-class files), `sshd-config`, `privilege`, and `modules` keys, plus `CONFIG_CHANGE op=remove_rule` deleting the `priv-exec` audit rules on `/run/wrappers/bin/sudo` and `/su`. Signature is a textbook NixOS activation/rebuild footprint (system context, nix-store perl, clustered timestamps) — almost certainly a legit deploy, but it's exactly the "privileged config tampering" shape, so confirm a rebuild ran on nixos. Only `remove_rule` events are visible here; a human should verify the rules were re-added.
+- **Interactive sudo on nixos looks normal:** two `priv-exec` events with auid=1000/uid=1000, tty=pts4, ses=4 — the admin using sudo directly. Consistent with a hands-on session (matching the rebuild above).
+- **Perimeter/edge clean:** pfSense Suricata prio 1–2 empty, sshd failures empty, CrowdSec scenario hits empty, no failed systemd units, no comin deploy/build/eval failures. No threshold-rule territory triggered.
+- **Admin box (192.168.1.6) only pinging:** all websites-sensor Suricata alerts are informational `GPL ICMP PING *NIX` from 192.168.1.6 → 172.16.25.50, a single long-lived flow. ICMP only, no scan/auth/payload — below the NOTABLE cap for authorized self-testing; noted for completeness.
+- **Log volume sane vs peers:** nixos 1.21M (workstation, expected high), websites 527k, soc 487k. scout at 940 lines is low but it's the roaming laptop and has no Prometheus node target, so it's away/mostly-off — not an up-but-silent inconsistency.
+- **No Prometheus/Loki inconsistencies:** every host reporting `up=1` (nixos, soc, websites, pfsense, loki, comin×3) is also producing logs; nothing up-in-Prometheus-but-dark-in-Loki.
+
+## 2026-07-23 14:53
+
+STATUS: NOTABLE — nixos journal volume ~20–28× below the two servers; sustained admin ICMP to websites
+
+- **nixos log volume far below peers**: nixos 23,244 vs soc 644,069 and websites 530,463 lines this window. Likely just workstation-vs-server role difference and nixos shows `up=1`, but a 20–28× gap is worth a glance to confirm journald/promtail isn't silently dropping on the workstation.
+- **Admin box (192.168.1.6) sustained ICMP ping to websites** (172.16.25.50): a single flow started 01:58 and kept re-firing GPL ICMP PING *NIX every ~30s for 1,400+ packets across the window. Informational sev-3, pure ping from the admin device → consistent with authorized self-testing; capped at NOTABLE. No auth attempts, payloads, or lateral movement from that IP.
+- **scout (roaming laptop) is dark**: absent from both Loki journal volume and Prometheus `up`. Expected for an off-network roaming host, but confirm it's intentionally offline and not a dropped agent.
+- **Perimeter and threshold surfaces are clean**: pfSense suricata prio 1–2 empty, sshd failures none, CrowdSec scenario hits none, no audit identity/privilege/module/time-change events.
+- **Fleet health green**: all node/comin/loki/pfsense targets `up=1`, zero failed systemd units, zero comin deploy/build/eval failures. pfSense up in Prometheus with no journald stream is expected (ships suricata only, which was empty).
+- **Internal consistency holds**: every Prometheus-up host that should ship to Loki did (nixos/soc/websites present); no "up but silent" mismatches beyond the expected pfSense/scout cases.
+
+## 2026-07-23 18:25
+
+STATUS: NOTABLE — authorized RED-team exercise (out-of-band, not a scheduled pass): full unauth→admin chain proven against OWASP Juice Shop v20.1.1 on localhost:3000
+
+- **This is an operator-run exercise, not the timer pass.** Target is a deliberately-vulnerable lab app (`localhost:3000`), so the findings are expected — logged here so the chain and its IOCs are on record and don't read as an unexplained intrusion if they surface in fleet telemetry. Full write-up: [[Juice Shop Assessment 2026-07-23]].
+- **Chain proven end-to-end, non-persistent (no writes, no data mutation):** `/ftp` directory-listing → Poison-Null-Byte (`%2500.md`) bypass of the `.bak` extension filter (403→200) exfiltrated a 750 KB lockfile → SQLi login `' OR 1=1--` returned an RS256 admin JWT (id=1, `admin@juice-sh.op`, role=admin) with no password → stolen token dumped all 22 users via `/api/Users` (200). Password field is stripped in v20; emails/roles/lastLoginIp/deluxeToken are not.
+- **SCA (Crossview + osv-scanner) on the leaked lockfile:** 144 vulnerable packages, 324 advisories, **184 unique CVEs** — heaviest in tar/handlebars/lodash/jsonwebtoken/js-yaml (proto-pollution, template-RCE, JWT-verification gadgets).
+- **Detection notes for the real SOC (what to alert on if this pattern ever hits production assets):** `%2500` / null-byte in request URIs, especially a 403→200 flip on the same path; `' OR 1=1--` (and SQL metacharacters) in login request bodies; a single freshly-issued token immediately performing a full-table `/api/Users` read. None of these are Juice-Shop-specific.
+- **No impact to the monitored fleet.** This exercise ran against the isolated lab target only; nixos/soc/websites/pfsense unaffected. Cross-refs: [[SOC Live Status]], [[Security Map]].
+
+## 2026-07-23 22:52
+
+STATUS: OK
+
+- **Clean window across all threshold-adjacent channels:** zero sshd auth failures, zero CrowdSec scenario hits, zero pfSense perimeter Suricata prio 1-2 events, zero audit keyed events (identity/privilege/priv-exec/sshd-config/modules/time-change), no failed systemd units, and no comin deploy/build/eval failures on any host.
+- **Only IDS activity is benign admin self-test:** every websites-sensor Suricata alert is `GPL ICMP PING *NIX` (sev-3 informational) from 192.168.1.6 → 172.16.25.50, a single sustained flow (~113 pings, one every ~30s, 21:54→22:51). This is the admin box doing pure ICMP against the web VM's internal IP — no scanning-beyond, no auth, no payloads — so it stays within the authorized-self-test exemption; likely a connectivity/uptime probe.
+- **All monitored hosts up:** Prometheus `up=1` for every node/comin/loki/pfsense target; pfSense reporting via its exporter as expected (its absence from journal volume is normal — non-systemd host).
+- **scout inconsistency (minor, expected for a roaming laptop):** shipping Loki journal (988 lines) but has no Prometheus node/comin scrape target — logging alive, just unmonitored. No action, noting for baseline.
+- **Journal volumes consistent with roles:** websites highest (531k) as the public web VM, soc 147k (SIEM), nixos 24k, scout 988 (mostly offline laptop) — no host far off its expected profile; nothing resembling a log-flood or a silent-but-up host.
+- **No first-seen process/auth/audit anomalies surfaced** in the 9h window; nothing warranting escalation beyond what threshold rules already cover.
