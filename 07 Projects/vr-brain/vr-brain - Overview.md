@@ -12,7 +12,7 @@ Document the architecture and current state of `vr-brain`, the VR knowledge-cons
 
 vr-brain turns the Obsidian knowledge-base — and the GuildedThorn online presence — into a walkable VR solar system. Built on the [[10 Hobbies/VR Setup|vr-base]] template (Godot 4 + C# / .NET 8 + OpenXR), it runs on the WiVRn/Monado stack from the `services-vr` module on host `nixos`, and also has a desktop (non-headset) rig.
 
-- Repo: [GuildedThorn/vr-brain](https://github.com/GuildedThorn/vr-brain), local checkout at `~/Documents/vr-brain`
+- Repo: [GuildedThorn/vr-brain](https://github.com/GuildedThorn/vr-brain), local checkout at `~/Downloads/vr-brain` (moved from `~/Documents/vr-brain` on 2026-07-23)
 - Template it grew from: [GuildedThorn/vr-base](https://github.com/GuildedThorn/vr-base) at `~/Documents/vr-base`
 
 ## The constellation
@@ -63,6 +63,9 @@ The ambient/visual layer, all additive + bloomed and holding ~140 fps on desktop
 
 ## Related
 
+- [[vr-brain - Architecture]] — full subsystem map + config schema
+- [[Earth - Geo Engine Rewrite]] — the cube-sphere globe + data layers + terrain
+- [[Terrain Rendering Optimization]] · [[High-Fidelity Planet Rendering (Godot)]] · [[Globe Data Source APIs]]
 - [[10 Hobbies/VR Setup|VR Setup]]
 - [[02 Systems/NixOS - Host nixos|Host nixos]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]
