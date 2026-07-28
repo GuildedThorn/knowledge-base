@@ -21,6 +21,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - [[01 Maps/Improvements Map|Improvements Map]]
 - [[01 Maps/Reference Map|Reference Map]]
 - [[01 Maps/Datasets Map|Datasets Map]]
+- [[01 Maps/Intelligence Map|Intelligence Map]]
 
 ### Vault Layout
 
@@ -37,6 +38,7 @@ This is the working knowledge base for ThornCloud: networks, devices, software, 
 - `10 Hobbies` for maker/personal-interest documentation (music, radio, fabrication, gaming, vehicles)
 - `11 Security` for offensive-security methodology, tool/payload references, HTB campaigns, and malware analysis
 - `12 Datasets` for external datasets ingested as a documented knowledge layer (data dictionaries + provenance)
+- `Intelligence` / `Briefings` for generated situational-awareness output (daily briefings, threat dossiers) — indexed by [[01 Maps/Intelligence Map|Intelligence Map]]
 - `90 Templates` for reusable note structures
 - `99 Archive` for retired setups
 

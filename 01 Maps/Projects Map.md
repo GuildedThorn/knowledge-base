@@ -19,6 +19,7 @@ Use this note as the index for project-specific documentation.
 - [[07 Projects/CI4k/CI4k - Overview|CI4k - Overview]]
 - [[07 Projects/surround-panner/surround-panner - Overview|surround-panner - Overview]]
 - [[07 Projects/vr-brain/vr-brain - Overview|vr-brain - Overview]]
+- [[07 Projects/vr-brain/vr-brain - Engineering Run Through 2026-07-26|vr-brain - Engineering Run Through 2026-07-26]]
 
 ## Infrastructure as a Project
 

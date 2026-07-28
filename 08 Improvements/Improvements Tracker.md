@@ -8,6 +8,7 @@ Use this note as the index for things that still need work, cleanup, or completi
 
 ## High Priority
 
+- [[08 Improvements/Backup and DR Strategy]]
 - [[08 Improvements/Network Improvements]]
 - [[08 Improvements/NixOS Improvements]]
 - [[08 Improvements/Project Improvements]]

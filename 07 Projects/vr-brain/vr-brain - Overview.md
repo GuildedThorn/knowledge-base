@@ -63,6 +63,7 @@ The ambient/visual layer, all additive + bloomed and holding ~140 fps on desktop
 
 ## Related
 
+- [[vr-brain - Engineering Run Through 2026-07-26]] — two-session implementation, decision, validation, and resume record
 - [[vr-brain - Architecture]] — full subsystem map + config schema
 - [[Earth - Geo Engine Rewrite]] — the cube-sphere globe + data layers + terrain
 - [[Terrain Rendering Optimization]] · [[High-Fidelity Planet Rendering (Godot)]] · [[Globe Data Source APIs]]

@@ -143,3 +143,122 @@ STATUS: OK
 - **scout inconsistency (minor, expected for a roaming laptop):** shipping Loki journal (988 lines) but has no Prometheus node/comin scrape target — logging alive, just unmonitored. No action, noting for baseline.
 - **Journal volumes consistent with roles:** websites highest (531k) as the public web VM, soc 147k (SIEM), nixos 24k, scout 988 (mostly offline laptop) — no host far off its expected profile; nothing resembling a log-flood or a silent-but-up host.
 - **No first-seen process/auth/audit anomalies surfaced** in the 9h window; nothing warranting escalation beyond what threshold rules already cover.
+
+## 2026-07-24 06:56
+
+STATUS: NOTABLE — nixos reboot/auditd re-init mid-window + scout near-silent; admin-box ICMP only
+
+- **nixos rebooted ~6.6h into the window**: audit shows two full `CONFIG_CHANGE op=add_rule` cycles (identity/privilege/sshd-config/modules/time-change/priv-exec) ~38s apart at ~06:39-ago, plus a burst of boot-time `modprobe`/udev module loads — all `auid=4294967295 uid=0` (system context, no interactive user). Consistent with a deploy/reboot, not tampering, but no comin failure or failed unit was logged to explain it — worth a glance.
+- **scout is near-silent in Loki (97 lines vs nixos 377k / soc 87k / websites 530k)** and absent from Prometheus `up` entirely — consistent with the roaming laptop being off/asleep, no Prometheus-up-but-Loki-silent inconsistency. Flagging only so a genuine agent outage isn't mistaken for normal roaming.
+- **All Suricata alerts on websites are from admin box 192.168.1.6 → 172.16.25.50, and are purely `GPL ICMP PING *NIX` (sev 3, informational)** — a single long-lived echo flow (started 04:48, alerting past 06:08). Pure ICMP/scanning from the admin device = authorized self-testing; capped at NOTABLE, no auth/exploit/lateral component seen.
+- **Clean across threshold-adjacent sources**: pfSense perimeter Suricata prio 1-2 empty, sshd failures empty, CrowdSec scenario hits empty — no brute-force or IDS activity under the radar.
+- **Fleet health green**: all monitored hosts `up=1` (nixos/soc/websites node+comin, pfsense, loki), zero failed systemd units, zero comin deploy/build/eval failures.
+- websites log volume (530k) leads the fleet but is expected for the public web VM and shows no anomalous signature beyond the admin ping noise above.
+
+## 2026-07-24 14:55
+
+STATUS: NOTABLE — sustained 9h ICMP flow from admin box 192.168.1.6 → websites; otherwise clean
+
+- **Only real signal:** a single long-lived flow (flow_id 314754961763884) from admin device **192.168.1.6 → websites 172.16.25.50**, started 04:48 and still running at 14:11 (~9.4h), firing "GPL ICMP PING *NIX" (sev 3 / informational) every ~30s. Low-rate ICMP keepalive pattern, not a flood — consistent with authorized self-test/monitoring from the admin box, capped at NOTABLE. No accompanying auth/exploit/lateral traffic from that host, so no escalation warranted, but worth a human eyeball since it's a persistent single flow the threshold rules won't page on.
+- **All threshold-clean:** sshd failures, CrowdSec scenario hits, and pfSense perimeter Suricata prio 1-2 all returned **zero** for the window — no brute force, no perimeter IDS hits.
+- **Audit keyed events empty:** no identity, privilege, priv-exec, sshd-config, kernel-module, or time-change events across the fleet (887k lines scanned, 0 matches) — no under-threshold auth/privilege anomalies.
+- **Infra healthy:** all `up` targets =1 (node exporters on nixos/soc/websites/pfsense, Loki, comin on nixos/soc/websites); **zero failed systemd units** and **zero comin deploy/build/eval failures** — no silent deploy breakage.
+- **Log volume:** websites 529k » nixos 118k » soc 81k. websites leading is expected for the public web VM (Suricata + web logs); nothing indicates a host far off its own baseline, though no per-host historical baseline is in this window to confirm.
+- **Expected absences:** scout (roaming laptop) absent from both Loki and Prometheus — normal off-network; pfSense absent from journal-volume is expected (BSD, no journald) and it is confirmed shipping to Loki (2,129 lines processed). No up-in-Prometheus/silent-in-Loki inconsistencies.
+
+## 2026-07-24 22:56
+
+You've hit your weekly limit · resets Jul 26, 10am (America/Chicago)
+
+## 2026-07-25 06:56
+
+You've hit your weekly limit · resets Jul 26, 10am (America/Chicago)
+
+## 2026-07-25 14:56
+
+You've hit your weekly limit · resets 10am (America/Chicago)
+
+## 2026-07-25 22:53
+
+You've hit your weekly limit · resets 10am (America/Chicago)
+
+## 2026-07-26 06:52
+
+You've hit your weekly limit · resets 10am (America/Chicago)
+
+## 2026-07-26 14:56
+
+STATUS: OK
+
+- **All threshold surfaces clean:** every host `up=1` in Prometheus (nixos, soc, websites node exporters; pfsense; comin on nixos/soc/websites), zero failed systemd units, zero comin deploy/build/eval failures, no sshd auth failures, no CrowdSec scenario hits, and pfSense perimeter Suricata returned no prio 1–2 events.
+- **nixos rebooted mid-window (~3.3h ago), benign:** the audit stream is entirely boot-time ruleset reload (`CONFIG_CHANGE op=add_rule` for identity/privilege/priv-exec/sshd-config/modules/time-change) plus `modprobe`/udev module loads, all `auid=4294967295`, `uid=0`, low ppid — normal startup, not runtime tampering. One later runtime `modprobe` (pid 2890919) also unremarkable. No failed units or comin errors accompanied it, so it reconciles as a clean rebuild/reboot.
+- **nixos journal volume elevated but explainable:** 1.94M lines vs websites 539k / soc 94k — consistent with its workstation role plus the reboot's audit `modules` spam; not anomalous against peers given the role difference. No baseline flag.
+- **websites `.env` scanning is expected internet noise:** sequential GETs for `/.env`, `/app/.env`, `/admin/.env`, `/member/.env`, `/new/.env`, `/core/.env` from external XFF `103.221.220.62` via the Cloudflare tunnel (127.0.0.1:8080), all HTTP 404, low-confidence INFO sigs — commodity scanner, no hits. The `update.argotunnel.com` SNI alert is the tunnel itself.
+- **No activity from admin box 192.168.1.6** and nothing beyond scanning anywhere; no lateral movement, exploit payloads, or auth attempts observed on internal segments.
+- **scout silent in both Loki and Prometheus** — consistent (not an up-in-Prometheus/silent-in-Loki inconsistency); expected for a roaming laptop that's off/away.
+
+## 2026-07-26 22:56
+
+STATUS: OK
+
+- All five detection feeds empty for the window: Suricata (websites sensor), pfSense perimeter Suricata prio 1–2 (2,739 lines scanned, 0 matches), sshd failures, CrowdSec scenarios, and audit keyed events (1.14M lines scanned, 0 identity/privilege/module/time-change hits) — no first-seen auth, exec, or privilege activity.
+- Prometheus healthy across the board: all node exporters (nixos, soc, websites, pfsense) + Loki up=1, and comin up=1 on nixos/soc/websites. Zero failed systemd units and zero comin deploy/build/eval failures.
+- Journal volume ordering is as expected — websites 529k (public VM, internet-facing noise) > nixos 362k (workstation w/ full audit logging) > soc 85k (SIEM VM); no host wildly off its role, though there's no stored baseline to compare against trend.
+- No Loki-vs-Prometheus inconsistency: pfSense is up in Prometheus and shipping (its logs land in the perimeter Suricata stream, not the journald volume query), so its absence from journal-volume is by design, not a silent host.
+- scout (roaming laptop) is absent from both Prometheus `up` and Loki — consistent offline state, expected for a roaming device, not a monitoring gap.
+- No activity from admin box 192.168.1.6 in any feed this window; nothing to cap or escalate.
+
+## 2026-07-27 06:53
+
+STATUS: OK
+
+- **All health checks clean:** every host (nixos, soc, websites, pfsense node exporters + loki + comin) reports `up=1`; zero failed systemd units, zero comin deploy/build/eval failures, zero sshd failures, zero CrowdSec scenario hits, and zero pfSense perimeter prio-1/2 alerts across the 9h window.
+- **nixos journal volume runs high vs. peers** (~1.09M lines vs. websites 527k, soc 86k). Consistent with an interactively-used workstation (see sudo below) and no failed/looping units to explain a spam source, so likely benign — but worth a baseline check since no clear driver is visible in this window.
+- **Audit events are normal and confined to nixos:** one `priv-exec` sudo (auid=1000→euid=0, tty=pts3 — legitimate admin), and one `modules` modprobe via kmod with auid unset (system-initiated module load, not user-driven). No identity/privilege/sshd-config/time-change events anywhere; soc and websites produced no keyed audit activity (expected for quiet headless VMs).
+- **Only Suricata hit on websites is expected internet background:** a single GET `/.env` probe (ET INFO Hidden Environment File, sev 3, HTTP 404) from XFF 45.61.148.157 — one-shot scanner noise, no follow-on, correctly served 404. Not unusual.
+- **No activity from 192.168.1.6 (admin device) this window** — nothing to adjudicate.
+- **scout (roaming laptop) is absent from both Prometheus `up` and Loki journal volume** — consistent with the device being off/away rather than an outage, but flagging so its silence isn't mistaken for coverage.
+
+## 2026-07-27 14:53
+
+STATUS: NOTABLE — Suricata firing repeatedly on internal Alloy→Loki traffic (benign but noisy); fleet-wide auditd rule reloads consistent with a rolling deploy/reboot
+
+- **Suricata "HTTP Request abnormal Content-Encoding header" (sid 2221033) firing continuously** on websites sensor for the single flow `172.16.25.50:32986 → 172.16.25.51:3100` — this is websites' own Alloy agent (`Alloy/v1.17.1`) pushing to soc's Loki (`/loki/api/v1/push`, HTTP 204 OK), with `http.anomaly.count` climbing past 421 on one long-lived flow. Internal monitoring pipeline, all responses successful → **benign false positive**, but worth a suppression/tuning rule so it stops flooding the sensor.
+- **All three hosts reloaded auditd rules within the window** (nixos ~1.8h ago, websites ~1h, soc ~1h — `CONFIG_CHANGE op=add_rule` for identity/privilege/priv-exec/sshd-config/modules/time-change, all `auid=unset` = system context). Staggered timing + comin all `up` with zero deploy/build/eval failures ⇒ consistent with a successful **rolling config deploy**, not tampering. No rule *deletions* seen.
+- **nixos shows a full boot signature** (modprobe/udev-worker module loads at low PIDs, uid=0, auid=unset) → nixos rebooted this window, which explains its elevated journal volume (768k lines vs websites 408k, soc 143k). Volume skew is expected, not anomalous.
+- **Clean on the threshold surfaces:** zero sshd auth failures, zero CrowdSec scenario hits, zero pfSense perimeter prio-1/2 alerts, zero failed systemd units. No internet-facing scanner noise of note.
+- **No activity from admin box 192.168.1.6** this window (no scans, no auth, no payloads) — nothing to escalate there.
+- **scout (roaming laptop) absent from both Loki and Prometheus** — but it's also not `up` in Prometheus, so this is consistent offline/roaming state, not a Prometheus-up-but-Loki-silent inconsistency. No action.
+
+## 2026-07-27 22:54
+
+STATUS: OK
+
+- All monitored targets are up in Prometheus (node, loki, comin on nixos/soc/websites, pfsense), with zero failed systemd units and zero comin deploy/build/eval failures in the window.
+- The only Suricata activity on the websites sensor is repeated severity-3 "abnormal Content-Encoding header" hits on the host's own Alloy agent pushing to Loki on soc (172.16.25.50 → 172.16.25.51:3100, `/loki/api/v1/push`, all HTTP 204). That's the snappy-compressed telemetry pipeline tripping a protocol-decode rule — benign self-noise, but a good candidate for a suppress rule since it's generated 430+ anomaly counts on one flow.
+- Audit keyed events on nixos are routine: three successful interactive `sudo` executions by uid 1000 on pts10/pts12 (admin's own session), plus one kernel module load via `modprobe` spawned by PID 1 (system-initiated, no login session) — consistent with normal driver/module autoload rather than manual insertion.
+- No sshd authentication failures, no crowdsec scenario hits, and no priority 1–2 perimeter IDS alerts anywhere in the 9h window — quieter than typical for the internet-facing side, but nothing inconsistent given websites sits behind the Cloudflare tunnel.
+- Log volume split (nixos 1.86M lines, soc 649k, websites 32.5k) is skewed toward the workstation, which is expected given its auditd ruleset; nothing suggests log flooding or a silenced host.
+- scout is absent from both Prometheus and Loki — consistent with the roaming laptop being offline rather than a collection gap (no up-but-silent contradiction). pfsense reports metrics and its Suricata logs are present in Loki, so its pipelines agree too.
+
+## 2026-07-28 06:54
+
+STATUS: OK
+
+- All monitored targets are up in Prometheus (node, pfsense, loki, comin), with zero failed systemd units and zero comin deploy/build/eval failures across the fleet.
+- Auth and audit surfaces are quiet: no sshd failures, no CrowdSec scenario hits, and no audit-keyed events (identity/privilege changes, priv-exec, sshd config, kernel modules, time changes) anywhere in the 9h window.
+- scout is absent from both Prometheus and Loki — consistent silence, so this reads as the laptop simply being off/roaming rather than a telemetry gap or the up-but-silent inconsistency pattern. No action needed unless it stays dark unusually long.
+- Only IDS activity on websites was two informational Suricata hits for `/.env` probes (XFF 94.154.43.179 and 91.92.47.153, ~3h apart, both 404). Routine internet scanner background; pfSense perimeter logged no priority 1–2 alerts.
+- Journal volume: nixos 937k lines vs soc 162k and websites 31k. The workstation being the loudest host is plausible given desktop + auditd churn, but at ~6× its nearest peer it's worth a glance at top talkers next window if it persists; nothing in the alert/audit queries suggests it's security-relevant.
+- No activity from 192.168.1.6 appeared in any queried stream this window — nothing to assess against the authorized-scanning carve-out.
+
+## 2026-07-28 14:52
+
+STATUS: OK
+
+- All monitored targets are up in Prometheus (node, loki, comin, pfsense), with zero failed systemd units and zero comin deploy/build/eval failures across the fleet.
+- Auth surface is quiet: no sshd failures, no CrowdSec scenario hits, and no priority 1–2 perimeter IDS alerts in the window — quieter than typical internet background, but nothing contradicts it (websites' SSH sits behind the Cloudflare tunnel).
+- Audit CONFIG_CHANGE bursts on soc and websites (~09:25, three seconds apart) are auditd rule loads (op=add_rule, res=1, auid unset — i.e., the auditd service itself), with the standard key set (identity/privilege/priv-exec/sshd-config/modules/time-change). The near-simultaneous timing across two hosts looks like a coordinated deploy or service restart, consistent with comin showing no failures. nixos shows no matching reload, which is worth a glance next window but not alarming.
+- The Suricata alerts on the websites sensor are self-inflicted: Alloy on websites (172.16.25.50) POSTing to Loki on soc (172.16.25.51:3100) trips "abnormal Content-Encoding header" (snappy-compressed push payloads, HTTP 204 responses). Benign telemetry noise — a suppress rule for sig 2221033 on that flow would clean up the sensor.
+- Log volume split (nixos 617k / soc 96k / websites 37k) has the workstation ~6× its nearest peer; plausible for an interactive desktop but no baseline in this window to compare against. No host is silent in Loki while up in Prometheus.
+- scout is absent from both Prometheus and Loki — consistent absence (laptop off or off-network), not a telemetry inconsistency.

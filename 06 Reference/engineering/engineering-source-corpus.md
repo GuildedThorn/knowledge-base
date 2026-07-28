@@ -1,0 +1,387 @@
+---
+summary: "Bibliography for the broad engineering research library: official docs, standards, papers, books, and implementation writeups."
+status: active
+tags: [reference, engineering, sources, bibliography]
+private: false
+---
+
+# Engineering Source Corpus
+
+## Purpose
+
+Bibliography for the broad engineering research library. Individual notes carry narrower source lists; this note keeps the source universe discoverable.
+
+## Sources
+
+- Abadi - PACELC - https://www.cs.umd.edu/~abadi/papers/abadi-pacelc.pdf
+- Amazon Science - Dynamo: Amazon's highly available key-value store - https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store
+- ADR GitHub organization - https://adr.github.io/
+- Akka documentation - https://doc.akka.io/docs/akka/current/typed/guide/actors-intro.html
+- Alistair Cockburn - Hexagonal Architecture - https://alistair.cockburn.us/hexagonal-architecture/
+- ArcGIS Pro docs - Scenes - https://doc.esri.com/en/arcgis-pro/latest/help/mapping/map-authoring/scenes.html
+- ArcGIS Pro docs - What is a scene layer? - https://doc.esri.com/en/arcgis-pro/latest/help/mapping/layer-properties/what-is-a-scene-layer-.html
+- ArcGIS Pro docs - Integrated mesh scene layer - https://doc.esri.com/en/arcgis-pro/latest/help/mapping/layer-properties/the-integrated-mesh-scene-layer-in-arcgis-pro.html
+- Amazon Builders Library - https://aws.amazon.com/builders-library/
+- AMD Radeon GPU Profiler - https://gpuopen.com/rgp/
+- An Image is Worth 16x16 Words - https://arxiv.org/abs/2010.11929
+- Anthropic - Building effective agents - https://www.anthropic.com/research/building-effective-agents
+- Apache Hadoop MapReduce - https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html
+- Apache HBase architecture - https://hbase.apache.org/book.html#architecture
+- Apache Kafka documentation - https://kafka.apache.org/documentation/
+- Apache Parquet documentation - https://parquet.apache.org/docs/
+- Apache Spark documentation - https://spark.apache.org/docs/latest/
+- ASP.NET Core dependency injection - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
+- Atlassian incident management handbook - https://www.atlassian.com/incident-management/handbook
+- Attention Is All You Need - https://arxiv.org/abs/1706.03762
+- AWS Builders Library - Timeouts, retries, and backoff - https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/
+- AWS Architecture Blog - Exponential Backoff and Jitter - https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
+- AWS Prescriptive Guidance - Retry with backoff pattern - https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html
+- Beej's Guide to Network Programming - https://beej.us/guide/bgnet/
+- BenchmarkDotNet documentation - https://benchmarkdotnet.org/articles/overview.html
+- BentoML documentation - https://docs.bentoml.com/
+- Berenson et al. - A Critique of ANSI SQL Isolation Levels - https://www.microsoft.com/en-us/research/publication/a-critique-of-ansi-sql-isolation-levels/
+- Bigtable paper - https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/
+- Bloom 1970 paper - https://dl.acm.org/doi/10.1145/362686.362692
+- Brewer - CAP twelve years later - https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/
+- C-Store paper - https://www.vldb.org/conf/2005/papers/p553-stonebraker.pdf
+- Calvin paper - https://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf
+- Cassandra architecture - https://cassandra.apache.org/doc/latest/cassandra/architecture/overview.html
+- cgroup v2 memory controller - https://docs.kernel.org/admin-guide/cgroup-v2.html#memory
+- Cesium - 3D Tiles overview - https://cesium.com/why-cesium/3d-tiles/
+- Cesium - 3D Tiling Pipeline - https://cesium.com/platform/cesium-ion/3d-tiling-pipeline/
+- CesiumJS guide - Visualizing 3D Terrain - https://cesium.com/learn/cesiumjs-learn/cesiumjs-terrain/
+- Cisco OSPF design guide - https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html
+- ClickHouse documentation - https://clickhouse.com/docs
+- Cloudflare - HTTP/3 from root to tip - https://blog.cloudflare.com/http3-the-past-present-and-future/
+- Cloudflare - Learning DNS - https://www.cloudflare.com/learning/dns/what-is-dns/
+- Cloudflare - What is a CDN? - https://www.cloudflare.com/learning/cdn/what-is-a-cdn/
+- CLRS - Introduction to Algorithms - https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/
+- CMU Database Systems - https://15445.courses.cs.cmu.edu/
+- CMU Database Systems lectures - https://15445.courses.cs.cmu.edu/
+- CockroachDB - Hybrid logical clocks - https://www.cockroachlabs.com/blog/living-without-atomic-clocks/
+- Codd relational model paper - https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf
+- Confluent - Kafka design - https://docs.confluent.io/kafka/design/
+- Dapper paper - https://research.google/pubs/dapper-a-large-scale-distributed-systems-tracing-infrastructure/
+- Data Cards - https://arxiv.org/abs/2204.01075
+- Datasheets for Datasets - https://arxiv.org/abs/1803.09010
+- Designing Data-Intensive Applications - https://dataintensive.net/
+- Dijkstra 1959 paper - https://doi.org/10.1007/BF01386390
+- Domain-Driven Design Reference - https://domainlanguage.com/ddd/reference/
+- DVC documentation - https://dvc.org/doc
+- Dynamo paper - https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
+- eBPF documentation - https://ebpf.io/what-is-ebpf/
+- Eagleview - https://www.eagleview.com/
+- Eagleview Developer - https://developer.eagleview.com/
+- Eagleview 1-Inch Imagery - https://www.eagleview.com/product/1-inch-imagery/
+- EleutherAI LM Evaluation Harness - https://github.com/EleutherAI/lm-evaluation-harness
+- Envoy architecture overview - https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/arch_overview
+- etcd Raft design - https://etcd.io/docs/latest/learning/
+- EventStoreDB documentation - https://developers.eventstore.com/
+- FAISS documentation - https://faiss.ai/
+- Fielding dissertation - REST - https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+- Filament PBR documentation - https://google.github.io/filament/Filament.html
+- FRRouting OSPF docs - https://docs.frrouting.org/en/latest/ospfd.html
+- Game Programming Patterns - https://gameprogrammingpatterns.com/
+- Garcia-Molina and Salem - Sagas - https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf
+- glTF 2.0 PBR material model - https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#materials
+- Google Maps Platform - Map Tiles API overview - https://developers.google.com/maps/documentation/tile/overview
+- Google Maps Platform - Photorealistic 3D Tiles - https://developers.google.com/maps/documentation/tile/3d-tiles
+- Godot 3D docs - https://docs.godotengine.org/en/stable/tutorials/3d/index.html
+- Godot audio streams and buses - https://docs.godotengine.org/en/stable/tutorials/audio/index.html
+- Godot compute shaders - https://docs.godotengine.org/en/stable/tutorials/shaders/compute_shaders.html
+- Godot nodes and scenes - https://docs.godotengine.org/en/stable/getting_started/step_by_step/nodes_and_scenes.html
+- Godot OpenXR plugin docs - https://docs.godotengine.org/en/stable/tutorials/xr/openxr/index.html
+- Godot PBR materials - https://docs.godotengine.org/en/stable/tutorials/3d/standard_material_3d.html
+- Godot rendering docs - https://docs.godotengine.org/en/stable/tutorials/rendering/index.html
+- Godot shading language - https://docs.godotengine.org/en/stable/tutorials/shaders/shader_reference/shading_language.html
+- Godot XR docs - https://docs.godotengine.org/en/stable/tutorials/xr/index.html
+- Google - Rules of Machine Learning - https://developers.google.com/machine-learning/guides/rules-of-ml
+- Google Bigtable paper - https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/
+- Google Chubby paper - https://research.google/pubs/the-chubby-lock-service-for-loosely-coupled-distributed-systems/
+- Google Cloud Bigtable docs - https://cloud.google.com/bigtable/docs/overview
+- Google Cloud Spanner docs - https://cloud.google.com/spanner/docs/true-time-external-consistency
+- Google File System paper - https://research.google/pubs/the-google-file-system/
+- Google MapReduce paper - https://research.google/pubs/mapreduce-simplified-data-processing-on-large-clusters/
+- Google ML Rules - https://developers.google.com/machine-learning/guides/rules-of-ml
+- Google Recommendations Systems guide - https://developers.google.com/machine-learning/recommendation
+- Google Spanner paper - https://research.google/pubs/spanner-googles-globally-distributed-database/
+- Google SRE Book - https://sre.google/sre-book/table-of-contents/
+- GPTKB - Building Very Large Knowledge Bases from Language Models - https://arxiv.org/abs/2411.04920
+- GPTKB project site - https://gptkb.mpi-inf.mpg.de
+- Google SRE Book - Addressing cascading failures - https://sre.google/sre-book/addressing-cascading-failures/
+- Google SRE Book - Being on-call - https://sre.google/sre-book/being-on-call/
+- Google SRE Book - Data integrity - https://sre.google/sre-book/data-integrity/
+- Google SRE Book - Handling overload - https://sre.google/sre-book/handling-overload/
+- Google SRE Book - Monitoring distributed systems - https://sre.google/sre-book/monitoring-distributed-systems/
+- Google SRE Book - Postmortem culture - https://sre.google/sre-book/postmortem-culture/
+- Google SRE Book - Service Level Objectives - https://sre.google/sre-book/service-level-objectives/
+- Google SRE Workbook - SLOs - https://sre.google/workbook/implementing-slos/
+- Google SRE Workbook - Testing for reliability - https://sre.google/workbook/testing-reliability/
+- Google Testing Blog - https://testing.googleblog.com/
+- GPU Gems 2 - Terrain Rendering Using GPU-Based Geometry Clipmaps - https://developer.nvidia.com/gpugems/gpugems2/part-i-geometric-complexity/chapter-2-terrain-rendering-using-gpu-based-geometry
+- GPU Gems archive - https://developer.nvidia.com/gpugems/gpugems/contributors
+- Grafana alerting docs - https://grafana.com/docs/grafana/latest/alerting/
+- Grafana Loki documentation - https://grafana.com/docs/loki/latest/
+- Grafana OnCall docs - https://grafana.com/docs/oncall/latest/
+- gRPC documentation - https://grpc.io/docs/
+- gRPC health checking - https://grpc.io/docs/guides/health-checking/
+- Gymnasium documentation - https://gymnasium.farama.org/
+- HAProxy documentation - https://docs.haproxy.org/
+- Haystack RAG docs - https://docs.haystack.deepset.ai/docs/rag
+- HDFS architecture - https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html
+- HELM benchmark - https://crfm.stanford.edu/helm/
+- Hewitt actor model paper - https://dl.acm.org/doi/10.5555/1624775.1624804
+- HNSW paper - https://arxiv.org/abs/1603.09320
+- Home Manager manual - https://nix-community.github.io/home-manager/
+- Home Manager options - https://nix-community.github.io/home-manager/options.xhtml
+- HTTP Working Group specs - https://httpwg.org/specs/
+- Hugging Face audio course - https://huggingface.co/learn/audio-course/chapter0/introduction
+- Hugging Face text generation inference - https://huggingface.co/docs/text-generation-inference/index
+- Hugging Face Transformers docs - https://huggingface.co/docs/transformers/index
+- ImageNet classification with deep CNNs - https://proceedings.neurips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
+- Jepsen - Consistency models - https://jepsen.io/consistency
+- Jepsen analyses - https://jepsen.io/analyses
+- journalctl manual - https://www.freedesktop.org/software/systemd/man/latest/journalctl.html
+- journald.conf manual - https://www.freedesktop.org/software/systemd/man/latest/journald.conf.html
+- JSON Schema specification - https://json-schema.org/specification
+- k6 documentation - https://grafana.com/docs/k6/latest/
+- Kafka documentation - https://kafka.apache.org/documentation/
+- Kafka original paper - https://notes.stephenholiday.com/Kafka.pdf
+- Khronos OpenXR overview - https://www.khronos.org/openxr/
+- KServe documentation - https://kserve.github.io/website/latest/
+- Lamport - Paxos Made Simple - https://www.microsoft.com/en-us/research/publication/paxos-made-simple/
+- Lamport - The Part-Time Parliament - https://www.microsoft.com/en-us/research/publication/part-time-parliament/
+- Lamport - Time, Clocks, and the Ordering of Events - https://lamport.azurewebsites.net/pubs/time-clocks.pdf
+- LangChain RAG concepts - https://python.langchain.com/docs/concepts/rag/
+- LangGraph documentation - https://langchain-ai.github.io/langgraph/
+- LaunchDarkly - Progressive delivery - https://launchdarkly.com/blog/what-is-progressive-delivery/
+- Let's Encrypt docs - https://letsencrypt.org/docs/
+- LevelDB implementation notes - https://github.com/google/leveldb/blob/main/doc/impl.md
+- Lewis et al. - Retrieval-Augmented Generation - https://arxiv.org/abs/2005.11401
+- Linux cgroup v2 docs - https://docs.kernel.org/admin-guide/cgroup-v2.html
+- Linux kernel memory management docs - https://docs.kernel.org/mm/
+- Linux kernel scheduler docs - https://docs.kernel.org/scheduler/
+- Linux kernel VFS docs - https://docs.kernel.org/filesystems/vfs.html
+- Linux man-pages project - https://www.kernel.org/doc/man-pages/
+- Linux namespaces overview - https://man7.org/linux/man-pages/man7/namespaces.7.html
+- Linux perf wiki - https://perf.wiki.kernel.org/index.php/Main_Page
+- Little's Law overview - https://en.wikipedia.org/wiki/Little%27s_law
+- llama.cpp documentation - https://github.com/ggml-org/llama.cpp
+- Losasso and Hoppe - Geometry Clipmaps - https://hhoppe.com/geomclipmap.pdf
+- man2 execve - https://man7.org/linux/man-pages/man2/execve.2.html
+- man5 procfs memory fields - https://man7.org/linux/man-pages/man5/proc.5.html
+- man7 capabilities - https://man7.org/linux/man-pages/man7/capabilities.7.html
+- man7 path_resolution - https://man7.org/linux/man-pages/man7/path_resolution.7.html
+- man7 signal - https://man7.org/linux/man-pages/man7/signal.7.html
+- MANRS routing security - https://www.manrs.org/
+- Mapbox Docs - https://docs.mapbox.com/
+- Mapbox GL JS docs - https://docs.mapbox.com/mapbox-gl-js/
+- Mapbox GL JS product page - https://www.mapbox.com/mapbox-gljs
+- Mapbox Terrain-DEM v1 - https://docs.mapbox.com/data/tilesets/reference/mapbox-terrain-dem-v1/
+- Martin Fowler - Bounded Context - https://martinfowler.com/bliki/BoundedContext.html
+- Martin Fowler - CQRS - https://martinfowler.com/bliki/CQRS.html
+- Martin Fowler - Data modeling - https://martinfowler.com/tags/data%20modeling.html
+- Martin Fowler - Event Sourcing - https://martinfowler.com/eaaDev/EventSourcing.html
+- Martin Fowler - Evolutionary Database Design - https://martinfowler.com/articles/evodb.html
+- Martin Fowler - Feature Toggles - https://martinfowler.com/articles/feature-toggles.html
+- Martin Fowler - Inversion of Control Containers - https://martinfowler.com/articles/injection.html
+- Martin Fowler - Inversion of Control Containers and DI - https://martinfowler.com/articles/injection.html
+- Martin Fowler - Microservices - https://martinfowler.com/articles/microservices.html
+- Martin Fowler - Monolith First - https://martinfowler.com/bliki/MonolithFirst.html
+- Martin Fowler - Strangler Fig Application - https://martinfowler.com/bliki/StranglerFigApplication.html
+- Martin Fowler - Test Pyramid - https://martinfowler.com/bliki/TestPyramid.html
+- Martin Fowler - What do you mean by Event-Driven? - https://martinfowler.com/articles/201701-event-driven.html
+- Martin Kleppmann - How to do distributed locking - https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html
+- Matrix factorization techniques for recommender systems - https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf
+- MDN - HTTP - https://developer.mozilla.org/en-US/docs/Web/HTTP
+- MDN - HTTP caching - https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+- MDN - WebSocket API - https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+- Meta Quest performance guidelines - https://developer.oculus.com/resources/vrc-quest-performance-1/
+- Meta Engineering - RAMP-TAO - https://engineering.fb.com/2021/08/18/core-infra/ramp-tao/
+- Meta Engineering - TAO: The power of the graph - https://engineering.fb.com/2013/06/25/core-infra/tao-the-power-of-the-graph/
+- Meta Engineering - TAOBench - https://engineering.fb.com/2022/09/07/core-infra/taobench/
+- Michael Nygard - Documenting Architecture Decisions - https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+- Microsoft - .NET diagnostics - https://learn.microsoft.com/en-us/dotnet/core/diagnostics/
+- Microsoft - .NET diagnostics tools - https://learn.microsoft.com/en-us/dotnet/core/diagnostics/
+- Microsoft - .NET microservices architecture - https://learn.microsoft.com/en-us/dotnet/architecture/microservices/
+- Microsoft - .NET release policies - https://learn.microsoft.com/en-us/dotnet/core/releases-and-support
+- Microsoft - ArrayPool<T> - https://learn.microsoft.com/en-us/dotnet/api/system.buffers.arraypool-1
+- Microsoft - ASP.NET Core fundamentals - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/
+- Microsoft - ASP.NET Core middleware - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/
+- Microsoft - Asynchronous programming with async and await - https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/
+- Microsoft - C# language versioning - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version
+- Microsoft - Clean architecture eBook - https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+- Microsoft - Constraints on type parameters - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters
+- Microsoft - CQRS pattern - https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs
+- Microsoft - DDD microservice patterns - https://learn.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/
+- Microsoft - Dependency injection in .NET - https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection
+- Microsoft - EF Core change tracking - https://learn.microsoft.com/en-us/ef/core/change-tracking/
+- Microsoft - EF Core documentation - https://learn.microsoft.com/en-us/ef/core/
+- Microsoft - EF Core querying - https://learn.microsoft.com/en-us/ef/core/querying/
+- Microsoft - Event-driven architecture - https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven
+- Microsoft - Expression trees - https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/expression-trees/
+- Microsoft - Fundamentals of garbage collection - https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
+- Microsoft - Generics in .NET - https://learn.microsoft.com/en-us/dotnet/standard/generics/
+- Microsoft - Incremental generators cookbook - https://github.com/dotnet/roslyn/blob/main/docs/features/incremental-generators.cookbook.md
+- Microsoft - LINQ in C# - https://learn.microsoft.com/en-us/dotnet/csharp/linq/
+- Microsoft - Managed threading - https://learn.microsoft.com/en-us/dotnet/standard/threading/
+- Microsoft - Memory and Span usage guidelines - https://learn.microsoft.com/en-us/dotnet/standard/memory-and-spans/memory-t-usage-guidelines
+- Microsoft - Minimal APIs overview - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/overview
+- Microsoft - Native AOT deployment - https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/
+- Microsoft - Native interoperability - https://learn.microsoft.com/en-us/dotnet/standard/native-interop/
+- Microsoft - Nullable reference types - https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references
+- Microsoft - Nullable static analysis attributes - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/nullable-analysis
+- Microsoft - Nullable warnings - https://learn.microsoft.com/en-us/dotnet/csharp/nullable-warnings
+- Microsoft - P/Invoke - https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke
+- Microsoft - Roslyn analyzers overview - https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/overview
+- Microsoft - SafeHandle - https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.safehandle
+- Microsoft - Saga distributed transactions - https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga
+- Microsoft - Server garbage collection - https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/workstation-server-gc
+- Microsoft - Single-file deployment - https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview
+- Microsoft - Source generators - https://learn.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/source-generators-overview
+- Microsoft - Span<T> - https://learn.microsoft.com/en-us/dotnet/api/system.span-1
+- Microsoft - Standard query operators - https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/
+- Microsoft - System.Threading.Channels - https://learn.microsoft.com/en-us/dotnet/core/extensions/channels
+- Microsoft - Task asynchronous programming model - https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/task-asynchronous-programming-model
+- Microsoft - Task Parallel Library - https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/task-parallel-library-tpl
+- Microsoft - Testing in .NET - https://learn.microsoft.com/en-us/dotnet/core/testing/
+- Microsoft - Trim self-contained deployments - https://learn.microsoft.com/en-us/dotnet/core/deploying/trimming/trim-self-contained
+- Microsoft - Variance in generic interfaces - https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/covariance-contravariance/variance-in-generic-interfaces
+- Microsoft - What's new in .NET - https://learn.microsoft.com/en-us/dotnet/core/whats-new/
+- Microsoft Recommenders repo - https://github.com/recommenders-team/recommenders
+- Microsoft REST API Guidelines - https://github.com/microsoft/api-guidelines
+- MIT 6.824 Distributed Systems - https://pdos.csail.mit.edu/6.824/
+- MIT 6.824 Paxos lecture - https://pdos.csail.mit.edu/6.824/
+- MIT OCW - Advanced Algorithms - https://ocw.mit.edu/courses/6-854j-advanced-algorithms-fall-2005/
+- MIT OCW - Randomized Algorithms - https://ocw.mit.edu/courses/6-856j-randomized-algorithms-fall-2002/
+- MIT OpenCourseWare - 6.006 Introduction to Algorithms - https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/
+- MLCommons AI Safety benchmark - https://mlcommons.org/working-groups/ai-safety/
+- MLflow documentation - https://mlflow.org/docs/latest/index.html
+- Model Context Protocol specification - https://modelcontextprotocol.io/specification/
+- Mozilla SSL Configuration Generator - https://ssl-config.mozilla.org/
+- Netflix - Chaos Engineering - https://netflixtechblog.com/tagged/chaos-engineering
+- NGINX reverse proxy docs - https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/
+- NIST RPKI Monitor - https://rpki-monitor.antd.nist.gov/
+- nix copy/store paths - https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-copy
+- Nix derivations - https://nix.dev/manual/nix/latest/language/derivations
+- Nix flakes manual - https://nix.dev/manual/nix/latest/command-ref/new-cli/nix3-flake
+- Nix language manual - https://nix.dev/manual/nix/latest/language/
+- Nix store and binary caches - https://nix.dev/manual/nix/latest/package-management/binary-cache-substituter
+- nix.dev flakes tutorial - https://nix.dev/tutorials/working-with-local-files.html
+- NixOS manual - https://nixos.org/manual/nixos/stable/
+- NixOS manual - Writing modules - https://nixos.org/manual/nixos/stable/#sec-writing-modules
+- NixOS module system docs - https://nix.dev/tutorials/module-system/
+- NixOS options search - https://search.nixos.org/options
+- NixOS wiki - Flakes - https://wiki.nixos.org/wiki/Flakes
+- nixpkgs manual - https://nixos.org/manual/nixpkgs/stable/
+- NVIDIA GPU Performance Background - https://developer.nvidia.com/blog/tag/gpu-performance/
+- NVIDIA Nsight Graphics - https://developer.nvidia.com/nsight-graphics
+- NVIDIA Triton Inference Server - https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/
+- OCI runtime spec - https://github.com/opencontainers/runtime-spec
+- Ongaro and Ousterhout - In Search of an Understandable Consensus Algorithm - https://raft.github.io/raft.pdf
+- OpenAI Spinning Up - https://spinningup.openai.com/en/latest/
+- OpenAL Soft HRTF docs - https://openal-soft.org/
+- OpenAPI Specification - https://spec.openapis.org/oas/latest.html
+- OpenFeature specification - https://openfeature.dev/specification/
+- OpenSLO specification - https://openslo.com/
+- OpenEarth.Online - https://www.openearth.online/
+- OpenTelemetry Collector configuration - https://opentelemetry.io/docs/collector/configuration/
+- OpenTelemetry Collector docs - https://opentelemetry.io/docs/collector/
+- OpenTelemetry logs - https://opentelemetry.io/docs/concepts/signals/logs/
+- OpenTelemetry specification - https://opentelemetry.io/docs/specs/
+- OpenTelemetry traces - https://opentelemetry.io/docs/concepts/signals/traces/
+- OpenXR specification - https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html
+- Orleans documentation - https://learn.microsoft.com/en-us/dotnet/orleans/overview
+- Pact contract testing - https://docs.pact.io/
+- PagerDuty incident response docs - https://response.pagerduty.com/
+- PagerDuty Runbook Automation - https://www.pagerduty.com/resources/learn/what-is-a-runbook/
+- Piper TTS project - https://github.com/rhasspy/piper
+- PostgreSQL - ALTER TABLE - https://www.postgresql.org/docs/current/sql-altertable.html
+- PostgreSQL - Backup and restore - https://www.postgresql.org/docs/current/backup.html
+- PostgreSQL - Constraints - https://www.postgresql.org/docs/current/ddl-constraints.html
+- PostgreSQL - Continuous archiving and PITR - https://www.postgresql.org/docs/current/continuous-archiving.html
+- PostgreSQL - EXPLAIN - https://www.postgresql.org/docs/current/using-explain.html
+- PostgreSQL - Index types - https://www.postgresql.org/docs/current/indexes-types.html
+- PostgreSQL - Monitoring database activity - https://www.postgresql.org/docs/current/monitoring.html
+- PostgreSQL - Multicolumn indexes - https://www.postgresql.org/docs/current/indexes-multicolumn.html
+- PostgreSQL - MVCC - https://www.postgresql.org/docs/current/mvcc.html
+- PostgreSQL - Planner statistics - https://www.postgresql.org/docs/current/planner-stats.html
+- PostgreSQL - Resource consumption - https://www.postgresql.org/docs/current/runtime-config-resource.html
+- PostgreSQL - Routine vacuuming - https://www.postgresql.org/docs/current/routine-vacuuming.html
+- PostgreSQL - Transaction isolation - https://www.postgresql.org/docs/current/transaction-iso.html
+- PostgreSQL - Using EXPLAIN - https://www.postgresql.org/docs/current/using-explain.html
+- PostgreSQL - WAL configuration - https://www.postgresql.org/docs/current/wal-configuration.html
+- PostgreSQL SQL language - https://www.postgresql.org/docs/current/sql.html
+- Princeton Algorithms - https://algs4.cs.princeton.edu/home/
+- Principles of Chaos Engineering - https://principlesofchaos.org/
+- Prisma - Data migrations - https://www.prisma.io/docs/guides/data-migration
+- Prometheus alerting docs - https://prometheus.io/docs/alerting/latest/overview/
+- Prometheus best practices - https://prometheus.io/docs/practices/naming/
+- Prometheus documentation - https://prometheus.io/docs/introduction/overview/
+- Prometheus metric types - https://prometheus.io/docs/concepts/metric_types/
+- Protocol Buffers documentation - https://protobuf.dev/
+- PyTorch vision docs - https://pytorch.org/vision/stable/index.html
+- Raft official site - https://raft.github.io/
+- Redis - Probabilistic data structures - https://redis.io/docs/latest/develop/data-types/probabilistic/
+- Redis Redlock documentation - https://redis.io/docs/latest/develop/use/patterns/distributed-locks/
+- Refactoring.com - https://refactoring.com/
+- RenderDoc documentation - https://renderdoc.org/docs/index.html
+- Reproducible Builds project - https://reproducible-builds.org/
+- RFC 1034 - Domain names concepts - https://www.rfc-editor.org/rfc/rfc1034
+- RFC 1035 - Domain names implementation - https://www.rfc-editor.org/rfc/rfc1035
+- RFC 1122 - Internet host requirements - https://www.rfc-editor.org/rfc/rfc1122
+- RFC 2328 - OSPF Version 2 - https://www.rfc-editor.org/rfc/rfc2328
+- RFC 4271 - BGP-4 - https://www.rfc-editor.org/rfc/rfc4271
+- RFC 4861 - Neighbor Discovery - https://www.rfc-editor.org/rfc/rfc4861
+- RFC 6455 - The WebSocket Protocol - https://www.rfc-editor.org/rfc/rfc6455
+- RFC 8200 - IPv6 Specification - https://www.rfc-editor.org/rfc/rfc8200
+- RFC 8446 - TLS 1.3 - https://www.rfc-editor.org/rfc/rfc8446
+- RFC 9000 - QUIC - https://www.rfc-editor.org/rfc/rfc9000
+- RFC 9110 - HTTP Semantics - https://www.rfc-editor.org/rfc/rfc9110
+- RFC 9111 - HTTP Caching - https://www.rfc-editor.org/rfc/rfc9111
+- RFC 9114 - HTTP/3 - https://www.rfc-editor.org/rfc/rfc9114
+- RIPE IPv6 address planning - https://www.ripe.net/publications/docs/ripe-690/
+- RocksDB Wiki - https://github.com/facebook/rocksdb/wiki
+- Sentence Transformers docs - https://www.sbert.net/
+- Steam Audio documentation - https://valvesoftware.github.io/steam-audio/
+- Stephen Toub - ConfigureAwait FAQ - https://devblogs.microsoft.com/dotnet/configureawait-faq/
+- strace project - https://strace.io/
+- Stripe - Idempotent requests - https://docs.stripe.com/api/idempotent_requests
+- Sutton and Barto - Reinforcement Learning - http://incompleteideas.net/book/the-book-2nd.html
+- Swagger documentation - https://swagger.io/docs/specification/
+- systemd.resource-control - https://www.freedesktop.org/software/systemd/man/latest/systemd.resource-control.html
+- systemd.service manual - https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+- systemd.special manual - https://www.freedesktop.org/software/systemd/man/latest/systemd.special.html
+- systemd.timer manual - https://www.freedesktop.org/software/systemd/man/latest/systemd.timer.html
+- systemd.unit manual - https://www.freedesktop.org/software/systemd/man/latest/systemd.unit.html
+- TCP RFC 9293 - https://www.rfc-editor.org/rfc/rfc9293
+- The Book of Secret Knowledge - https://github.com/trimstray/the-book-of-secret-knowledge
+- The National Map services - https://apps.nationalmap.gov/services/
+- The National Map Viewer - https://www.usgs.gov/tools/national-map-viewer
+- Temporal documentation - https://docs.temporal.io/
+- The Algorithm Design Manual - https://www.algorist.com/
+- The Book of Shaders - https://thebookofshaders.com/
+- The Illustrated Transformer - https://jalammar.github.io/illustrated-transformer/
+- Thoughtworks Technology Radar - Lightweight Architecture Decision Records - https://www.thoughtworks.com/radar/techniques/lightweight-architecture-decision-records
+- Unicode Standard Annex #15 - Normalization Forms - https://www.unicode.org/reports/tr15/
+- Unity DOTS ECS docs - https://docs.unity3d.com/Packages/com.unity.entities@latest
+- USGS 3D Elevation Program - https://www.usgs.gov/3d-elevation-program
+- USGS 3DEP Elevation ImageServer - https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer
+- USGS EarthExplorer - https://earthexplorer.usgs.gov/
+- USGS EPQS - https://apps.nationalmap.gov/epqs/
+- vLLM documentation - https://docs.vllm.ai/
+- Vulkan compute shader tutorial - https://docs.vulkan.org/tutorial/latest/11_Compute_Shader.html
+- Vulkan Guide - https://docs.vulkan.org/guide/latest/index.html
+- Vulkan shader docs - https://docs.vulkan.org/guide/latest/shader_memory_layout.html
+- W3C Trace Context - https://www.w3.org/TR/trace-context/
+- WHATWG - Server-sent events - https://html.spec.whatwg.org/multipage/server-sent-events.html
+- Whisper paper - https://arxiv.org/abs/2212.04356
+- Wikipedia - Universal hashing overview - https://en.wikipedia.org/wiki/Universal_hashing
+- Working Effectively with Legacy Code - https://www.oreilly.com/library/view/working-effectively-with/0131177052/
+- Xweather MapsGL - https://www.xweather.com/products/mapsgl
+- Xweather MapsGL docs - https://www.xweather.com/docs/mapsgl
+
+## Related
+
+- [Engineering Research Library](kb://06-reference-engineering-research-library)
+- [Reference Map](kb://01-maps-reference-map)

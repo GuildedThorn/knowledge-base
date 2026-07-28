@@ -20,7 +20,7 @@ from pathlib import Path
 
 VAULT = Path(__file__).resolve().parent.parent
 # Folders that are not knowledge notes — kept out of the catalog.
-SKIP_DIRS = {".git", ".obsidian", ".claude", "91 Images", "Postcards"}
+SKIP_DIRS = {".git", ".obsidian", ".claude", ".trash", "91 Images", "Postcards"}
 INDEX_MD = VAULT / "INDEX.md"
 INDEX_JSON = VAULT / ".claude" / "index.json"
 

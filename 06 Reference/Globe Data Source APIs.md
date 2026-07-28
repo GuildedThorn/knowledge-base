@@ -8,6 +8,18 @@ tags: [reference, api, geospatial, vr-brain, security]
 
 Reference for adding live data layers to the [[vr-brain - Overview|vr-brain]] Earth globe. Prioritizes **no-account** or **free-key** sources. Each fits the globe plumbing: point/vector → `Earth.LatLonToDir(lat,lon)`; raster → the `{z}/{x}/{y}` XYZ overlay path; networking via `HttpClient` on a worker thread + `ConfigFile`. Set a descriptive `User-Agent` (some sources require it). Compiled 2026-07-24. See [[High-Fidelity Planet Rendering (Godot)]] for the renderer and [[Earth - Geo Engine Rewrite]] for the layer architecture.
 
+## 3D Mapping Platform Research
+
+- [3D Mapping Platforms - Index](kb://06-reference-3d-mapping-platforms-3d-mapping-platforms-index) - comparison hub for ArcGIS Pro, Google Photorealistic 3D Tiles, Mapbox GL JS, and CesiumJS.
+- [Google Maps Platform Photorealistic 3D Tiles](kb://06-reference-3d-mapping-platforms-google-maps-platform-photorealistic-3d-tiles) - official documented path for Google 3D real-world mesh via Map Tiles API and compatible 3D Tiles renderers.
+- [CesiumJS 3D Geospatial Visualization](kb://06-reference-3d-mapping-platforms-cesiumjs-3d-geospatial-visualization) - reference renderer/model for 3D Tiles, terrain, imagery, and massive web-geospatial streaming.
+- [Mapbox GL JS 3D Terrain and Buildings](kb://06-reference-3d-mapping-platforms-mapbox-gl-js-3d-terrain-and-buildings) - web map stack for terrain, vector styling, and building/polygon extrusion.
+- [Esri ArcGIS Pro 3D GIS](kb://06-reference-3d-mapping-platforms-esri-arcgis-pro-3d-gis) - enterprise GIS authoring/analysis system for I3S scene layers and integrated mesh workflows.
+- [Xweather MapsGL Weather Visualization](kb://06-reference-3d-mapping-platforms-xweather-mapsgl-weather-visualization) - WebGL weather SDK/reference model for animated radar, forecast, wind-particle, contour, grid, and timeline layers.
+- [Eagleview Aerial Imagery and Property Intelligence](kb://06-reference-3d-mapping-platforms-eagleview-aerial-imagery-and-property-intelligence) - property-level aerial imagery, measurements, and APIs for parcel/building intelligence.
+- [OpenEarth.Online 3D Mesh Export](kb://06-reference-3d-mapping-platforms-openearth-online-3d-mesh-export) - commercial mesh/panorama export workflow for AI, CG, BIM, robot simulation, and digital-twin test assets.
+- [USGS EarthExplorer and The National Map Data](kb://06-reference-geospatial-usgs-earthexplorer-and-national-map-data) - official U.S. elevation, imagery, lidar, topo, hydrography, WMS/WCS/WFS/REST, and download workflows.
+
 ## Weather — NWS `api.weather.gov`
 
 - **Auth:** no key; descriptive `User-Agent` REQUIRED (`(vr-brain-globe, guildedthorn@gmail.com)`).

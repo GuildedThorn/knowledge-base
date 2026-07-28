@@ -13,6 +13,10 @@ Use this note as the index for monitoring, dashboards, and security-telemetry do
 - [[08 Improvements/SIEM-SOC Rollout|SIEM-SOC Rollout]] — what's built (soc host, fleet auditd/Alloy, Suricata, CrowdSec, canaries) and what remains
 - [[09 Observability/SIEM Review Log|SIEM Review Log]] — append-only log of the 3×-daily scheduled Claude tier-1 review passes over Loki/Prometheus
 
+## Generated Intelligence
+
+- [[01 Maps/Intelligence Map|Intelligence Map]] — daily briefings and threat dossiers synthesized from this telemetry (vr-brain + the SIEM review loop)
+
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]

@@ -25,4 +25,4 @@ The advertised "conversion / archive / AI-training" processing is **not triggere
 - Full 65535-port scan (nmap only did top-1000; :3000 filtered).
 - Fuzz research vhost for source/config (`.git`, `app.py`, `index.php`, `robots.txt`).
 
-→ next: [[htb-bedsides-08-deepen]]
+→ next: [[htb-bedsides-08-pdfminer-cve]]

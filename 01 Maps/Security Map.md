@@ -6,10 +6,16 @@ Use this note as the index for security work — both offensive methodology (reu
 - [Offensive Tools — Index](kb://11-security-tools-tools-index) — per-tool flags and invocations (nmap, ffuf, Burp, Metasploit, hashcat, impacket, BloodHound…)
 - [Payload Cheat Sheets — Index](kb://11-security-payloads-payloads-index) — copy-paste libraries: SQLi, XSS, LFI, command injection, upload bypass, GTFOBins/LOLBAS
 
+## Research library
+
+- [Research Library](kb://11-security-research-library) — ingested technical writeups, threat reports, and papers digested into source-cited per-topic notes across ten collections (threat intel, techniques, exploit dev, reversing, web, C2/post-ex, DFIR/detection, crypto/ransomware, cloud/container, mobile/hardware)
+- [Zero Trust Architecture - NIST](kb://11-security-zero-trust-architecture-nist) — resource-centered access control architecture based on identity, device posture, policy, telemetry, and continuous authorization.
+
 ## Campaigns
 
 - [HTB: Bedsides — Campaign Index](kb://11-security-htb-bedsides-htb-bedsides-index) — recon → CVE-2025-64512 (pdfminer.six pickle RCE) foothold → root
 - [HTB: Cobblestone — Campaign Index](kb://11-security-htb-cobblestone-htb-cobblestone-index)
+- [Juice Shop — Campaign Index](kb://11-security-juiceshop-juiceshop-index) — authorized OWASP Juice Shop assessment: SQLi auth-bypass → admin, null-byte ACL bypass, BOLA user dump, SCA
 
 ## Defense / analysis
 

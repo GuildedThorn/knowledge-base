@@ -9,6 +9,7 @@ Use this note as the index for unfinished work, cleanup, and follow-up items acr
 ## Core Trackers
 
 - [[08 Improvements/Improvements Tracker|Improvements Tracker]]
+- [[08 Improvements/Backup and DR Strategy|Backup and DR Strategy]]
 - [[99 Archive/Vault Cleanup|Vault Cleanup]]
 - [[08 Improvements/Network Improvements|Network Improvements]]
 - [[08 Improvements/NixOS Improvements|NixOS Improvements]]

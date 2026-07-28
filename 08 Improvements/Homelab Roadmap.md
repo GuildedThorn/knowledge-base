@@ -25,8 +25,7 @@ None of the items below are built. This is a brainstorm/backlog, not a status re
 
 ### Backup and Disaster Recovery
 
-- [ ] No backup/DR strategy is documented anywhere for the fleet, despite there now being real production state to lose: `websites` (GuildedThorn.com + gallery/radio state), [[03 Devices/TrueNAS|TrueNAS]] (media + presumably other data), sops-managed secrets, and the `ThornixOS` repo itself (already git-backed, lower risk).
-- [ ] TrueNAS is the obvious backup target for the rest of the fleet given it already exists — worth deciding what snapshots/replication it's actually configured to do today versus what's aspirational.
+Graduated to its own note — see [[08 Improvements/Backup and DR Strategy|Backup and DR Strategy]] for what's protected today (config, secrets, Prometheus), the exposed application state (MongoDB, gallery uploads), and the NAS-as-sole-target single point of failure.
 
 ### Alerting
 

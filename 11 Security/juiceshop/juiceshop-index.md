@@ -15,14 +15,14 @@ Authorized, non-persistent assessment of OWASP Juice Shop **v20.1.1**. No writes
 
 ## 🏁 Findings
 
-| ID | Finding | Severity | CWE | Step |
-|----|---------|----------|-----|------|
-| F1 | SQLi authentication bypass → admin | 🔴 Critical | CWE-89 | [[juiceshop-04-sqli-auth-bypass\|04]] |
-| F2 | Poison-Null-Byte access-control bypass on `/ftp` | 🟠 High | CWE-22 / CWE-158 | [[juiceshop-02-ftp-nullbyte\|02]] |
-| F3 | BOLA — full user directory dump | 🟠 High | CWE-639 / CWE-284 | [[juiceshop-05-bola-user-dump\|05]] |
-| F4 | 184 CVEs in dependencies | 🟠 High | CWE-1321 / CWE-347 | [[juiceshop-03-sca-dependencies\|03]] |
-| F5 | Wildcard CORS | 🟡 Medium | CWE-942 | [[juiceshop-01-recon-nmap\|01]] |
-| F6 | Directory listing + open Swagger | ⚪ Info | CWE-548 | [[juiceshop-01-recon-nmap\|01]] |
+| ID  | Finding                                          | Severity    | CWE                | Step                                  |
+| --- | ------------------------------------------------ | ----------- | ------------------ | ------------------------------------- |
+| F1  | SQLi authentication bypass → admin               | 🔴 Critical | CWE-89             | [[juiceshop-04-sqli-auth-bypass\|04]] |
+| F2  | Poison-Null-Byte access-control bypass on `/ftp` | 🟠 High     | CWE-22 / CWE-158   | [[juiceshop-02-ftp-nullbyte\|02]]     |
+| F3  | BOLA — full user directory dump                  | 🟠 High     | CWE-639 / CWE-284  | [[juiceshop-05-bola-user-dump\|05]]   |
+| F4  | 184 CVEs in dependencies                         | 🟠 High     | CWE-1321 / CWE-347 | [[juiceshop-03-sca-dependencies\|03]] |
+| F5  | Wildcard CORS                                    | 🟡 Medium   | CWE-942            | [[juiceshop-01-recon-nmap\|01]]       |
+| F6  | Directory listing + open Swagger                 | ⚪ Info      | CWE-548            | [[juiceshop-01-recon-nmap\|01]]       |
 
 ## Steps
 
