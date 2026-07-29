@@ -585,6 +585,17 @@
     "summary": "Document the shared shell/CLI tooling declared in `modules/home-manager/base.nix`, previously only mentioned in passing from other notes."
   },
   {
+    "slug": "04-software-typst",
+    "title": "Typst",
+    "path": "04 Software/Typst.md",
+    "folder": "04 Software",
+    "status": "planned",
+    "tags": [
+      "software"
+    ],
+    "summary": "Typst markup-based typesetting system and its typst.app web editor — a candidate tool, not yet declared in ThornixOS."
+  },
+  {
     "slug": "04-software-vesktop",
     "title": "Vesktop",
     "path": "04 Software/Vesktop.md",
@@ -6416,6 +6427,17 @@
     "summary": "The classic locking protocol whose growing/shrinking phases guarantee conflict-serializable schedules."
   },
   {
+    "slug": "06-reference-typst-examples",
+    "title": "Typst Examples",
+    "path": "06 Reference/Typst Examples.md",
+    "folder": "06 Reference",
+    "status": "active",
+    "tags": [
+      "reference"
+    ],
+    "summary": "Worked Typst examples and version gotchas — a self-contained showcase plus the built-in features it exercises."
+  },
+  {
     "slug": "06-reference-engineering-linux-nix-systems-udev",
     "title": "udev",
     "path": "06 Reference/engineering/linux-nix-systems/udev.md",
@@ -8824,6 +8846,20 @@
     "summary": "Metasploit + msfvenom — module workflow, payloads, meterpreter, handlers."
   },
   {
+    "slug": "11-security-mindmap-library",
+    "title": "Mindmap Library",
+    "path": "11 Security/Mindmap Library.md",
+    "folder": "11 Security",
+    "status": "active",
+    "tags": [
+      "security",
+      "reference",
+      "mindmaps",
+      "index"
+    ],
+    "summary": "Catalog of the Ignitetechnologies/Mindmap collection — 100+ pentest/blue-team/compliance visual mind maps, grouped by domain and mapped to existing vault notes."
+  },
+  {
     "slug": "11-security-threat-intel-mirai-botnet",
     "title": "mirai-botnet",
     "path": "11 Security/threat-intel/mirai-botnet.md",
@@ -10319,39 +10355,6 @@
     "summary": "Track cleanup work inside the knowledge base itself so maps and notes do not drift into placeholder soup."
   },
   {
-    "slug": "briefings-2026-07-22",
-    "title": "2026-07-22",
-    "path": "Briefings/2026-07-22.md",
-    "folder": "Briefings",
-    "status": "log",
-    "tags": [
-      "briefing"
-    ],
-    "summary": "Quiet, healthy constellation."
-  },
-  {
-    "slug": "briefings-2026-07-23",
-    "title": "2026-07-23",
-    "path": "Briefings/2026-07-23.md",
-    "folder": "Briefings",
-    "status": "log",
-    "tags": [
-      "briefings"
-    ],
-    "summary": "A busy day: a whole new security wing lit up, and vr-brain itself grew a sky."
-  },
-  {
-    "slug": "briefings-2026-07-24",
-    "title": "2026-07-24",
-    "path": "Briefings/2026-07-24.md",
-    "folder": "Briefings",
-    "status": "log",
-    "tags": [
-      "briefings"
-    ],
-    "summary": "vr-brain - Overview · vr-brain - Architecture · Host nixos"
-  },
-  {
     "slug": "intelligence-briefings-2026-07-26",
     "title": "Intelligence briefing 2026-07-26",
     "path": "Intelligence/Briefings/2026-07-26.md",
@@ -10372,5 +10375,38 @@
       "intelligence"
     ],
     "summary": ""
+  },
+  {
+    "slug": "vr-brain-briefings-2026-07-22",
+    "title": "2026-07-22",
+    "path": "VR Brain/Briefings/2026-07-22.md",
+    "folder": "VR Brain",
+    "status": "log",
+    "tags": [
+      "briefing"
+    ],
+    "summary": "Quiet, healthy constellation."
+  },
+  {
+    "slug": "vr-brain-briefings-2026-07-23",
+    "title": "2026-07-23",
+    "path": "VR Brain/Briefings/2026-07-23.md",
+    "folder": "VR Brain",
+    "status": "active",
+    "tags": [
+      "vr-brain"
+    ],
+    "summary": "A busy day: a whole new security wing lit up, and vr-brain itself grew a sky."
+  },
+  {
+    "slug": "vr-brain-briefings-2026-07-24",
+    "title": "2026-07-24",
+    "path": "VR Brain/Briefings/2026-07-24.md",
+    "folder": "VR Brain",
+    "status": "active",
+    "tags": [
+      "vr-brain"
+    ],
+    "summary": "vr-brain - Overview · vr-brain - Architecture · Host nixos"
   }
 ]

@@ -5,7 +5,7 @@
 
 A one-file catalog of every note. **Read this first** to see the whole vault, then `read_note` the `slug` of only what you need — no folder scans.
 
-- **733 notes** · active: 705 · archived: 1 · in-progress: 12 · inbox: 2 · log: 4 · owned: 1 · proposed: 2 · reference: 1 · rooted: 1 · superseded: 1 · template: 3
+- **736 notes** · active: 709 · archived: 1 · in-progress: 12 · inbox: 2 · log: 2 · owned: 1 · planned: 1 · proposed: 2 · reference: 1 · rooted: 1 · superseded: 1 · template: 3
 - Status: `active` (current) · `in-progress` (open work) · `log` · `inbox` · `template` · `superseded`/`archived` (history — usually skip).
 
 ## (root)
@@ -77,6 +77,7 @@ A one-file catalog of every note. **Read this first** to see the whole vault, th
 - `04-software-nixvim` · **NixVim** · active _#software_ — Track the NixVim setup managed by `modules/home-manager/nixvim/` in `ThornixOS` — since split per-concern into `core.nix`, `lsp.nix`, `completion.nix`, `keymap…
 - `04-software-obsidian` · **Obsidian** · active _#software_ — Track plugins, sync decisions, workflow habits, and vault conventions for this knowledge base itself.
 - `04-software-shell-environment` · **Shell Environment** · active _#software_ — Document the shared shell/CLI tooling declared in `modules/home-manager/base.nix`, previously only mentioned in passing from other notes.
+- `04-software-typst` · **Typst** · planned _#software_ — Typst markup-based typesetting system and its typst.app web editor — a candidate tool, not yet declared in ThornixOS.
 - `04-software-vesktop` · **Vesktop** · active _#software_ — Document the Vesktop (Discord client) setup declared in `modules/home-manager/vesktop.nix`.
 - `04-software-weechat` · **WeeChat** · active _#software_ — Track the WeeChat IRC client setup, managed by the `thorn.programs.weechat` Home Manager module (`modules/home-manager/weechat.nix` in `ThornixOS`).
 - `04-software-yazi` · **Yazi** · active _#software_ — Document the Yazi (terminal file manager) setup declared in `modules/home-manager/base.nix`.
@@ -478,6 +479,7 @@ A one-file catalog of every note. **Read this first** to see the whole vault, th
 - `06-reference-engineering-algorithms-cs-turing-machines` · **turing-machines** · active _#reference_ — Abstract model of computation defining computability and grounding the Church-Turing thesis.
 - `06-reference-engineering-databases-storage-two-phase-commit` · **two-phase-commit** · active _#reference_ — The atomic commitment protocol coordinating prepare and commit across participants in a distributed transaction.
 - `06-reference-engineering-databases-storage-two-phase-locking` · **two-phase-locking** · active _#reference_ — The classic locking protocol whose growing/shrinking phases guarantee conflict-serializable schedules.
+- `06-reference-typst-examples` · **Typst Examples** · active _#reference_ — Worked Typst examples and version gotchas — a self-contained showcase plus the built-in features it exercises.
 - `06-reference-engineering-linux-nix-systems-udev` · **udev** · active _#reference_ — The userspace device manager that populates /dev and applies rules as kernel devices appear and disappear.
 - `06-reference-engineering-networking-protocols-udp-user-datagram-protocol` · **udp-user-datagram-protocol** · active _#reference_ — The connectionless, unreliable datagram transport adding only ports and a checksum atop IP, forming the base for DNS, QUIC, and real-time media.
 - `06-reference-ui-rendering-performance-in-godot` · **UI Rendering Performance in Godot** · active _#reference_ — SubViewport render cost and update-mode discipline, Control layout/redraw cost, RichTextLabel/terminal-stream performance patterns — for multi-panel world-space UI apps.
@@ -667,6 +669,7 @@ A one-file catalog of every note. **Read this first** to see the whole vault, th
 - `11-security-web-advanced-mass-assignment` · **mass-assignment** · active _#security_ — Auto-binding request parameters to internal object fields, letting attackers set privileged or hidden attributes.
 - `11-security-dfir-detection-memory-forensics-volatility` · **memory-forensics-volatility** · active _#security_ — Memory forensics recovers runtime artifacts such as processes, modules, handles, sockets, credentials, injected code, and malware state.
 - `11-security-tools-metasploit` · **metasploit** · active _#security_ — Metasploit + msfvenom — module workflow, payloads, meterpreter, handlers.
+- `11-security-mindmap-library` · **Mindmap Library** · active _#security_ — Catalog of the Ignitetechnologies/Mindmap collection — 100+ pentest/blue-team/compliance visual mind maps, grouped by domain and mapped to existing vault notes.
 - `11-security-threat-intel-mirai-botnet` · **mirai-botnet** · active _#security_ — Mirai showed how default credentials and unmanaged IoT fleets can scale into internet-impacting DDoS botnets.
 - `11-security-dfir-detection-mitre-attack-framework` · **mitre-attack-framework** · active _#security_ — ATT&CK is a curated knowledge base of adversary tactics, techniques, and procedures observed in real-world intrusions.
 - `11-security-dfir-detection-mitre-d3fend-knowledge-graph` · **mitre-d3fend-knowledge-graph** · active _#security_ — D3FEND is a knowledge graph of defensive cybersecurity techniques linked to the offensive ATT&CK techniques they counter.
@@ -784,13 +787,13 @@ A one-file catalog of every note. **Read this first** to see the whole vault, th
 - `99-archive-siem-and-soc-kali-purple-proposal-superseded` · **SIEM and SOC - Kali Purple Proposal (superseded)** · superseded _#archive_ — Plan how a SIEM/SOC capability could be added to ThornCloud using Kali Purple, without inventing claims about anything that existed at the time.
 - `99-archive-vault-cleanup` · **Vault Cleanup** · archived _#archive_ — Track cleanup work inside the knowledge base itself so maps and notes do not drift into placeholder soup.
 
-## Briefings
-
-- `briefings-2026-07-22` · **2026-07-22** · log _#briefing_ — Quiet, healthy constellation.
-- `briefings-2026-07-23` · **2026-07-23** · log _#briefings_ — A busy day: a whole new security wing lit up, and vr-brain itself grew a sky.
-- `briefings-2026-07-24` · **2026-07-24** · log _#briefings_ — vr-brain - Overview · vr-brain - Architecture · Host nixos
-
 ## Intelligence
 
 - `intelligence-briefings-2026-07-26` · **Intelligence briefing 2026-07-26** · proposed _#intelligence_ — Reviewed window: 2026-07-26T14:10:55.6224260+00:00 to 2026-07-26T16:44:55.6209623+00:00
 - `intelligence-dossiers-20260726-known-botnet-c2-50-16-16-211` · **Known botnet C2 50.16.16.211** · proposed _#intelligence_
+
+## VR Brain
+
+- `vr-brain-briefings-2026-07-22` · **2026-07-22** · log _#briefing_ — Quiet, healthy constellation.
+- `vr-brain-briefings-2026-07-23` · **2026-07-23** · active _#vr-brain_ — A busy day: a whole new security wing lit up, and vr-brain itself grew a sky.
+- `vr-brain-briefings-2026-07-24` · **2026-07-24** · active _#vr-brain_ — vr-brain - Overview · vr-brain - Architecture · Host nixos
