@@ -262,3 +262,24 @@ STATUS: OK
 - The Suricata alerts on the websites sensor are self-inflicted: Alloy on websites (172.16.25.50) POSTing to Loki on soc (172.16.25.51:3100) trips "abnormal Content-Encoding header" (snappy-compressed push payloads, HTTP 204 responses). Benign telemetry noise — a suppress rule for sig 2221033 on that flow would clean up the sensor.
 - Log volume split (nixos 617k / soc 96k / websites 37k) has the workstation ~6× its nearest peer; plausible for an interactive desktop but no baseline in this window to compare against. No host is silent in Loki while up in Prometheus.
 - scout is absent from both Prometheus and Loki — consistent absence (laptop off or off-network), not a telemetry inconsistency.
+
+## 2026-07-28 22:55
+
+STATUS: ALERT — unrecognized internal host 172.16.25.50 probing 172.16.25.4:27017 (MongoDB) with an ATTACK_RESPONSE signature match
+
+- **Internal DB probing on websites' eth0 (15:31–15:32 CDT):** 172.16.25.50 pushed ~1.8 MB / 1,382 packets to 172.16.25.4 on port 27017 in one ~22s flow, firing both "ET HUNTING SQL Database Version Discovery" (high confidence) and "GPL ATTACK_RESPONSE id check returned root" (a `uid=0(root)` string on the wire). Suricata couldn't parse the app protocol ("failed"), so this is not normal MongoDB client traffic — it looks like an aggressive version/vuln scan or exploit attempt. Neither IP is the sanctioned admin device (192.168.1.6), and both severities sit below the paging threshold, so this would not have been caught by existing rules. Recommend identifying what 172.16.25.50 and .4 are (container/VM subnet on websites?) and whether anything is actually listening on 27017.
+- **nixos journal volume is a strong outlier:** 917k lines in 9h versus 96k (soc) and 27k (websites) — roughly 10–34× its peers and ~83% of all fleet log lines. No matching audit-key, failed-unit, or auth signal accompanies it, so it's most likely a chatty/looping service rather than an attack, but worth a look at what's flooding the journal.
+- **scout is completely absent** from both Loki volume and Prometheus `up` — consistent silence across both systems (no up-but-silent inconsistency), so most plausibly the laptop is just off/roaming. Flagging since a host contributing zero telemetry is also what a dead log agent looks like.
+- All other checks clean: every scraped target up, zero failed systemd units, zero comin deploy/build/eval failures, zero sshd failures fleet-wide, zero crowdsec scenario hits, zero pfSense priority 1–2 IDS events, and zero identity/privilege/module/time-change audit events.
+- Two WordPress `wlwmanifest.xml` scanner probes hit guildedthorn.com via the Cloudflare tunnel (XFF 82.102.18.124, 143.244.57.121), both 404 — routine internet background noise, nothing further.
+
+## 2026-07-29 06:55
+
+STATUS: OK
+
+- All monitored hosts (nixos, soc, websites, pfsense) are up in Prometheus, with zero failed systemd units and zero comin deploy/build/eval failures across the fleet.
+- No Suricata alerts on the websites sensor, no priority 1–2 hits at the pfSense perimeter (2,114 perimeter lines scanned, all below threshold), no sshd failures, and no CrowdSec scenario hits in the window — even the expected internet-scanner background is absent, which is quiet but not alarming for a Cloudflare-tunneled web host.
+- The audit keyed-event query (identity/privilege/priv-exec/sshd-config/modules/time-change) processed ~980k lines and returned zero matches — no first-seen privilege or identity activity anywhere.
+- scout (roaming laptop) is absent from both Loki journal volume and Prometheus targets — consistently offline rather than half-silent, which fits a laptop that's simply not on the network; no inconsistency to chase.
+- pfSense shows no journal volume, but that's expected (FreeBSD, no systemd journal) and its Suricata stream is actively shipping, so log flow from the perimeter is confirmed healthy.
+- Journal volumes: nixos 744k lines vs soc 93k and websites 27k. The workstation being ~8x its peers is plausible for its role, but worth a glance at top units on nixos next window if it stays this loud — no error/audit signal accompanies it.
