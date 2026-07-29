@@ -19,6 +19,7 @@ Use this note as the index for application-specific documentation.
 - [[04 Software/Yazi|Yazi]]
 - [[04 Software/AI Coding Tools|AI Coding Tools]]
 - [[04 Software/Vesktop|Vesktop]]
+- [[04 Software/Typst|Typst]] — planned; not yet declared
 
 ## Coverage Gaps
 

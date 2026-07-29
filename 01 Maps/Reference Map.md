@@ -9,6 +9,7 @@ Use this note as the index for reusable references, commands, and templates.
 - [Science and Physics - Index](kb://06-reference-science-physics-science-physics-index) - physics and science research notes distilled from primary papers, laboratory publications, and technical explainers.
 - [The Book of Secret Knowledge - Resource Index](kb://06-reference-the-book-of-secret-knowledge-resource-index) - curated discovery map for sysadmin, DevOps, security, CLI, networking, and web-ops references.
 - [Commands Cheat Sheet](kb://06-reference-commands-cheat-sheet)
+- [Typst Examples](kb://06-reference-typst-examples) - self-contained Typst showcase (typography, math, tables, figures, code) plus version 0.15 gotchas.
 - AGENT
 - [Codex Generation Standard](kb://06-reference-codex-generation-standard)
 - [Data Structures and Algorithms](kb://06-reference-data-structures-and-algorithms)
