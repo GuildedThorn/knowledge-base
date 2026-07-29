@@ -5,6 +5,7 @@ Use this note as the index for security work — both offensive methodology (reu
 - [Pentest Playbook — Index](kb://11-security-playbook-pentest-playbook-index) — recon → foothold → privesc → AD → pivoting methodology
 - [Offensive Tools — Index](kb://11-security-tools-tools-index) — per-tool flags and invocations (nmap, ffuf, Burp, Metasploit, hashcat, impacket, BloodHound…)
 - [Payload Cheat Sheets — Index](kb://11-security-payloads-payloads-index) — copy-paste libraries: SQLi, XSS, LFI, command injection, upload bypass, GTFOBins/LOLBAS
+- [Mindmap Library](kb://11-security-mindmap-library) — catalog of the Ignitetechnologies/Mindmap collection (100+ pentest/blue-team/compliance visual mind maps), grouped by domain and cross-linked to vault notes
 
 ## Research library
 
