@@ -775,6 +775,7 @@ A one-file catalog of every note. **Read this first** to see the whole vault, th
 - `12-datasets-ai-agent-cybersecurity-2026-defenses-tables` · **Defenses Tables** · active _#datasets_ — Data dictionary for the defensive tables (defense mechanisms, security benchmarks, incident-response playbooks) in the AI Agent Cybersecurity 2026 dataset.
 - `12-datasets-ai-agent-cybersecurity-2026-threat-intelligence-feeds` · **Threat Intelligence Feeds** · active _#datasets_ — Data dictionary for the threat-intelligence feeds (HuggingFace prompt injections, AlienVault OTX pulses/indicators) in the AI Agent Cybersecurity 2026 dataset — the largest tables, ~21k rows.
 - `12-datasets-ai-agent-cybersecurity-2026-vulnerability-feeds` · **Vulnerability Feeds** · active _#datasets_ — Data dictionary for the vulnerability feeds (CISA KEV, NVD AI CVEs, and the enriched NVD variant) in the AI Agent Cybersecurity 2026 dataset.
+- `12-datasets-truenas-storage-capture-2026-08-01` · **TrueNAS Storage Capture 2026-08-01** · active _#datasets_ — Raw capture of the TrueNAS box's pool / dataset / snapshot / scrub / replication state, taken 2026-08-01 over SSH. Evidence behind the TrueNAS device note's Storage section.
 
 ## 90 Templates
 

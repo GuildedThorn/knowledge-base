@@ -10300,6 +10300,19 @@
     "summary": "Data dictionary for the vulnerability feeds (CISA KEV, NVD AI CVEs, and the enriched NVD variant) in the AI Agent Cybersecurity 2026 dataset."
   },
   {
+    "slug": "12-datasets-truenas-storage-capture-2026-08-01",
+    "title": "TrueNAS Storage Capture 2026-08-01",
+    "path": "12 Datasets/TrueNAS Storage Capture 2026-08-01.md",
+    "folder": "12 Datasets",
+    "status": "active",
+    "tags": [
+      "datasets",
+      "devices",
+      "evidence"
+    ],
+    "summary": "Raw capture of the TrueNAS box's pool / dataset / snapshot / scrub / replication state, taken 2026-08-01 over SSH. Evidence behind the TrueNAS device note's Storage section."
+  },
+  {
     "slug": "90-templates-improvement-note-template",
     "title": "Improvement Note Template",
     "path": "90 Templates/Improvement Note Template.md",
