@@ -44,8 +44,8 @@ Primary edge router and firewall for ThornCloud, handling WAN connectivity, inte
 ## Interfaces
 
 - `WAN`: `64.53.182.82` on `10Gbase-SR`
-- `LAN`: `192.168.1.1` on `1000baseT`
-- `OPT1`: `172.16.25.1` on `1000baseT`
+- `LAN`: `192.168.1.1` on `igb0` / `1000baseT`, feeding the Netgear GS308E
+- `OPT1`: `172.16.25.1` on `igb1` / `1000baseT`, feeding the Cisco Catalyst 3560G
 - `MGMT`: N/A
 - `OPT3`: `10.0.8.1` on `ThornVPN`
 
@@ -82,11 +82,12 @@ Primary edge router and firewall for ThornCloud, handling WAN connectivity, inte
 - The router appears lightly loaded based on memory, swap, state table, and disk usage.
 - `MGMT` is present as a separate interface, which suggests the box is being used with at least some network separation beyond simple WAN/LAN.
 - `OPT1` at `172.16.25.1` and `OPT3` at `10.0.8.1` indicate multiple internal routed segments.
+- LAN and OPT1 are physically separate, flat networks; no VLANs are configured.
 - Because this is the edge firewall, interface assignments, rules, NAT, DHCP, and VPN changes should be documented here as they evolve.
 
 ## Follow-Up Documentation To Add
 
-- interface-to-switch-port mapping
+- exact Netgear and Cisco switch port numbers (the interface-to-switch mapping is documented)
 - firewall rule intent by interface
 - DHCP scopes and static mappings
 - NAT and port forward inventory
@@ -97,4 +98,5 @@ Primary edge router and firewall for ThornCloud, handling WAN connectivity, inte
 
 - [[01 Maps/Devices Map|Devices Map]]
 - [[01 Maps/Network Map|Network Map]]
+- [[05 Network/Physical Topology|Physical Topology]]
 - [[Firewall - pfSense|Firewall - pfSense]]

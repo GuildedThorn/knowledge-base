@@ -18,7 +18,7 @@ Track unfinished work across applications and websites documented in the vault.
 
 - [x] Create `04 Software/VS Code.md` or remove the placeholder link from `Software Map` — resolved: editor is neovim ([[04 Software/NixVim|NixVim]]), VS Code not in use, placeholder removed
 - [x] Create `04 Software/Syncthing.md` or remove the placeholder link from `Software Map` — resolved: Syncthing is not in use, placeholder removed
-- [ ] Set the real LAN IP for the `mac` NixOS host — `modules/computers/mac.nix` still has `services.proxmox-ve.ipAddress = "192.168.1.2"` marked as a TODO placeholder, so this host isn't fully deployed
+- [x] Set the real network identity for the `mac` NixOS host — resolved: Mac is deployed as the OPT1 Proxmox hypervisor; see [[05 Network/Host & IP Inventory|Host & IP Inventory]]
 - [ ] Decide whether `Tribes-Website` stays a generic starter template or gets built out with the staged `wwwroot/tribes-assets` into an actual Tribes community site
 - [ ] Track `SkyDestroyer`'s remaining rig-test queue (Hunter/CnH/vehicle sync on non-Avalon maps, multi-client sync) and its still-unimplemented plugin API
 - [ ] Confirm whether `surround-panner` has had its first real 7.1-speaker listening session yet (README marks this as the explicit next step, not yet done as of the last read)

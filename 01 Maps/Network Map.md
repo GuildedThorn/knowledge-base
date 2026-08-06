@@ -9,6 +9,7 @@ Use this note as the index for firewall, routing, remote access, and serial work
 ## Core Network Topics
 
 - [[05 Network/Host & IP Inventory|Host & IP Inventory]] — **canonical** subnets / IPs / endpoints
+- [[05 Network/Physical Topology|Physical Topology]] — physical links, switches, Proxmox guests, and visibility boundaries
 - [[03 Devices/pfSense Router|pfSense Router]]
 - [[Firewall - pfSense|Firewall - pfSense]]
 - [[Firewall - mitm]]

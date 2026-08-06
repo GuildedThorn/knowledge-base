@@ -6,7 +6,7 @@ tags: [network, reference]
 
 ## Purpose
 
-The **canonical** list of subnets, interfaces, host IPs, and endpoints for ThornCloud. When an address changes, change it *here* — other notes should link to this rather than restate IPs (that duplication is what let the network facts drift before). See [[05 Network/VLANs|VLANs]] for why segmentation is subnet-based (no VLANs).
+The **canonical** list of subnets, interfaces, host IPs, and endpoints for ThornCloud. When an address changes, change it *here* — other notes should link to this rather than restate IPs. See [[05 Network/Physical Topology|Physical Topology]] for connections and [[05 Network/VLANs|VLANs]] for why segmentation is subnet-based.
 
 ## Subnets
 
@@ -22,8 +22,8 @@ The **canonical** list of subnets, interfaces, host IPs, and endpoints for Thorn
 | Interface | Address | Media / notes |
 |---|---|---|
 | `WAN` | `64.53.182.82` | `10Gbase-SR` |
-| `LAN` | `192.168.1.1` | `1000baseT` |
-| `OPT1` | `172.16.25.1` | `1000baseT` |
+| `LAN` | `192.168.1.1` | `igb0`; Netgear GS308E; flat, untagged LAN |
+| `OPT1` | `172.16.25.1` | `igb1`; Cisco Catalyst 3560G; flat, untagged services network |
 | `OPT3` | `10.0.8.1` | OpenVPN `ThornCloud Private Network`, UDP 1194 |
 | `MGMT` | (unassigned) | interface exists, no address |
 | Management UI | `192.168.1.74` | web UI / SSH |
@@ -36,13 +36,22 @@ Details: [[03 Devices/pfSense Router|pfSense Router]] · [[05 Network/Firewall -
 | Host | `.arpa` | IP | Subnet | Role |
 |---|---|---|---|---|
 | pfSense | `pfsense` | `192.168.1.1` / `.74` / `172.16.25.1` | edge | Router / firewall / VPN — see above |
+| nixos | — | `192.168.1.6` | LAN | Main NixOS workstation. [[02 Systems/NixOS - Host nixos\|Host nixos]] |
+| mac / Proxmox | `proxmox` | `172.16.25.3` | OPT1 | Mac Pro 5,1 hypervisor hosting `websites` and `soc`. [[03 Devices/Mac Pro 5,1\|Mac Pro 5,1]] |
 | websites | `websites` | `172.16.25.50` | OPT1 | Public web VM (Cloudflare tunnel); Suricata sensor. [[02 Systems/NixOS - Host websites\|Host websites]] |
 | soc | `soc` | `172.16.25.51/24` | OPT1 | SIEM/SOC VM — Loki/Prometheus/Grafana. [[02 Systems/NixOS - Host soc\|Host soc]] |
 | mitm | `mitm` | `172.16.25.2` | OPT1 | Inline proxy / SearXNG host; referenced as `websites`' upstream gateway + DNS (role slightly ambiguous — confirm). [[02 Systems/NixOS - Host mitm\|Host mitm]] |
 | TrueNAS | `truenas` | `172.16.25.4` | OPT1 | NAS — CIFS media, SeaweedFS S3 (Loki/backups), Jellyfin `:8920`. [[03 Devices/TrueNAS\|TrueNAS]] |
-| proxmox | `proxmox` | _not documented — TBD_ | — | Mac Pro 5,1 hypervisor hosting `websites`/`soc`/guests. [[03 Devices/Mac Pro 5,1\|Mac Pro 5,1]] |
-| mac | — | `192.168.1.2` _(placeholder, TODO — not yet deployed)_ | LAN | Proxmox host, pre-deployment. [[02 Systems/NixOS - Host mac\|Host mac]] |
 | scout | — | `10.10.10.3/32` (WireGuard) | VPN | Roaming laptop. [[02 Systems/NixOS - Host scout\|Host scout]] |
+
+## Physical distribution
+
+| Segment | pfSense interface | Distribution | Confirmed downstream systems |
+|---|---|---|---|
+| LAN | `igb0` | Netgear GS308E | `nixos` |
+| OPT1 | `igb1` | Cisco Catalyst 3560G | Mac/Proxmox, TrueNAS; Proxmox guests `websites` and `soc` |
+
+There are no VLANs. Exact switch port numbers and switch management addresses are not yet documented.
 
 ## Service endpoints
 
@@ -56,13 +65,11 @@ Details: [[03 Devices/pfSense Router|pfSense Router]] · [[05 Network/Firewall -
 
 - Primary `1.1.1.1`; `8.8.8.8` also referenced; `1.1.1.1` as fallback on several hosts. Internal `.arpa` names are largely pinned via static `extraHosts` overrides rather than a running internal DNS server (see [[05 Network/DNS|DNS]]).
 
-## Observed, not infrastructure
-
-- `192.168.1.6` — a LAN device seen SSH-scanning `websites`/`soc` in the [[09 Observability/SIEM Review Log|SIEM Review Log]]; possibly the admin workstation, **unconfirmed**. Listed so it isn't mistaken for a managed host.
-
 ## Related
 
 - [[01 Maps/Network Map|Network Map]]
+- [[05 Network/Physical Topology|Physical Topology]]
+- [[05 Network/Routing|Routing]]
 - [[05 Network/VLANs|VLANs]]
 - [[03 Devices/pfSense Router|pfSense Router]]
 - [[03 Devices/TrueNAS|TrueNAS]]

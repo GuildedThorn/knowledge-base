@@ -10,7 +10,7 @@ Document the `mac` host, composed in `modules/computers/mac.nix`.
 
 ## Role
 
-Intel CPU / AMD graphics machine running a Hyprland desktop, with Proxmox VE service support enabled.
+Intel CPU / AMD graphics machine running NixOS, a Hyprland desktop, and Proxmox VE. It is the deployed hypervisor for the `websites` and `soc` VMs.
 
 ## Composition
 
@@ -23,10 +23,16 @@ Intel CPU / AMD graphics machine running a Hyprland desktop, with Proxmox VE ser
 ## Notable Host Behavior
 
 - systemd-boot bootloader.
-- `services.proxmox-ve.ipAddress` is still a placeholder (`192.168.1.2`) marked `TODO: set this to mac's real LAN IP before deploying` — this host is not yet fully deployed.
-- NetworkManager disabled; DNS `1.1.1.1`; firewall opens SSH and the Proxmox web UI port (8006).
+- The host is deployed on OPT1; its canonical address and DNS identity are in [[05 Network/Host & IP Inventory|Host & IP Inventory]].
+- `enp9s0` is attached to `vmbr0`, which carries the host management address and Proxmox guest traffic to the Cisco Catalyst 3560G.
+- `enp10s0` is unused; `vmbr1` and `vmbr2` are empty.
+- NetworkManager is disabled. pfSense is the primary DNS resolver and gateway, with `1.1.1.1` as a fallback resolver.
+- The firewall opens SSH and the Proxmox web UI port (`8006`).
 
 ## Related
 
 - [[01 Maps/NixOS Map|NixOS Map]]
 - [[02 Systems/NixOS - Shared Modules|Shared Modules]]
+- [[03 Devices/Mac Pro 5,1|Mac Pro 5,1]]
+- [[05 Network/Host & IP Inventory|Host & IP Inventory]]
+- [[05 Network/Physical Topology|Physical Topology]]

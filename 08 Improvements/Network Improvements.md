@@ -10,8 +10,9 @@ Track unfinished network work across routing, firewalling, DNS, remote access, a
 
 ## Current State
 
-- `pfSense Router` and `Firewall - pfSense` now exist as baseline notes.
-- `Network Map` still links to several notes that do not exist yet.
+- `pfSense Router` and `Firewall - pfSense` exist as baseline notes.
+- [[05 Network/Physical Topology|Physical Topology]] now records the known physical links, switches, hosts, and Proxmox guests.
+- [[05 Network/Host & IP Inventory|Host & IP Inventory]] is the canonical address inventory.
 - The pfSense documentation is currently based on a status snapshot, not interface/rule exports.
 
 ## Tasks
@@ -23,7 +24,7 @@ Track unfinished network work across routing, firewalling, DNS, remote access, a
 - [x] Create `05 Network/Routing.md` or remove the placeholder link from `Network Map`
 - [x] Create `05 Network/SSH Access.md` or remove the placeholder link from `Network Map`
 - [x] Create `05 Network/Remote Recovery.md` or remove the placeholder link from `Network Map`
-- [ ] Document pfSense interface-to-switch-port mapping
+- [ ] Record the exact Netgear and Cisco switch port numbers; pfSense `igb0`/`igb1` to switch-model mapping is documented
 - [ ] Document pfSense firewall rule intent for `WAN`, `LAN`, `OPT1`, `MGMT`, and `OPT3`
 - [ ] Document pfSense NAT and port forward inventory
 - [ ] Document pfSense DHCP scopes and static leases

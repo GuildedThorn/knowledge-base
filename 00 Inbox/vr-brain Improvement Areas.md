@@ -13,7 +13,7 @@ Where vr-brain has the most room to improve, from a review of the [Architecture]
 
 **Security (highest value)**
 
-- Secrets (arcgis_api_key, miniflux token, FIRMS map_key, wigle token, opensky creds, abuse.ch auth_key) sit in plaintext `vr-brain.cfg`. Move to a secrets store / sops-nix, or at least lock file perms + gitignore discipline.
+- Secrets (arcgis_api_key, miniflux token, FIRMS map_key, wigle token, opensky c0reds, abuse.ch auth_key) sit in plaintext `vr-brain.cfg`. Move to a secrets store / sops-nix, or at least lock file perms + gitignore discipline.
 - `wayvnc` runs RFB **security None** and `McpServer` is unauthenticated JSON-RPC over localhost TCP. Localhost-only today, but one misbind exposes the whole agent + browser surface. Add a token handshake on the MCP socket.
 
 **Intelligence**

@@ -283,3 +283,151 @@ STATUS: OK
 - scout (roaming laptop) is absent from both Loki journal volume and Prometheus targets — consistently offline rather than half-silent, which fits a laptop that's simply not on the network; no inconsistency to chase.
 - pfSense shows no journal volume, but that's expected (FreeBSD, no systemd journal) and its Suricata stream is actively shipping, so log flow from the perimeter is confirmed healthy.
 - Journal volumes: nixos 744k lines vs soc 93k and websites 27k. The workstation being ~8x its peers is plausible for its role, but worth a glance at top units on nixos next window if it stays this loud — no error/audit signal accompanies it.
+
+## 2026-07-29 14:56
+
+STATUS: ALERT — websites VM probed internal MongoDB (172.16.25.4:27017) with "id check returned root" attack-response hits
+
+- **Priority finding:** At 12:02:50, a single TCP flow from 172.16.25.50 (the websites VM's own address — same source as its cloudflared traffic) to 172.16.25.4:27017 fired "ET HUNTING SQL Database Version Discovery" plus two "GPL ATTACK_RESPONSE id check returned root" alerts, with ~1.9 MB sent to the server across ~1,400 packets. A `uid=0(root)` string plus DB version discovery on an internal flow originating from the internet-exposed web VM is the classic post-compromise lateral-movement shape. This is not the admin box (192.168.1.6), so the authorized-scanning carve-out does not apply. Recommend immediately identifying the process on websites that owned port 45284, confirming whether 172.16.25.4 legitimately runs MongoDB, and checking whether this flow matches any known backup/sync job (which could make it a content false positive — e.g. shell output stored in the DB).
+- No threshold rule would have paged on this: the signatures are severity 2–3 / informational, there were zero crowdsec scenario hits, zero sshd failures, and zero pfSense priority 1–2 IDS events in the window — so the flow above is the only corroboration path.
+- The other websites sensor alert (TLS SNI `update.argotunnel.com` to Cloudflare) is the expected cloudflared update check for a tunnel-fronted host — benign.
+- **Secondary:** nixos emitted ~825k journal lines in 9h versus ~93k (soc) and ~30k (websites) — roughly 9–28× its peers. Nothing keyed in the audit queries matched, so it isn't identity/privilege audit noise per se, but worth identifying which unit is flooding the journal.
+- Fleet health is otherwise clean: all node, loki, pfsense, and comin exporters up; no failed systemd units; no comin deploy/build/eval failures.
+- scout is absent from both Prometheus and Loki — consistent with the laptop simply being offline, not a collection inconsistency.
+
+## 2026-07-29 22:52
+
+STATUS: OK
+
+- All monitored hosts (nixos, soc, websites, pfsense) report up in Prometheus, with no failed systemd units and no comin deploy/build/eval failures. Node and comin exporters healthy across the fleet.
+- **scout is absent from both Loki and Prometheus** — consistent across both systems, so this reads as the roaming laptop simply being offline, not a telemetry gap. No action needed unless it stays dark unusually long.
+- The only IDS activity is a routine `.env`-hunting sweep against websites (guildedthorn.com) from 185.177.72.5 via the Cloudflare tunnel: a couple hundred GETs for `/laravel/.env`, `/symfony/.env`, `/payment-service/.env`, etc. (curl user-agent), all returning 404 in a ~30-second burst around 22:52. Standard internet scanner background; nothing was served.
+- Zero sshd auth failures, zero CrowdSec scenario hits, zero pfSense priority 1–2 IDS alerts, and zero keyed audit events (identity/privilege/module/time changes) across ~800k audited lines in the window.
+- Journal volumes look proportionate for their roles: nixos (workstation) 569k lines, soc 95k, websites 35k — no host wildly off from its expected chattiness, and no host silent in Loki while up in Prometheus.
+- Nothing from 192.168.1.6 in the window — no authorized scan traffic and, more importantly, nothing beyond scanning either.
+
+## 2026-07-30 06:54
+
+STATUS: NOTABLE — nixos journal volume ~8–16x its peers with no corroborating security signal; verify against baseline
+
+- **nixos logged 833,057 journal lines in 9h vs soc 102,901 and websites 51,502.** Nothing malicious corroborates it (no auth failures, no unusual audit events, no IDS hits from that host), so this is most likely a chatty service or verbose audit ruleset rather than compromise — but it's exactly the kind of volume skew threshold rules miss, so worth a quick baseline comparison and a `journalctl` top-offenders check on nixos.
+- **websites saw a routine `.env` discovery sweep** (dozens of `GET .../%2eenv` paths, `curl/8.7.1`, XFF 185.177.72.5, all 404, hitting the loopback sensor behind the Cloudflare tunnel). Standard internet scanner background; nothing was served.
+- **Audit keyed events fleet-wide were just two root `modprobe` module loads on nixos** via the Nix-store kmod binary — normal kernel module autoloading, not manual or suspicious module insertion.
+- **Fleet health is clean:** all Prometheus targets up (node, loki, pfsense, comin), zero failed systemd units, zero comin deploy/build/eval failures, pfSense priority 1–2 IDS empty, no CrowdSec scenario hits.
+- **Zero sshd failures across the fleet** — consistent with SSH not being internet-exposed; even the usual scanner brute-force background is absent this window.
+- **scout is absent from both Prometheus and Loki**, which is internally consistent (roaming laptop offline), not a monitoring gap; no activity from the admin device 192.168.1.6 this window.
+
+## 2026-07-30 14:53
+
+STATUS: OK
+
+- Highest-severity item: one Suricata sev-1 hit on websites for a brand-new vBulletin RCE attempt (CVE-2026-61511, rule published 2026-07-27) — a POST to guildedthorn.com via the tunnel (XFF 182.253.228.230) at 14:44. Server returned 404, the stack doesn't run vBulletin, and there was no follow-up traffic from that source, so this reads as spray-and-pray exploitation; IDS-hit alerting already covers paging on it.
+- Remaining web-facing activity is routine scanner noise: `/.env` and `/backup/.env` probes (XFF 144.172.91.236, ~08:47), all 404. The argotunnel.com TLS alert is cloudflared's own update check — benign.
+- Fleet health is clean: all Prometheus targets up, zero failed systemd units, zero comin deploy/build/eval failures, zero sshd failures, no CrowdSec scenario hits, and no priority-1/2 events from the pfSense perimeter sensor.
+- Audit keyed events show only a single sudo priv-exec on nixos (uid 1000, interactive pts0 session) — normal admin use, nothing first-seen or unusual.
+- scout is absent from both Loki and Prometheus, which is internally consistent (laptop simply offline) rather than a monitoring gap; pfsense is up in Prometheus and its suricata stream is flowing to Loki, so no up-but-silent mismatch anywhere.
+- nixos journal volume (584k lines) is ~6x soc and ~22x websites this window. Plausible for an auditd-instrumented workstation in active use, but there's no baseline in this data — worth a glance at next review to confirm it's typical rather than a runaway logger.
+
+## 2026-07-30 22:53
+
+STATUS: NOTABLE — single failed vBulletin RCE attempt (CVE-2026-61511) against guildedthorn.com; no follow-on activity
+
+- **Failed exploit attempt on websites**: two Suricata sev-1 alerts (one flow) for "vBulletin Unauthenticated RCE (CVE-2026-61511)" — a POST to `/` on guildedthorn.com via the Cloudflare tunnel, real client `182.253.228.230` (XFF). The server returned **404** (no vBulletin runs there), the signature is 3 days old (2026-07-27), and there is exactly one flow with no follow-on requests, no crowdsec hits, and no other alerts from that IP. Reads as opportunistic CVE spray that missed; no compromise indicators. Worth a glance since it's a fresh sev-1 exploit sig rather than routine SSH scanning, but no action needed.
+- **Perimeter and auth clean**: pfSense Suricata priority 1–2 empty, crowdsec scenario hits zero, and sshd failures zero across all hosts for the whole 9h window.
+- **Audit trail quiet**: the only keyed audit event fleet-wide is one interactive `sudo` on nixos (auid/uid 1000, pts0) — normal admin use. No identity, module-load, time-change, or sshd-config events.
+- **Fleet health nominal**: all Prometheus targets up (node, loki, pfsense, comin on all three NixOS hosts), zero failed systemd units, zero comin deploy/build/eval failures.
+- **scout absent from both Loki and Prometheus** — consistently absent, not a Loki/Prometheus mismatch, so this is the roaming laptop being off/away rather than a telemetry gap.
+- Journal volume split (nixos 570k / soc 97k / websites 42k) is workstation-heavy but internally consistent with nixos carrying the auditd load; nothing wildly off among reporting peers.
+
+## 2026-07-31 06:56
+
+STATUS: OK
+
+- All monitored targets are up (node, loki, comin, pfsense exporters), no failed systemd units, and no comin deploy/build/eval failures — fleet health is clean.
+- Zero sshd failures, zero crowdsec scenario hits, and zero audit-keyed events (identity/privilege/priv-exec/sshd-config/modules/time-change) across the window — no first-seen or unusual auth/audit activity to chase.
+- pfSense perimeter Suricata shows no priority 1–2 alerts; websites sensor logged a single low-severity WordPress scanner probe (`wlwmanifest.xml`, XFF 47.129.185.138 via the Cloudflare tunnel, 404) — routine internet background, nothing beyond typical.
+- Journal volume split: nixos 552k, soc 97k, websites 27k lines. nixos dominating is expected for the workstation (desktop session + auditd chatter), and the audit sweep over those lines matched nothing, so no volume-driven concern this window.
+- scout is absent from both Prometheus targets and Loki — consistent absence (not a metrics/logs mismatch), so most likely the laptop is simply off/roaming; worth a glance next window if it stays dark while expected in use.
+- No activity of any kind observed from 192.168.1.6 this window.
+
+## 2026-07-31 14:54
+
+STATUS: OK
+
+- All monitored targets are up in Prometheus (nixos, soc, websites, pfsense, Loki, and all three comin exporters), with zero failed systemd units and zero comin eval/build/deploy failures in the window.
+- Auth and detection layers are quiet: no sshd failures, no CrowdSec scenario hits, no priority 1-2 Suricata alerts at the perimeter, and no audit-keyed identity/privilege/module/time-change events across ~860k audit lines scanned.
+- The websites sensor logged a `.env` enumeration sweep against guildedthorn.com (`/twilio/*/​.env` paths, curl/8.7.1, XFF 185.177.72.100 via the Cloudflare tunnel, starting ~14:28 CDT). Every request returned 404 and no exploit payloads followed — typical internet scanner background, no action needed unless the source escalates.
+- scout (roaming laptop) is absent from both Loki and the Prometheus `up` set — consistent with the machine simply being off, and not the up-in-Prometheus/silent-in-Loki inconsistency pattern. Worth a glance if it was expected to be online this window.
+- Journal volume: nixos ~601k lines vs soc ~97k and websites ~52k. That's 6–12× its peers, but expected for an interactive workstation versus headless VMs; no accompanying anomaly (no audit events, no failures) that would suggest log flooding.
+- No activity at all from 192.168.1.6 in this window's alert data — nothing to assess against the authorized self-scanning baseline.
+
+## 2026-07-31 22:52
+
+STATUS: OK
+
+- All monitored hosts are healthy: every Prometheus target (node, loki, pfsense, comin) reports up, no failed systemd units, and no comin deploy/build/eval failures in the window.
+- Auth and audit surfaces are clean: zero sshd failures fleet-wide, zero crowdsec scenario hits, and zero keyed audit events (identity/privilege/priv-exec/sshd-config/modules/time-change) across ~834k audit lines scanned.
+- Suricata on websites shows only routine internet background: WordPress wlwmanifest probes (XFF 85.204.70.114, 146.70.194.222) and a longer `.env`-path enumeration session ~14:28–14:30 from 185.177.72.100 (curl/8.7.1, ~1,250 requests on one Cloudflare-tunnel flow) — all returned 404, no follow-on auth or exploit activity, and no crowdsec trigger. Pattern matches typical mass scanning.
+- pfSense perimeter Suricata had zero priority 1–2 alerts in the window.
+- scout (roaming laptop) is absent from both Prometheus targets and Loki — consistent with being powered off rather than a telemetry inconsistency; no host is up in metrics while silent in logs.
+- Journal volume skew: nixos logged 576k lines vs 99k (soc) and 54k (websites). Plausible for a desktop workstation and uncorroborated by any audit/unit/auth anomaly, but worth a glance at top nixos units if it persists next window.
+
+## 2026-08-01 06:56
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-01 14:55
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-01 22:56
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-02 06:56
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-02 14:52
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-02 22:56
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-03 06:54
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-03 14:53
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-03 22:52
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-04 06:53
+
+Your organization has disabled Claude subscription access for Claude Code · Use an Anthropic API key instead, or ask your admin to enable access
+
+## 2026-08-04 14:55
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-04 22:56
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-05 06:54
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-05 14:56
+
+STATUS: ALERT — Loki unreachable, review pass skipped.
+
+## 2026-08-05 22:55
+
+STATUS: ALERT — Loki unreachable, review pass skipped.

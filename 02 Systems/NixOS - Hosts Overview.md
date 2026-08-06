@@ -12,7 +12,7 @@ Provide a single summary of the host inventory in `ThornixOS` (`~/Documents/Thor
 
 - `nixos`: AMD-based main workstation with Hyprland, `glance` dashboard, local DNS, CIFS media mount, Docker (Podman replaced by Docker), gaming/creative/dev tooling, printing, OpenRGB, U2F for sudo/login, and SDR/VR/DisplayLink/fingerprint/tablet services (VMware host support was dropped — the package broke in the current nixpkgs pin).
 - `scout`: Intel-based ThinkPad laptop with Hyprland, `glance`, secure boot via `lanzaboote`, ThinkPad fan/thermal tuning, TLP battery charge thresholds, U2F, and a desktop-heavy daily-driver software stack.
-- `mac`: Intel CPU / AMD graphics machine, Hyprland desktop, Proxmox VE service enabled — currently has a placeholder LAN IP pending real deployment.
+- `mac`: Intel CPU / AMD graphics machine, Hyprland desktop, and deployed Proxmox VE hypervisor for the `websites` and `soc` VMs on OPT1; see [[05 Network/Host & IP Inventory|Host & IP Inventory]] for its network identity.
 - `websites`: Proxmox VM serving [[GuildedThorn.com - Overview|GuildedThorn.com]] via the `guildedthorn-com` flake input's NixOS module, fronted by a Cloudflare Tunnel (only SSH exposed publicly otherwise), plus Owncast for the live stream, RabbitMQ for the guestbook publisher, and the fleet's host-level Suricata IDS sensor.
 - `soc`: headless Proxmox VM running the SIEM — Loki (chunks on TrueNAS S3), Prometheus, and Grafana with Discord alerting; the whole fleet ships logs and metrics here. See [[02 Systems/NixOS - Host soc|Host soc]].
 - `firewall`: minimal dedicated firewall box — SSH only, NetworkManager disabled, DNS `1.1.1.1`.
